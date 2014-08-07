@@ -190,7 +190,7 @@ public class WEBS_ANONYMOUS_BOARD extends Activity {
 						.getItem(i);
 				HashMap<String, Object> hmDownload = new HashMap<String, Object>();
 			}
-			adapter.notifyDataSetChanged();
+			
 		}
 	}
 

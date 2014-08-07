@@ -177,7 +177,7 @@ public class WEBS_ANONYMOUS_BOARD extends Activity {
 			Collections.reverse(testjson);
 			SimpleAdapter adapter = new SimpleAdapter(getBaseContext(),
 					testjson, R.layout.webs_free_board_notice_list_item, from, to);
-			
+			adapter.notifyDataSetChanged();
 			return adapter;
 		}
 
@@ -190,7 +190,7 @@ public class WEBS_ANONYMOUS_BOARD extends Activity {
 						.getItem(i);
 				HashMap<String, Object> hmDownload = new HashMap<String, Object>();
 			}
-			adapter.notifyDataSetChanged();
+			
 		}
 	}
 
