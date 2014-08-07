@@ -15,6 +15,8 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -25,26 +27,27 @@ import android.util.Log;
 import android.widget.TextView;
 
 public class WEBS_FREE_BOARD_NOTICE_LIST extends Activity {
-	String  title,result;
-	Handler handler =new Handler();
-	final String url ="http://wpg.azurewebsites.net/webs_free_board.jsp";
+	String title, content, result;
+	Handler handler = new Handler();
+	final String url = "http://wpg.azurewebsites.net/webs_free_board.jsp";
 	TextView t_content;
-	TextView t_titile;
+	TextView t_title;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webs_free_board_notice_list);
-		t_titile = (TextView)findViewById(R.id.webs_free_board_notice_title);
-		t_content =(TextView)findViewById(R.id.content_of_webs_free_board_notice);
-		
+		t_title = (TextView) findViewById(R.id.webs_free_board_notice_title);
+		t_content = (TextView) findViewById(R.id.content_of_webs_free_board_notice);
+
 		Intent intent = getIntent();
 		title = intent.getStringExtra("id");
-		t_titile.setText(title);
+		t_title.setText(title);
 		sendData();
-		
-		
+
 	}
+
 	private void sendData() {
 		showDialog(1);
 		Log.d("here", "no problem");
@@ -63,8 +66,8 @@ public class WEBS_FREE_BOARD_NOTICE_LIST extends Activity {
 
 					@Override
 					public void run() {
-						
-						t_content.setText(result);
+
+						jsonparse(result);
 					}
 				});
 			}
@@ -108,5 +111,23 @@ public class WEBS_FREE_BOARD_NOTICE_LIST extends Activity {
 		}
 		return buffer.toString();
 	}
-	
+
+	public void jsonparse(String result) {
+
+		try {
+			JSONObject json = new JSONObject(result);
+			JSONArray jA = json.getJSONArray("noticeList");
+			json = jA.getJSONObject(0);
+			title = json.getString("noticeList");
+			content = json.getString("contents");
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		t_title.setText(title);
+		t_content.setText(content);
+	}
+
 }

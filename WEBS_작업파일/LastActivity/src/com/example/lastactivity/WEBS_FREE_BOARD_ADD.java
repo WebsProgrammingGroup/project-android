@@ -41,6 +41,7 @@ public class WEBS_FREE_BOARD_ADD extends Activity {
 		btn1 = (Button)findViewById(R.id.free_board_add);
 		Intent intent = getIntent();
 		k=intent.getStringExtra("content");
+		Log.d("type", k);
 		url="http://wpg.azurewebsites.net/webs_"+k+"_add.jsp";
 		btn1.setOnClickListener(new OnClickListener() {
 		

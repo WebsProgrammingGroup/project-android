@@ -32,7 +32,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class WEBS_RECOMMENDATIONS_BOARD extends Activity{
 	Button btn1;
 	ListView lv;
-	String strurl ="http://wpg.azurewebsites.net/webs_notice_List.jsp?";
+	String strurl ="http://wpg.azurewebsites.net/webs_recommendation_board.jsp?";
 	Context mctx;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class WEBS_RECOMMENDATIONS_BOARD extends Activity{
 
 				
 					Intent intent1 = new Intent(mctx,
-							WEBS_FREE_BOARD_NOTICE_LIST.class);
+							WEBS_RECOMMENDATION_BOARD_LIST.class);
 					intent1.putExtra("id", c);
 
 					startActivity(intent1);

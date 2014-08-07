@@ -30,7 +30,7 @@ import android.widget.SimpleAdapter;
 public class WEBS_Q_A_NOTICE extends Activity {
 	Button btn1;
 	ListView lv;
-	String strurl ="http://wpg.azurewebsites.net/webs_q_a_notice.jsp?";
+	String strurl ="http://wpg.azurewebsites.net/webs_qnaboard_notice.jsp?";
 	Context mctx;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class WEBS_Q_A_NOTICE extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent =new Intent(mctx, WEBS_FREE_BOARD_ADD.class);
-				intent.putExtra("content", "q_a");
+				intent.putExtra("content", "qnaboard");
 				startActivity(intent);
 			}
 		});
@@ -81,14 +81,11 @@ public class WEBS_Q_A_NOTICE extends Activity {
 		try {
 			URL url = new URL(strurl);
 
-			// Creating an http connection to communicate with url
 			HttpURLConnection urlConnection = (HttpURLConnection) url
 					.openConnection();
     
-			// Connecting to url
 			urlConnection.connect();
 
-			// Reading data from url
 			iStream = urlConnection.getInputStream();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -148,7 +145,6 @@ public class WEBS_Q_A_NOTICE extends Activity {
 			AsyncTask<String, Void, SimpleAdapter> {
 		JSONObject jObject;
 
-		// Doing the parsing of xml data in a non-ui thread
 		@Override
 		protected SimpleAdapter doInBackground(String... strJson) {
 			try {
@@ -160,28 +156,21 @@ public class WEBS_Q_A_NOTICE extends Activity {
 				Log.d("JSON Exception1", e.toString());
 			}
 
-			// Instantiating json parser class
 			WEBS_BOARD_FREE_BOARD_JSONPARSER free_board_JsonParser = new WEBS_BOARD_FREE_BOARD_JSONPARSER();
-			// A list object to store the parsed countries list
 			List<HashMap<String, Object>> testjson = null;
 			try {
-				// Getting the parsed data as a List construct
 				testjson = free_board_JsonParser.parse(jObject);
 				Log.i("here4", "success");
 			} catch (Exception e) {
 				Log.d("Exception", e.toString());
 			}
 
-			// Keys used in Hashmap
 			
 			String[] from = { "notice", "id" };
 			String x= from[0];
 			Log.d("d", x);
-			// Ids of views in listview_layout
 			int[] to = { R.id.webs_free_board_notice_list };
 
-			// Instantiating an adapter to store each items
-			// R.layout.listview_layout defines the layout of each item
 			Collections.reverse(testjson);
 			SimpleAdapter adapter = new SimpleAdapter(getBaseContext(),
 					testjson, R.layout.webs_free_board_notice_list_item, from, to);

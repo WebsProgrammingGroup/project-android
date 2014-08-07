@@ -39,7 +39,8 @@ public class Main_menu extends BaseActivity implements OnClickListener {
 	ImageView imgv;
 	FileInputStream mFileInputStream = null;
 	URL connectUrl = null;
-	String lineEnd = "\r\n", twoHyphens = "--", boundary = "*****";
+	String lineEnd = "\r\n";
+	String twoHyphens = "--", boundary = "*****";
 	String imgurl = "http://wpg.azurewebsites.net/upload/test";
 	Bitmap bmImg;
 	back task;

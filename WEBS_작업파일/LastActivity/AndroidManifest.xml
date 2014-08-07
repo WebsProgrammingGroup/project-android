@@ -61,6 +61,7 @@
         <activity android:name="WEBS_Q_A_NOTICE_LIST"></activity>
         <activity android:name="WEBS_RECOMMENDATIONS_BOARD"></activity>
         <activity android:name="webs_comment"></activity>
+        <activity android:name="WEBS_RECOMMENDATION_BOARD_LIST"></activity>
     </application>
 
 </manifest>
