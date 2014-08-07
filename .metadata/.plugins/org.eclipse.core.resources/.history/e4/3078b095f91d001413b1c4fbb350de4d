@@ -30,7 +30,7 @@ import android.widget.SimpleAdapter;
 public class WEBS_OB_YB_NOTICE extends Activity {
 	Button btn1;
 	ListView lv;
-	String strurl = "http://wpg.azurewebsites.net/webs_ob_yb_notice.jsp?";
+	String strurl = "http://wpg.azurewebsites.net/webs_notice_List.jsp?";
 	Context mctx;
 
 	@Override
@@ -65,7 +65,7 @@ public class WEBS_OB_YB_NOTICE extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(mctx, WEBS_FREE_BOARD_ADD.class);
-				intent.putExtra("content", "obybboard");
+				intent.putExtra("content", "ob_yb");
 				startActivity(intent);
 			}
 		});

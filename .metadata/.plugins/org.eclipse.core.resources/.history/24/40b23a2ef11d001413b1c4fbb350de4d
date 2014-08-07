@@ -79,7 +79,6 @@ public class WEBS_SCHEDULE_TODAY extends Activity implements OnClickListener,
 					@Override
 					public void run() {
 						Log.d("result", result);
-						schedule(result);
 					}
 				});
 			}
@@ -124,48 +123,7 @@ public class WEBS_SCHEDULE_TODAY extends Activity implements OnClickListener,
 		return buffer.toString();
 	}
 
-	public void schedule(String json) {
-		JSONObject jobject;
-		Log.d("json", json);
-		List<HashMap<String, Object>> date_json =null;
-		try {
-			WEBS_SCHEDULE_TODAY_JSONPARSER today_json =new WEBS_SCHEDULE_TODAY_JSONPARSER();
-			jobject=new JSONObject(json);
-			date_json =today_json.parse(jobject);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		WEBS_SCHEDULE_TODAY_JSONPARSER t_jsonparser =new WEBS_SCHEDULE_TODAY_JSONPARSER();
-		List<HashMap<String, Object>> t_json =null;
-		try {
-			jobject=new JSONObject(json);
-			t_json = t_jsonparser.parse(jobject);
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		String[] from = {"today_Date" };
-		Log.i("json1", json);
-		// Ids of views in listview_layout
-		int[] to = { R.id.webs_schedule_list_text };
-
-		// Instantiating an adapter to store each items
-		// R.layout.listview_layout defines the layout of each item
-		SimpleAdapter adapter = new SimpleAdapter(getBaseContext(),date_json, R.layout.webs_schedule_today_list_item, from, to);
-		
-		list.setAdapter(adapter);
-		for (int i = 0; i < adapter.getCount(); i++) {
-			HashMap<String, Object> hm = (HashMap<String, Object>) adapter
-					.getItem(i);
-			HashMap<String, Object> hmDownload = new HashMap<String, Object>();
-
-		}
-		
-	}
 	
-
 	
 
 	@Override

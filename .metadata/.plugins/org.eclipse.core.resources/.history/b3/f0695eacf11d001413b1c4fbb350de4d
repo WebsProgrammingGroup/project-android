@@ -39,8 +39,15 @@ public class WEBS_SCHEDULE_TODAY_JSONPARSER {
 	private HashMap<String, Object>get_date(JSONObject j_date){
 		HashMap<String, Object>today_Date =new HashMap<String,Object>();
 		String today="";
+		String today_date="";
+		String today_Month="";
+		String today_Year="";
 		try {
-			today=j_date.getString("today");
+			today_date=j_date.getString("today_day");
+			today_Month=j_date.getString("today_Month");
+			today_Year=j_date.getString("today_Year");
+			today=today_Year+"/"+today_Month+"/"+today_date;
+			Log.i("suc", today_Year+today_date+today_Month);
 			today_Date.put("today_Date", today);
 		} catch (JSONException e) {
 			// TODO: handle exception

@@ -55,7 +55,7 @@ public class WEBS_OB_YB_NOTICE extends Activity {
 				Intent intent1 = new Intent(mctx,
 						WEBS_FREE_BOARD_NOTICE_LIST.class);
 				intent1.putExtra("id", c);
-				intent1.putExtra("content", "ob_yb");
+				intent1.putExtra("content", "obybboard");
 			}
 		});
 
@@ -65,7 +65,7 @@ public class WEBS_OB_YB_NOTICE extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(mctx, WEBS_FREE_BOARD_ADD.class);
-				intent.putExtra("content", "obybboard");
+				intent.putExtra("content", "ob_yb");
 				startActivity(intent);
 			}
 		});
