@@ -38,7 +38,9 @@ public class Fragment2 extends Activity {
 		downloadTask.execute(strurl);
 		
 		lv =(ListView)findViewById(R.id.listView1);
-	}
+	}asdfsadfasdfsadfas;df
+	sadfasjkdfjaskldfjlkasdfkjdjlkfsad
+	asdfjsalkdjkl
 	
 	private String downloadUrl(String strurl) throws IOException{
 		 String data = "";
