@@ -4,12 +4,20 @@
 		<item value="1106" key="dialogWidth"/>
 		<item value="623" key="dialogHeight"/>
 		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
+			<item value="file e"/>
+			<item value="new edi"/>
 		</list>
 		<list key="orderedElements">
+			<item value="com.android.ide.eclipse.ddms.views.FileExplorerView"/>
+			<item value="org.eclipse.ui.window.newEditor"/>
 		</list>
 		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">

@@ -26,6 +26,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class WEBS_Board_NOTICE extends Activity {
@@ -51,11 +52,11 @@ public class WEBS_Board_NOTICE extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				String c = String.valueOf(position);
+				TextView tv =(TextView)arg1.findViewById(R.id.webs_board_notice_list);
 
 					Intent intent1 = new Intent(mctx,
 							WEBS_BOARD_NOTICE_LIST.class);
-					intent1.putExtra("id", c);
+					intent1.putExtra("id", tv.getText().toString());
 
 					startActivity(intent1);
 					Log.i("success", "here1");
@@ -145,7 +146,6 @@ public class WEBS_Board_NOTICE extends Activity {
 				jObject = new JSONObject(strJson[0]);
 				WEBS_Board_NOTICE_JSONPARSER testJsonParser = new WEBS_Board_NOTICE_JSONPARSER();
 				testJsonParser.parse(jObject);
-				Log.i("suss", "here");
 			} catch (Exception e) {
 				Log.d("JSON Exception1", e.toString());
 			}
@@ -157,7 +157,6 @@ public class WEBS_Board_NOTICE extends Activity {
 			try {
 				// Getting the parsed data as a List construct
 				testjson = testJsonParser.parse(jObject);
-				Log.i("here4", "success");
 			} catch (Exception e) {
 				Log.d("Exception", e.toString());
 			}

@@ -19,9 +19,11 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,6 +40,7 @@ public class webs_comment extends Activity implements OnClickListener{
 	Button btn;
 	String url="http://wpg.azurewebsites.net/webs_comment.jsp";
 	String result;
+	String type="";
 	Handler handler =new Handler();
 	ListView lv;
 	@Override
@@ -49,13 +52,14 @@ public class webs_comment extends Activity implements OnClickListener{
 		btn =(Button)findViewById(R.id.finsh_button);
 		btn.setOnClickListener(this);
 		lv =(ListView)findViewById(R.id.lv_commet);
-		
+		Intent intent =getIntent();
+		type =intent.getStringExtra("type");
 		list_comment();
 	}
 
 	private void list_comment(){
 		
-		String strurl ="http://wpg.azurewebsites.net/webs_comment_list.jsp";
+		String strurl ="http://wpg.azurewebsites.net/webs_comment_"+type+"_list.jsp";
 		
 		DownloadTask downloadTask = new DownloadTask();
 
@@ -107,6 +111,9 @@ public class webs_comment extends Activity implements OnClickListener{
 		@Override
 		protected String doInBackground(String... url) {
 			// TODO Auto-generated method stub
+			
+			
+			
 			try {
 				data = downloadUrl(url[0]);
 				Log.d("url", data);
@@ -119,54 +126,38 @@ public class webs_comment extends Activity implements OnClickListener{
 
 		@Override
 		protected void onPostExecute(String result) {
-
-			// The parsing of the xml data is done in a non-ui thread
 			ListViewLoaderTask listViewLoaderTask = new ListViewLoaderTask();
-
-			// Start parsing xml data
 			listViewLoaderTask.execute(result);
-
 		}
-
 	}
-
-	//
 	private class ListViewLoaderTask extends
 			AsyncTask<String, Void, SimpleAdapter> {
 		JSONObject jObject;
-
-		// Doing the parsing of xml data in a non-ui thread
+		
 		@Override
 		protected SimpleAdapter doInBackground(String... strJson) {
+			
+			
 			try {
 				jObject = new JSONObject(strJson[0]);
-				WEBS_Board_NOTICE_JSONPARSER testJsonParser = new WEBS_Board_NOTICE_JSONPARSER();
+				WEBS_COMMENT_JSONPARSER testJsonParser = new WEBS_COMMENT_JSONPARSER();
 				testJsonParser.parse(jObject);
-				Log.i("suss", "here");
+				
 			} catch (Exception e) {
 				Log.d("JSON Exception1", e.toString());
 			}
 
-			// Instantiating json parser class
-			WEBS_Board_NOTICE_JSONPARSER testJsonParser = new WEBS_Board_NOTICE_JSONPARSER();
-			// A list object to store the parsed countries list
+			WEBS_COMMENT_JSONPARSER testJsonParser = new WEBS_COMMENT_JSONPARSER();
 			List<HashMap<String, Object>> testjson = null;
 			try {
-				// Getting the parsed data as a List construct
 				testjson = testJsonParser.parse(jObject);
-				Log.i("here4", "success");
 			} catch (Exception e) {
 				Log.d("Exception", e.toString());
 			}
 
-			// Keys used in Hashmap
-			String[] from = { "notice", "id" };
+			String[] from = { "list" };
 
-			// Ids of views in listview_layout
 			int[] to = { R.id.webs_board_notice_list };
-
-			// Instantiating an adapter to store each items
-			// R.layout.listview_layout defines the layout of each item
 			Collections.reverse(testjson);
 			SimpleAdapter adapter = new SimpleAdapter(getBaseContext(),
 					testjson, R.layout.webs_board_notice_list_item, from, to);
@@ -179,27 +170,33 @@ public class webs_comment extends Activity implements OnClickListener{
 			// TODO Auto-generated method stub
 			lv.setAdapter(adapter);
 			for (int i = 0; i < adapter.getCount(); i++) {
-				HashMap<String, Object> hm = (HashMap<String, Object>) adapter
-						.getItem(i);
+				HashMap<String, Object> hm = (HashMap<String, Object>) adapter.getItem(i);
 				HashMap<String, Object> hmDownload = new HashMap<String, Object>();
 			}
 			
 		}
 	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		String x;
+		x=edt.getText().toString();
+		sendData(x);
+		finish();
+	}
+	
 	private void sendData(String comment) {
 		showDialog(1);
-		Log.d("here", "no problem");
 		final ArrayList<NameValuePair> list = new ArrayList<NameValuePair>();
 		list.add(new BasicNameValuePair("comment", comment));
-		Log.d("here1", "no problem");
-
+		list.add(new BasicNameValuePair("type", type));
 		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
 
 				InputStream is = requestPost(url, list);
 				result = streamToString(is);
-				Log.d("result", result);
 				handler.post(new Runnable() {
 
 					@Override
@@ -250,13 +247,6 @@ public class webs_comment extends Activity implements OnClickListener{
 		return buffer.toString();
 	}
 	
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		String x;
-		x=edt.getText().toString();
-		sendData(x);
-		finish();
-	}
+	
 
 }

@@ -26,50 +26,56 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class WEBS_ANONYMOUS_BOARD extends Activity {
 
-	final String url ="http://wpg.azurewebsites.net/webs_anonymous_board.jsp";
+	final String url = "http://wpg.azurewebsites.net/webs_anonymous_board.jsp";
 	ListView lv;
 	Button btn1;
 	Context mctx;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webs_free_board);
-		btn1 =(Button)findViewById(R.id.webs_free_board_add);
+		btn1 = (Button) findViewById(R.id.webs_free_board_add);
 		DownloadTask downloadTask = new DownloadTask();
 
 		downloadTask.execute(url);
 		lv = (ListView) findViewById(R.id.lv_webs_free_board_notice);
-		
+
 		mctx = this;
-		
+
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
 				// TODO Auto-generated method stub
-				String c= String.valueOf(position);
-				Intent intent =new Intent(mctx, WEBS_ANONYMOUS_BOARD_LIST.class);
+				TextView tv = (TextView) arg1
+						.findViewById(R.id.webs_free_board_notice_list);
+				String c = tv.getText().toString();
+				Intent intent = new Intent(mctx,
+						WEBS_ANONYMOUS_BOARD_LIST.class);
 				intent.putExtra("id", c);
 				startActivity(intent);
-				
+
 			}
 		});
 		btn1.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent intent =new Intent(mctx,WEBS_FREE_BOARD_ADD.class);
+				Intent intent = new Intent(mctx, WEBS_FREE_BOARD_ADD.class);
 				intent.putExtra("content", "anonymous_board");
 				startActivity(intent);
 			}
 		});
 	}
+
 	private String downloadUrl(String strurl) throws IOException {
 		String data = "";
 		InputStream iStream = null;
@@ -176,8 +182,9 @@ public class WEBS_ANONYMOUS_BOARD extends Activity {
 			// R.layout.listview_layout defines the layout of each item
 			Collections.reverse(testjson);
 			SimpleAdapter adapter = new SimpleAdapter(getBaseContext(),
-					testjson, R.layout.webs_free_board_notice_list_item, from, to);
-			
+					testjson, R.layout.webs_free_board_notice_list_item, from,
+					to);
+			adapter.notifyDataSetChanged();
 			return adapter;
 		}
 
@@ -194,8 +201,6 @@ public class WEBS_ANONYMOUS_BOARD extends Activity {
 		}
 	}
 
-	
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -203,5 +208,3 @@ public class WEBS_ANONYMOUS_BOARD extends Activity {
 	}
 
 }
-
-

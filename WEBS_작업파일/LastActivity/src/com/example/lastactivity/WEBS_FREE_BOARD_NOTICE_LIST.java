@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,19 +18,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class WEBS_FREE_BOARD_NOTICE_LIST extends Activity {
 	String title, content, result;
+	Context mctx;
 	Handler handler = new Handler();
-	final String url = "http://wpg.azurewebsites.net/webs_free_board.jsp";
+	final String url = "http://wpg.azurewebsites.net/webs_free_board_specefic_list.jsp";
 	TextView t_content;
 	TextView t_title;
-
+	Button btn1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -40,7 +43,18 @@ public class WEBS_FREE_BOARD_NOTICE_LIST extends Activity {
 		setContentView(R.layout.webs_free_board_notice_list);
 		t_title = (TextView) findViewById(R.id.webs_free_board_notice_title);
 		t_content = (TextView) findViewById(R.id.content_of_webs_free_board_notice);
-
+		btn1 =(Button)findViewById(R.id.comment);
+		mctx =this;
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent =new Intent(mctx, webs_comment.class);
+				intent.putExtra("type", "free_board");
+				startActivity(intent);
+			}
+		});
 		Intent intent = getIntent();
 		title = intent.getStringExtra("id");
 		t_title.setText(title);

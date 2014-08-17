@@ -1,8 +1,0 @@
-package com.example.lastactivity;
-
-import android.app.Activity;
-import android.app.Notification.Action;
-
-public class WEBS_RECOMMENDATION_BOARD_LIST extends Activity{
-
-}

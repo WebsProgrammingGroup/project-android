@@ -1,0 +1,330 @@
+package com.example.logintest;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.util.Calendar;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+public class MainActivity extends Activity implements OnClickListener
+{
+	private TextView mDateDisplay;
+	private int mYear;
+	private int mMonth;
+	private int mDay;
+	static final int DATE_DIALOG_ID = 0;
+
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		LinearLayout btn = (LinearLayout) findViewById(R.id.JoinBtn);
+		btn.setOnClickListener(this);
+
+		mDateDisplay = (TextView) findViewById(R.id.EditBirthday);
+		mDateDisplay.setTextSize(17);
+		
+		mDateDisplay.setOnClickListener(new View.OnClickListener() {
+			@SuppressWarnings("deprecation")
+			public void onClick(View v) {
+				showDialog(DATE_DIALOG_ID);
+			}
+		});
+
+		final Calendar c = Calendar.getInstance();
+		mYear = c.get(Calendar.YEAR);
+		mMonth = c.get(Calendar.MONTH);
+		mDay = c.get(Calendar.DAY_OF_MONTH);
+	}
+
+	public void onClick(View v)
+	{
+		String str_familyName = null;
+		
+		EditText et_familyName = (EditText) findViewById(R.id.FamilyNameInput);
+		str_familyName = et_familyName.getText().toString();//
+		
+		EditText et_name = (EditText) findViewById(R.id.NameInput);
+		String str_name = et_name.getText().toString();//
+
+		EditText et_email = (EditText) findViewById(R.id.MailAdressInput);
+		String str_email = et_email.getText().toString();//
+
+		EditText et_pass = (EditText) findViewById(R.id.PasswordInput);
+		String str_pass = et_pass.getText().toString();//
+
+		TextView et_birth = (TextView) findViewById(R.id.EditBirthday);
+		String str_birth = et_birth.getText().toString();//
+
+		RadioGroup rg_sex = (RadioGroup) findViewById(R.id.RadioGroup);
+		RadioButton rb_male = (RadioButton) findViewById(R.id.Radio1);//
+		RadioButton rb_female = (RadioButton) findViewById(R.id.Radio2);//
+		String str_sex = "";
+
+		if (rg_sex.getCheckedRadioButtonId() == R.id.Radio1) {
+			str_sex = rb_male.getText().toString();
+		}
+		if (rg_sex.getCheckedRadioButtonId() == R.id.Radio2) {
+			str_sex = rb_female.getText().toString();
+		}
+		
+		if(str_familyName.equals("")||str_name.equals("")||str_email.equals("")||str_pass.equals("")||str_birth.equals("")||str_sex.equals(""))
+		{
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			alert.setTitle("회원정보를 모두 입력해 주세요");
+			
+			if(str_familyName.equals(""))
+				alert.setMessage("성을 입력해주세요");
+			else if(str_name.equals(""))
+				alert.setMessage("이름을 입력해주세요");
+			else if(str_email.equals(""))
+				alert.setMessage("email을 입력해주세요");
+			else if(str_pass.equals(""))
+				alert.setMessage("비밀번호를 입력해주세요");
+			else if(str_birth.equals(""))
+				alert.setMessage("생일을 입력해주세요");
+			else if(str_sex.equals(""))
+				alert.setMessage("성별을 입력해주세요");
+			
+			alert.setPositiveButton("확인", null);
+			alert.show();
+		}
+		else
+		{		
+			//ProgressDialog dialog = ProgressDialog.show(p08_MemberJoinActivity.this, "","잠시만 기다려 주세요 ...", true);
+			//dialog.dismiss();
+			BackRunnable thread = new BackRunnable(str_familyName, str_name, str_email, str_pass, str_birth, str_sex);
+			thread.start();
+		}
+	}
+
+	public boolean onKeyDown(int KeyCode, KeyEvent event) {
+
+		if (event.getAction() == KeyEvent.ACTION_DOWN) {
+
+			if (KeyCode == KeyEvent.KEYCODE_BACK) {
+
+				//Intent it = new Intent(this, p01_LoginActivity.class);
+				//startActivity(it);
+				//finish();
+				return true;
+			}
+
+		}
+		return super.onKeyDown(KeyCode, event);
+	}
+
+	protected Dialog onCreateDialog(int id) {
+
+		switch (id) {
+		case DATE_DIALOG_ID:
+			return new DatePickerDialog(this, mDateSetListener, mYear, mMonth,
+					mDay);
+		}
+		return null;
+	}
+
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			mYear = year;
+			mMonth = monthOfYear;
+			mDay = dayOfMonth;
+
+			updateDisplay();
+		}
+	};
+
+	private void updateDisplay() {
+		mDateDisplay.setText(new StringBuilder().append(mYear).append("-")
+				.append(mMonth + 1).append("-").append(mDay).append(""));
+	}
+
+	private class BackRunnable extends Thread implements Runnable
+	{
+		String familyName, name, email, pw, birth, gender;
+		
+		ResultHandler mHandler = new ResultHandler(MainActivity.this);//핸들러 사용을 위한 선언
+		
+		public BackRunnable(String aStr1, String aStr2, String aStr3,String aStr4, String aStr5, String aStr6)
+		{
+			familyName = aStr1;
+			name = aStr2;
+			email = aStr3;
+			pw = aStr4;
+			birth = aStr5;
+			gender = aStr6;
+		}
+
+		public void run()
+		{
+			String StringA = familyName + "&" + name + "&" + email + "&" + pw + "&" + birth + "&" + gender;
+			
+			Log.i("StringA의 값 : ", StringA);
+			
+			DefaultHttpClient client = new DefaultHttpClient();
+			
+			try {
+
+				String En_StringA = URLEncoder.encode(StringA, "utf-8");
+				//TODO
+				String address = "http://wpg.azurewebsites.net" + "/main.jsp?SqlResponse=" + En_StringA;
+				
+				Log.i("address의 값 : ", address);
+				HttpGet HG = new HttpGet();
+				
+				HG.setURI(new URI(address));
+				Log.i("수행완료 : ", address);
+				
+				HttpResponse response = client.execute(HG);///실행문제
+				
+				HttpParams params = client.getParams();
+				HttpConnectionParams.setConnectionTimeout(params, 3000);
+				HttpConnectionParams.setSoTimeout(params, 3000);
+				response.setParams(params);
+				Log.i("레알수행완료 : ", address);
+
+				BufferedReader bufreader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "utf-8"));
+
+				String line = null;
+				String result = "";
+
+				while ((line = bufreader.readLine()) != null)
+				{
+					result += line; // 버퍼로 읽어들인 JSON형식의 String을 그대로 result에 넣어준다.
+					Message msg = Message.obtain();
+					
+					msg.obj = result;//line;
+					mHandler.sendMessage(msg);
+					Log.i("응답 값" + " : ", result);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				client.getConnectionManager().shutdown(); // 연결 지연 종료
+
+				String line = "연결 실패";
+				Message msg = Message.obtain();
+				msg.obj = line;
+	
+				mHandler.sendMessage(msg);
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				;
+			}
+		}
+	}
+
+	static class ResultHandler extends Handler {
+	    private final WeakReference<MainActivity> mActivity;
+	         
+	    ResultHandler(MainActivity activity) {
+	        mActivity = new WeakReference<MainActivity>(activity);
+	    }
+
+		@Override
+	    public void handleMessage(Message msg) {
+	        MainActivity activity = mActivity.get();
+	        if(activity != null) {
+	            activity.handleMessage(msg);
+	        }
+	    }
+	}
+	
+	//Handler mHandler = new Handler() {
+		public void handleMessage(Message msg)
+		{
+			String line = (String)msg.obj;
+			String recString = jsonParserList(line);
+			
+			if(recString!=null&&(recString.equals("11")||recString.equals("00")||recString.equals("10")))
+			{
+				AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+				alert.setTitle("회원정보를 다시 입력해 주세요");
+				
+				if(recString.equals("11"))//이메일 체크 완료 디비 입력 완료
+				{
+					alert.setTitle("회원이 되신걸 환영합니다");
+					alert.setMessage("회원가입완료");
+					alert.setPositiveButton("확인",
+					        new DialogInterface.OnClickListener() {
+				        
+						public void onClick(DialogInterface dialog, int id)//다음 화면으로 넘어가기 intent
+				        {
+							//Intent it = new Intent(MainActivity.this, 다음화면 클레스 이름.class);
+							//startActivity(it);
+				        }
+				        });
+				}
+				else if(recString.equals("00"))//이메엘 중복으로 디비 입력 거부
+				{
+					alert.setMessage("이메일 중복");
+					alert.setPositiveButton("확인", null);
+				}
+				else if(recString.equals("10"))//이메일 체크 통과 하지만 디비 입력 오류
+				{
+					alert.setMessage("디비저장오류");
+					alert.setPositiveButton("확인", null);
+				}				
+				alert.show();
+			}
+		}
+		
+		private String jsonParserList(String recline)
+		{
+			try
+			{
+				JSONObject json = new JSONObject(recline);// 갖고온 JSON파일을 객체만드는데 사용
+				JSONArray jArr = json.getJSONArray("joincheckOK");//jsp파일 안의 List배열을 선택
+				String line = "";
+			
+				for (int i = 0; i < jArr.length(); i++)
+				{	
+					json = jArr.getJSONObject(i);
+					String joinOK = json.getString("joinOK");
+					String email = json.getString("emailOK");
+					line = email+joinOK;
+					Log.d("joincheckOK",line);
+				}
+				return line;
+			} 
+			catch (JSONException e)
+			{
+				e.printStackTrace();
+				return null;
+			}
+		}
+}
+

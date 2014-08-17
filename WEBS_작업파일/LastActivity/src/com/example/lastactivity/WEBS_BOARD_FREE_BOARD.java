@@ -6,10 +6,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -26,24 +29,26 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class WEBS_BOARD_FREE_BOARD extends Activity {
 	Button btn1;
 	ListView lv;
-	String strurl ="http://wpg.azurewebsites.net/webs_free_board_list.jsp?";
+	String strurl = "http://wpg.azurewebsites.net/webs_free_board_list.jsp?";
 	Context mctx;
+	String[] list;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webs_free_board);
-		btn1 =(Button)findViewById(R.id.webs_free_board_add);
-		lv =(ListView)findViewById(R.id.lv_webs_free_board_notice);
+		btn1 = (Button) findViewById(R.id.webs_free_board_add);
+		lv = (ListView) findViewById(R.id.lv_webs_free_board_notice);
 		DownloadTask downloadTask = new DownloadTask();
 
 		downloadTask.execute(strurl);
 
-		
 		mctx = this;
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
@@ -51,24 +56,25 @@ public class WEBS_BOARD_FREE_BOARD extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
 				String c = String.valueOf(position);
+				Intent intent1 = new Intent(mctx,
+						WEBS_FREE_BOARD_NOTICE_LIST.class);
+				TextView tv = (TextView) arg1
+						.findViewById(R.id.webs_free_board_notice_list);
 
-				
-					Intent intent1 = new Intent(mctx,
-							WEBS_FREE_BOARD_NOTICE_LIST.class);
-					intent1.putExtra("id", c);
+				intent1.putExtra("id", tv.getText().toString());
 
-					startActivity(intent1);
-					Log.i("success", "here1");
-					
+				startActivity(intent1);
+				Log.i("success", "here1");
+
 			}
 		});
-		
+
 		btn1.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent =new Intent(mctx, WEBS_FREE_BOARD_ADD.class);
+				Intent intent = new Intent(mctx, WEBS_FREE_BOARD_ADD.class);
 				intent.putExtra("content", "free_board");
 				startActivity(intent);
 			}
@@ -84,7 +90,7 @@ public class WEBS_BOARD_FREE_BOARD extends Activity {
 			// Creating an http connection to communicate with url
 			HttpURLConnection urlConnection = (HttpURLConnection) url
 					.openConnection();
-    
+
 			// Connecting to url
 			urlConnection.connect();
 
@@ -148,44 +154,35 @@ public class WEBS_BOARD_FREE_BOARD extends Activity {
 			AsyncTask<String, Void, SimpleAdapter> {
 		JSONObject jObject;
 
-		// Doing the parsing of xml data in a non-ui thread
 		@Override
 		protected SimpleAdapter doInBackground(String... strJson) {
 			try {
 				jObject = new JSONObject(strJson[0]);
 				WEBS_BOARD_FREE_BOARD_JSONPARSER f_board_JsonParser = new WEBS_BOARD_FREE_BOARD_JSONPARSER();
 				f_board_JsonParser.parse(jObject);
-				Log.i("suss", "here");
 			} catch (Exception e) {
 				Log.d("JSON Exception1", e.toString());
 			}
 
-			// Instantiating json parser class
 			WEBS_BOARD_FREE_BOARD_JSONPARSER free_board_JsonParser = new WEBS_BOARD_FREE_BOARD_JSONPARSER();
-			// A list object to store the parsed countries list
 			List<HashMap<String, Object>> testjson = null;
 			try {
-				// Getting the parsed data as a List construct
 				testjson = free_board_JsonParser.parse(jObject);
 				Log.i("here4", "success");
 			} catch (Exception e) {
 				Log.d("Exception", e.toString());
 			}
 
-			// Keys used in Hashmap
-			
 			String[] from = { "notice", "id" };
-			String x= from[0];
+			String x = from[0];
 			Log.d("d", x);
-			// Ids of views in listview_layout
 			int[] to = { R.id.webs_free_board_notice_list };
 
-			// Instantiating an adapter to store each items
-			// R.layout.listview_layout defines the layout of each item
 			Collections.reverse(testjson);
 			SimpleAdapter adapter = new SimpleAdapter(getBaseContext(),
-					testjson, R.layout.webs_free_board_notice_list_item, from, to);
-			
+					testjson, R.layout.webs_free_board_notice_list_item, from,
+					to);
+
 			return adapter;
 		}
 
@@ -196,13 +193,10 @@ public class WEBS_BOARD_FREE_BOARD extends Activity {
 			for (int i = 0; i < adapter.getCount(); i++) {
 				HashMap<String, Object> hm = (HashMap<String, Object>) adapter
 						.getItem(i);
-				HashMap<String, Object> hmDownload = new HashMap<String, Object>();
 			}
-			
+
 		}
 	}
-
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -211,5 +205,3 @@ public class WEBS_BOARD_FREE_BOARD extends Activity {
 	}
 
 }
-
-

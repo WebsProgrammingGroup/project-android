@@ -26,6 +26,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class WEBS_Q_A_NOTICE extends Activity {
 	Button btn1;
@@ -50,7 +51,8 @@ public class WEBS_Q_A_NOTICE extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				String c = String.valueOf(position);
+				TextView tv =(TextView)arg1.findViewById(R.id.webs_free_board_notice_list);
+				String c=tv.getText().toString();
 
 				
 					Intent intent1 = new Intent(mctx,

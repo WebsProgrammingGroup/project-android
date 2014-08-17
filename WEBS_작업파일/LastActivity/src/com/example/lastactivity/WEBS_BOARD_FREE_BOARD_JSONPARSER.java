@@ -12,12 +12,12 @@ import android.content.Intent;
 import android.util.Log;
 
 public class WEBS_BOARD_FREE_BOARD_JSONPARSER {
-public List<HashMap<String, Object>> parse(JSONObject jObject) {
-		
+
+	public List<HashMap<String, Object>> parse(JSONObject jObject) {
+
 		JSONArray j_webs_board_free_notice = null;
 		try {
-			j_webs_board_free_notice = jObject
-					.getJSONArray("noticeList");
+			j_webs_board_free_notice = jObject.getJSONArray("noticeList");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -29,7 +29,7 @@ public List<HashMap<String, Object>> parse(JSONObject jObject) {
 		int notice_count = j_webs_board_notice.length();
 		List<HashMap<String, Object>> notice_List = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> notice = null;
-		
+
 		for (int i = 0; i < notice_count; i++) {
 			try {
 				notice = getwebs_free_board_notice((JSONObject) j_webs_board_notice
@@ -41,22 +41,24 @@ public List<HashMap<String, Object>> parse(JSONObject jObject) {
 		}
 		return notice_List;
 	}
+
 	private HashMap<String, Object> getwebs_free_board_notice(JSONObject jnotice) {
-		HashMap<String, Object>noticeList =new HashMap<String,Object>();
-		String notice="";
-		int id=0;
+		HashMap<String, Object> noticeList = new HashMap<String, Object>();
+		String notice = "";
+		int id = 0;
 		try {
-			notice =jnotice.getString("noticeList");
-			id =jnotice.getInt("id");
-			noticeList.put("notice",notice);
+			notice = jnotice.getString("noticeList");
+			id = jnotice.getInt("id");
+			noticeList.put("notice", notice);
 			noticeList.put("id", id);
-			
-			
-			
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			Log.d("erorr", notice);
 		}
 		return noticeList;
 	}
+	
+	
+	
 }
