@@ -12,7 +12,7 @@ public class Frag01_MyPage extends android.support.v4.app.Fragment{
 		super.onCreate(savedInstanceState);
 	}
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View ViewLayout = inflater.inflate(R.layout.frag02_my_time_table, null, false);
+		View ViewLayout = inflater.inflate(R.layout.frag01_my_page, null, false);
 		return ViewLayout;
 	}
 }

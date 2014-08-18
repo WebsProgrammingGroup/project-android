@@ -30,7 +30,8 @@
             </intent-filter>
         </activity>
 		<activity android:name="app.webs.activity.Act01_JoinUs" />
-		<activity android:name="app.webs.activity.Act02_MyPage" />
+		<activity android:name="app.webs.activity.Act02_BaseActivity" />
+		<service android:name="app.webs.service.PushService" android:enabled="true" />
     </application>
 
 </manifest>
