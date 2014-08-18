@@ -20,17 +20,17 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait" 
         android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         <activity
-            android:name="app.webs.activity.Act00_LoginActivity">
+            android:name="app.webs.activity.Act00_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 		<activity android:name="app.webs.activity.Act01_JoinUs" />
-		<activity android:name="app.webs.activity.Act02_MyPage"
-		    android:screenOrientation="portrait" />
+		<activity android:name="app.webs.activity.Act02_MyPage" />
     </application>
 
 </manifest>
