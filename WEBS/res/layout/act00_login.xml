@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/a00_te_id"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="ID(Not Student number)" 
+            bootstrapbutton:be_roundedCorners="true"
+            android:gravity="center"/>
+	    <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/a00_te_pw"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="password" 
+            bootstrapbutton:be_roundedCorners="true"
+            android:gravity="center"/>
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:orientation="horizontal">
+	        
+	     <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/a00_btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Log-in  "
+                bootstrapbutton:bb_size="default"
+                bootstrapbutton:bb_icon_left="fa-rocket"
+                bootstrapbutton:bb_type="warning" />
+		 <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/a00_btn_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join us"
+                bootstrapbutton:bb_size="default"
+                bootstrapbutton:bb_icon_right="fa-user"
+                bootstrapbutton:bb_type="primary" />
+	    </LinearLayout>
+	</LinearLayout>
+</LinearLayout>
