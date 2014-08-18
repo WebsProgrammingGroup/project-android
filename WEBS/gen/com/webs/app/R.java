@@ -1280,12 +1280,16 @@ containing a value of this type.
         public static final int edittext_background_rounded_warning=0x7f020088;
         public static final int edittext_background_success=0x7f020089;
         public static final int edittext_background_warning=0x7f02008a;
-        public static final int ic_launcher=0x7f02008b;
-        public static final int shadow=0x7f02008c;
-        public static final int sildingmenu_title_bg=0x7f02008d;
-        public static final int thumbnail_circle=0x7f02008e;
-        public static final int thumbnail_circle_container=0x7f02008f;
-        public static final int thumbnail_circle_minimal=0x7f020090;
+        public static final int ic_app=0x7f02008b;
+        public static final int ic_launcher=0x7f02008c;
+        public static final int noti=0x7f02008d;
+        public static final int noti_birth=0x7f02008e;
+        public static final int noti_large=0x7f02008f;
+        public static final int shadow=0x7f020090;
+        public static final int sildingmenu_title_bg=0x7f020091;
+        public static final int thumbnail_circle=0x7f020092;
+        public static final int thumbnail_circle_container=0x7f020093;
+        public static final int thumbnail_circle_minimal=0x7f020094;
     }
     public static final class id {
         public static final int a00_btn_join=0x7f09003a;

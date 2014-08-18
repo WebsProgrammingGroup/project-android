@@ -8,8 +8,11 @@ import android.os.*;
 import android.support.v4.app.Fragment;
 import android.util.*;
 import android.view.*;
+import app.webs.service.*;
+import app.webs.service.PushService.LocalBinder;
 
 import com.actionbarsherlock.app.*;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.*;
 import com.jeremyfeinstein.slidingmenu.lib.app.*;
@@ -52,11 +55,14 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 		// getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.ab_bg_black));
 		
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setDisplayShowHomeEnabled(true);
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
-		//getSupportActionBar().setIcon(R.drawable.app_ic);
-		getSupportActionBar().setHomeButtonEnabled(true);
+		ActionBar ab = getSupportActionBar();
+		ab.setDisplayHomeAsUpEnabled(true);
+		ab.setDisplayShowHomeEnabled(true);
+		ab.setDisplayShowTitleEnabled(true);
+		ab.setTitle("IT Venture in INHA");
+		ab.setIcon(R.drawable.ic_app);
+		ab.setHomeButtonEnabled(true);
+		
 		BitmapDrawable bg = (BitmapDrawable)getResources().getDrawable(R.drawable.bg_striped);
         bg.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
         getSupportActionBar().setBackgroundDrawable(bg);
@@ -111,4 +117,28 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		}	
 		return super.onOptionsItemSelected(item);
 	}
+	
+    protected void onStart(){
+    	StaticVar.isBound = true;
+    	startService(new Intent(this, PushService.class));
+    	if(StaticVar.mServiceConncetion == null){
+    		//ServiceConnection init
+    		StaticVar.mServiceConncetion =  new ServiceConnection() {
+            	@Override
+            	public void onServiceDisconnected(ComponentName name){
+            		StaticVar.isBound = false;
+            		StaticVar.mServiceConncetion = null;
+            		Log.i("onServiceDisconnected",name.toShortString());
+            	}
+    			@Override
+    			public void onServiceConnected(ComponentName name, IBinder service) {
+    	        	LocalBinder binder = (LocalBinder) service;
+    	        	StaticVar.mService = binder.getService();
+    	        	StaticVar.isBound = true;		
+            		Log.i("onServiceconnected",name.toShortString());	
+    			}
+			};
+    	}
+        super.onStart();
+    }
 }
