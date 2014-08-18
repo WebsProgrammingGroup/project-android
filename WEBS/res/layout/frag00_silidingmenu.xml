@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+           <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_theme_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sildingmenu_title_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:text="I-My-Me-Mine"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+               
+				<LinearLayout
+                    android:id="@+id/f00_menu_MyPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-github-square"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="My Page"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/f00_menu_MyTimetable"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-table"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="My TimeTable"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sildingmenu_title_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:text="We-Our-Us-Ours"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                         />
+                </LinearLayout>
+
+
+                
+                <LinearLayout
+                    android:id="@+id/f00_menu_FreeBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-list-alt"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Free Board"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>                
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />                
+                
+                <LinearLayout
+                    android:id="@+id/f00_menu_AnonymityBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-list"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Anonymity Board"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/f00_menu_Gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-camera"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gallery"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+                <LinearLayout
+                    android:id="@+id/f00_menu_StudyGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-group"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Study Group"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sildingmenu_title_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:text="You-Your-U-Yours"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/f00_menu_Contacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-tags"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contacts"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/f00_menu_Logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-undo"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Log-out"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+                <!-- 두 번째 메뉴그룹 종료 -->
+                <!-- 세 번째 메뉴그룹 시작 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sildingmenu_title_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:text="App"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/f00_menu_AppSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-cog"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="App Setting"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/f00_menu_Credit"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+					<com.beardedhen.androidbootstrap.FontAwesomeText
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    fontawesometext:fa_icon="fa-info-circle"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+					    android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Credit"
+                        android:textColor="#222222"
+                        android:textSize="16dp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+			android:id="@+id/a01_btn_join"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Since_2014_Webs_Programming_Group"
+			bootstrapbutton:bb_size="xsmall"
+			bootstrapbutton:bb_icon_right="fa-user"
+			bootstrapbutton:bb_type="primary" 
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -11,7 +11,7 @@ import android.view.*;
 import android.view.View.*;
 import android.widget.*;
 
-public class Act00_LoginActivity extends Activity implements OnClickListener{
+public class Act00_Login extends Activity implements OnClickListener{
 	private BootstrapButton JoinBtn;
 	private BootstrapButton LoginBtn;
 	
@@ -32,11 +32,14 @@ public class Act00_LoginActivity extends Activity implements OnClickListener{
 		Intent i;
 		switch (v.getId()) {
 		case R.id.a00_btn_login:
+			i = new Intent(this, Act02_BaseActivity.class);
+			startActivity(i);
+			overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
 			break;
 		case R.id.a00_btn_join:
 			i = new Intent(this, Act01_JoinUs.class);
 			startActivity(i);
-			overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
+			overridePendingTransition(R.anim.viewin4, R.anim.viewout4);
 			break;
 		default:
 			break;
