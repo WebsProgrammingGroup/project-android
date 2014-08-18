@@ -36,7 +36,7 @@ public class Act02_MyPage extends SlidingFragmentActivity  {
 		sm.setShadowDrawable(R.drawable.shadow);
 		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
 		sm.setFadeDegree(0.35f);
-		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 		// getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.ab_bg_black));
 		
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);

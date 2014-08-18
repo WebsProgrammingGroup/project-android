@@ -55,7 +55,7 @@
 
                
 				<LinearLayout
-                    android:id="@+id/f00_menu_mypage"
+                    android:id="@+id/f00_menu_MyPage"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:clickable="true"
@@ -89,7 +89,7 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_mytimetable"
+                    android:id="@+id/f00_menu_MyTimetable"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     
@@ -212,7 +212,7 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_gallery"
+                    android:id="@+id/f00_menu_Gallery"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:clickable="true"
@@ -244,7 +244,7 @@
                     android:layout_gravity="center"
                     android:background="#dddddd" />
                 <LinearLayout
-                    android:id="@+id/f00_menu_studygroup"
+                    android:id="@+id/f00_menu_StudyGroup"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     
@@ -399,7 +399,7 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_Setting"
+                    android:id="@+id/f00_menu_AppSetting"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     
