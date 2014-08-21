@@ -34,6 +34,7 @@ public class Act00_Login extends Activity implements OnClickListener{
 		case R.id.a00_btn_login:
 			i = new Intent(this, Act02_BaseActivity.class);
 			startActivity(i);
+			finish();
 			overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
 			break;
 		case R.id.a00_btn_join:

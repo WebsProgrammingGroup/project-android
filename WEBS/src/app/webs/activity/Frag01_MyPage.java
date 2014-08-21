@@ -13,6 +13,7 @@ public class Frag01_MyPage extends android.support.v4.app.Fragment{
 	}
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View ViewLayout = inflater.inflate(R.layout.frag01_my_page, null, false);
+		
 		return ViewLayout;
 	}
 }

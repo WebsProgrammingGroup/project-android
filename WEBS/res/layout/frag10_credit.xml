@@ -1,11 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:id="@+id/f00_silidingmenu_dummy_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <TextView 
-        android:layout_width="wrap_content"
+    <LinearLayout 
+	    style="@style/TitleLayout"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="1dp">
+		<com.beardedhen.androidbootstrap.BootstrapButton
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="3dp"
+		    android:text="Who made this application?"
+		    bootstrapbutton:bb_icon_left="fa-info-circle"
+		    bootstrapbutton:bb_roundedCorners="true"
+		    bootstrapbutton:bb_size="small"
+		    bootstrapbutton:bb_type="primary" />
+    </LinearLayout>
+   	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="15dp"
+	    android:background="#dddddd"
+	    android:orientation="horizontal"/>
+	<LinearLayout 
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="frag10"/>
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+		<LinearLayout 
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:gravity="center"
+	       android:orientation="vertical">
+			<com.beardedhen.androidbootstrap.BootstrapButton
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_margin="10dp"
+			    android:text="Android Application Team"
+			    bootstrapbutton:bb_icon_left="fa-android"
+			    bootstrapbutton:bb_roundedCorners="true"
+			    bootstrapbutton:bb_size="small"
+			    bootstrapbutton:bb_type="success" />
+			<com.beardedhen.androidbootstrap.FontAwesomeText
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    fontawesometext:fa_icon="fa-trophy"
+			    android:textSize="23sp"/>
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="김영광"
+			    android:textSize="18sp"/>
+			<com.beardedhen.androidbootstrap.FontAwesomeText
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    fontawesometext:fa_icon="fa-keyboard-o"
+			    android:textSize="23sp"/>
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="정광조"
+			    android:textSize="18sp"/>
+			<com.beardedhen.androidbootstrap.FontAwesomeText
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    fontawesometext:fa_icon="fa-linux"
+			    android:textSize="23sp"/>
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="이상화"
+			    android:textSize="18sp"/>
+			<com.beardedhen.androidbootstrap.FontAwesomeText
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    fontawesometext:fa_icon="fa-smile-o"
+			    android:textSize="23sp"/>
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="정헌준"
+			    android:textSize="18sp"/>
+			<com.beardedhen.androidbootstrap.FontAwesomeText
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    fontawesometext:fa_icon="fa-thumbs-o-up"
+			    android:textSize="23sp"/>
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="손진호"
+			    android:textSize="18sp"/>
+		</LinearLayout>	
+	</LinearLayout>
 </LinearLayout>
+</ScrollView>

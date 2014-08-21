@@ -8,6 +8,7 @@ import android.os.*;
 import android.support.v4.app.Fragment;
 import android.util.*;
 import android.view.*;
+import android.widget.*;
 import app.webs.service.*;
 import app.webs.service.PushService.LocalBinder;
 
@@ -21,6 +22,7 @@ import com.webs.app.R;
 
 public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	public Context mCtx;
+	private boolean m_close_flag = false;
 
     public android.support.v4.app.Fragment f01_MyPage = new Frag01_MyPage();
     public android.support.v4.app.Fragment f02_MyTimeTable = new Frag02_MyTimeTable();
@@ -118,6 +120,29 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	/* back key for finish app*/
+	Handler AppCloseHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            m_close_flag = false;
+        }
+    };
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) { 
+		if(keyCode == KeyEvent.KEYCODE_BACK){
+	    	 if(m_close_flag == false) {
+	             Toast.makeText(this, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+	             m_close_flag = true;
+	             AppCloseHandler.sendEmptyMessageDelayed(0, 2000);
+	         } else { 
+	        	 System.exit(0);
+	         }
+	    	 return true;
+	    }else{
+	    	 return super.onKeyDown(keyCode, event);
+	    }
+	}
+    
+    /* Push Service Start */
     protected void onStart(){
     	StaticVar.isBound = true;
     	startService(new Intent(this, PushService.class));

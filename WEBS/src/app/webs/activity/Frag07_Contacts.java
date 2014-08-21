@@ -11,7 +11,7 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment{
 		super.onCreate(savedInstanceState);
 	}
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View ViewLayout = inflater.inflate(R.layout.frag07_contacts, null, false);
+		View ViewLayout = inflater.inflate(R.layout.frag07_contacts_list_item, null, false);
 		return ViewLayout;
 	}
 }

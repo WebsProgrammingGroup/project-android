@@ -963,10 +963,10 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f050037;
         public static final int abs__bright_foreground_holo_dark=0x7f050034;
         public static final int abs__bright_foreground_holo_light=0x7f050035;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f050039;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f05003a;
-        public static final int abs__primary_text_holo_dark=0x7f05003b;
-        public static final int abs__primary_text_holo_light=0x7f05003c;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f05003a;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f05003b;
+        public static final int abs__primary_text_holo_dark=0x7f05003c;
+        public static final int abs__primary_text_holo_light=0x7f05003d;
         public static final int bbutton_danger=0x7f05000a;
         public static final int bbutton_danger_disabled=0x7f05000e;
         public static final int bbutton_danger_disabled_edge=0x7f05000f;
@@ -1017,6 +1017,7 @@ containing a value of this type.
         public static final int bthumbnail_font=0x7f050031;
         public static final int bthumbnail_placeholder=0x7f05002f;
         public static final int main_theme_bg=0x7f050038;
+        public static final int main_theme_bg2=0x7f050039;
         public static final int white=0x7f050000;
     }
     public static final class dimen {
@@ -1285,11 +1286,12 @@ containing a value of this type.
         public static final int noti=0x7f02008d;
         public static final int noti_birth=0x7f02008e;
         public static final int noti_large=0x7f02008f;
-        public static final int shadow=0x7f020090;
-        public static final int sildingmenu_title_bg=0x7f020091;
-        public static final int thumbnail_circle=0x7f020092;
-        public static final int thumbnail_circle_container=0x7f020093;
-        public static final int thumbnail_circle_minimal=0x7f020094;
+        public static final int sel_layout1=0x7f020090;
+        public static final int shadow=0x7f020091;
+        public static final int sildingmenu_title_bg=0x7f020092;
+        public static final int thumbnail_circle=0x7f020093;
+        public static final int thumbnail_circle_container=0x7f020094;
+        public static final int thumbnail_circle_minimal=0x7f020095;
     }
     public static final class id {
         public static final int a00_btn_join=0x7f09003a;
@@ -1347,7 +1349,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f090018;
         public static final int abs__title=0x7f090020;
         public static final int abs__up=0x7f09000b;
-        public static final int action_settings=0x7f090061;
+        public static final int action_settings=0x7f090071;
         public static final int container=0x7f09004c;
         public static final int dimensionsLabel=0x7f09004e;
         public static final int disableHome=0x7f090009;
@@ -1363,18 +1365,33 @@ containing a value of this type.
         public static final int f00_menu_MyTimetable=0x7f090052;
         public static final int f00_menu_StudyGroup=0x7f090056;
         public static final int f00_silidingmenu_dummy_frame=0x7f09005b;
+        public static final int f07_item_img=0x7f09005d;
+        public static final int f07_item_name=0x7f09005e;
+        public static final int f07_item_stab=0x7f090060;
+        public static final int f07_item_tel=0x7f09005f;
+        public static final int f09_chk_app_pw=0x7f090069;
+        public static final int f09_chk_auto_login=0x7f090066;
+        public static final int f09_chk_push_alarm=0x7f090063;
+        public static final int f09_icon_app_pw=0x7f090068;
+        public static final int f09_icon_app_pw_change=0x7f09006b;
+        public static final int f09_icon_auto_login=0x7f090065;
+        public static final int f09_icon_push_alarm=0x7f090062;
+        public static final int f09_lay_app_pw=0x7f090067;
+        public static final int f09_lay_app_pw_change=0x7f09006a;
+        public static final int f09_lay_auto_login=0x7f090064;
+        public static final int f09_lay_push_alarm=0x7f090061;
         public static final int fullscreen=0x7f090013;
         public static final int homeAsUp=0x7f090006;
         public static final int image=0x7f09004f;
         public static final int layout=0x7f090047;
-        public static final int lblColA=0x7f09005e;
-        public static final int lblColB=0x7f09005f;
+        public static final int lblColA=0x7f09006e;
+        public static final int lblColB=0x7f09006f;
         public static final int lblLeft=0x7f090048;
         public static final int lblMiddle=0x7f090049;
         public static final int lblRight=0x7f09004a;
-        public static final int lblSubTitle=0x7f09005d;
+        public static final int lblSubTitle=0x7f09006d;
         public static final int lblText=0x7f090050;
-        public static final int lblTitle=0x7f09005c;
+        public static final int lblTitle=0x7f09006c;
         public static final int left=0x7f090010;
         public static final int listMode=0x7f090002;
         public static final int margin=0x7f090012;
@@ -1385,8 +1402,9 @@ containing a value of this type.
         public static final int showCustom=0x7f090008;
         public static final int showHome=0x7f090005;
         public static final int showTitle=0x7f090007;
-        public static final int slidingmenumain=0x7f090060;
+        public static final int slidingmenumain=0x7f090070;
         public static final int tabMode=0x7f090003;
+        public static final int thumbnailOneTest=0x7f09005c;
         public static final int txtText=0x7f09004b;
         public static final int useLogo=0x7f090004;
         public static final int wrap_content=0x7f090000;
@@ -1434,15 +1452,16 @@ containing a value of this type.
         public static final int frag05_gallery=0x7f030024;
         public static final int frag06_study_group=0x7f030025;
         public static final int frag07_contacts=0x7f030026;
-        public static final int frag08_logout=0x7f030027;
-        public static final int frag09_app_setting=0x7f030028;
-        public static final int frag10_credit=0x7f030029;
-        public static final int row_title=0x7f03002a;
-        public static final int row_title_and_subtitle=0x7f03002b;
-        public static final int row_two_columns=0x7f03002c;
-        public static final int sherlock_spinner_dropdown_item=0x7f03002d;
-        public static final int sherlock_spinner_item=0x7f03002e;
-        public static final int slidingmenumain=0x7f03002f;
+        public static final int frag07_contacts_list_item=0x7f030027;
+        public static final int frag08_logout=0x7f030028;
+        public static final int frag09_app_setting=0x7f030029;
+        public static final int frag10_credit=0x7f03002a;
+        public static final int row_title=0x7f03002b;
+        public static final int row_title_and_subtitle=0x7f03002c;
+        public static final int row_two_columns=0x7f03002d;
+        public static final int sherlock_spinner_dropdown_item=0x7f03002e;
+        public static final int sherlock_spinner_item=0x7f03002f;
+        public static final int slidingmenumain=0x7f030030;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1580,6 +1599,7 @@ containing a value of this type.
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f080057;
         public static final int Theme_Sherlock_Light_NoActionBar=0x7f080059;
         public static final int Theme_Sherlock_NoActionBar=0x7f080058;
+        public static final int TitleLayout=0x7f08005d;
         public static final int Widget=0x7f080001;
         public static final int Widget_Sherlock_ActionBar=0x7f080003;
         public static final int Widget_Sherlock_ActionBar_Solid=0x7f080004;
@@ -1627,6 +1647,8 @@ containing a value of this type.
         public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f080035;
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f080025;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f080033;
+        public static final int f09_AppSettingLayout=0x7f08005c;
+        public static final int textStyle01=0x7f08005b;
     }
     public static final class styleable {
         /** Attributes that can be used with a BootstrapButton.

@@ -1,11 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-        <TextView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="frag01"/>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+	xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+	<LinearLayout 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="140dp"
+				android:background="#aaaaaa"
+			android:orientation="horizontal">
+			<LinearLayout 
+			    android:layout_width="1dp"
+			    android:layout_height="match_parent"
+			    android:orientation="horizontal"
+				android:gravity="center"
+			    android:layout_weight="1">
+	      		<com.beardedhen.androidbootstrap.BootstrapCircleThumbnail
+				    android:id="@+id/thumbnailOneTest"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:clickable="true"
+				    bootstrap:bct_image="@drawable/ic_app"
+				    bootstrap:bct_size="large"/>
+			</LinearLayout>
+			<LinearLayout 
+			    android:layout_width="1dp"
+			    android:layout_height="match_parent"
+			    android:orientation="vertical"
+				android:gravity="center"
+			    android:layout_weight="1">
+	      		<com.beardedhen.androidbootstrap.BootstrapButton
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_margin="4dp"
+				    android:text="  WEBS Check in  "
+				    bootstrapbutton:bb_icon_left="fa-check-square-o"
+				    bootstrapbutton:bb_roundedCorners="true"
+				    bootstrapbutton:bb_size="small"
+				    bootstrapbutton:bb_type="warning" />
+	      		<com.beardedhen.androidbootstrap.BootstrapButton
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_margin="4dp"
+				    android:text=" My Study Group "
+				    bootstrapbutton:bb_icon_left="fa-group"
+				    bootstrapbutton:bb_roundedCorners="true"
+				    bootstrapbutton:bb_size="small"
+				    bootstrapbutton:bb_type="warning" />
+	      		<com.beardedhen.androidbootstrap.BootstrapButton
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_margin="4dp"
+				    android:text="   My Infomation   "
+				    bootstrapbutton:bb_icon_left="fa-code-fork"
+				    bootstrapbutton:bb_roundedCorners="true"
+				    bootstrapbutton:bb_size="small"
+				    bootstrapbutton:bb_type="warning"  />
+      		</LinearLayout>
+		</LinearLayout>
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="15dp"
+		    android:background="#dddddd"
+		    android:orientation="horizontal"/>
 
-</LinearLayout>
+	</LinearLayout>	
+</ScrollView>

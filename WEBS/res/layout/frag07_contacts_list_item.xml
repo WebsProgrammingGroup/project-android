@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+	xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+	android:layout_marginLeft="7dp"
+	android:layout_marginRight="7dp"
+	android:layout_marginTop="4dp"
+	android:layout_marginBottom="4dp"
+	android:background="#333333"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <com.beardedhen.androidbootstrap.BootstrapCircleThumbnail
+	    android:id="@+id/f07_item_img"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:clickable="true"
+	    android:layout_margin="5dp"
+	    bootstrap:bct_image="@drawable/ic_app"
+	    bootstrap:bct_size="meduim"/>
+    <TextView 
+        android:id="@+id/f07_item_name"
+        android:text="name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/f07_item_img" 
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="28dp"   
+        android:textStyle="bold"
+        android:textColor="#ffffff"   />
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/f07_item_tel"
+		android:text="000-0000-0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/f07_item_img"
+        android:layout_below="@id/f07_item_name"
+        android:textColor="#ffffff" 
+        android:autoLink="phone"
+	    bootstrapbutton:bb_icon_left="fa-phone-square"
+	    bootstrapbutton:bb_roundedCorners="true"
+	    bootstrapbutton:bb_size="small"
+	    bootstrapbutton:bb_type="primary" />
+	<com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/f07_item_stab"
+        android:text=" ? "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/f07_item_tel"
+        android:layout_below="@id/f07_item_name"
+        android:textColor="#ffffff" 
+	    bootstrapbutton:bb_roundedCorners="true"
+	    bootstrapbutton:bb_size="small"
+	    bootstrapbutton:bb_type="primary" />
+</RelativeLayout>
