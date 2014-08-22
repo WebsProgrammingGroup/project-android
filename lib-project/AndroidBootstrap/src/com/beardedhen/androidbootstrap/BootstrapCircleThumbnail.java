@@ -35,7 +35,7 @@ public class BootstrapCircleThumbnail extends FrameLayout
 
     private LinearLayout container;
     private LinearLayout placeholder;
-    private ImageView image;
+    public ImageView image;
     private TextView dimensionsLabel;
     private String size = MEDIUM;
     private boolean minimal = false;//minimal means display just the image, no padding
