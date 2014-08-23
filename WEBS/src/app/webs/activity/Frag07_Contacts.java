@@ -106,9 +106,9 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment{
 		@Override
 		protected void onPostExecute(String result) {
 			// The parsing of the xml data is done in a non-ui thread 
-			ListViewLoaderTask listViewLoaderTask = new ListViewLoaderTask();
+//			ListViewLoaderTask listViewLoaderTask = new ListViewLoaderTask();
 			// Start parsing xml data
-			listViewLoaderTask.execute(result);  
+//			listViewLoaderTask.execute(result);  
 		}
 		
 		String downloadUrl(String strurl) throws IOException{

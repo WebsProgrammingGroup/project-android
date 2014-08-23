@@ -28,7 +28,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     public android.support.v4.app.Fragment f02_MyTimeTable = new Frag02_MyTimeTable();
     public android.support.v4.app.Fragment f03_FreeBoard = new Frag03_FreeBoard();
     public android.support.v4.app.Fragment f04_AnonymityBoard = new Frag04_AnonymityBoard();
-    public android.support.v4.app.Fragment f05_Gallery = new Frag05_Gallery();
+    public android.support.v4.app.Fragment f05_Gallery = new Frag05_Schedule();
     public android.support.v4.app.Fragment f06_StudyGroup = new Frag06_StudyGroup();
     public android.support.v4.app.Fragment f07_Contacts = new Frag07_Contacts();
     public android.support.v4.app.Fragment f08_Logout = new Frag08_Logout();

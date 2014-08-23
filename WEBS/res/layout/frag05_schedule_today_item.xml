@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+	xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+	android:layout_marginLeft="7dp"
+	android:layout_marginRight="7dp"
+	android:layout_marginTop="4dp"
+	android:layout_marginBottom="4dp"
+	android:background="#333333"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <com.beardedhen.androidbootstrap.FontAwesomeText
+        android:id="@+id/f05_schdule_item_icon"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    fontawesometext:fa_icon="fa-chevron-circle-right"
+	    android:textColor="#ffffff"
+	    android:layout_margin="10dp" 
+	    android:textSize="35sp"/>
+    
+    <TextView 
+        android:id="@+id/f05_schdule_item_title"
+        android:text="title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/f05_schdule_item_icon" 
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="18dp"   
+        android:textStyle="bold"
+      	android:textColor="#ffffff"   />
+    <TextView 
+        android:id="@+id/f05_schdule_item_contents"
+        android:text="title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/f05_schdule_item_title"
+        android:layout_toRightOf="@+id/f05_schdule_item_icon" 
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="15dp"  
+      	android:textColor="#ffffff"   />
+</RelativeLayout>
