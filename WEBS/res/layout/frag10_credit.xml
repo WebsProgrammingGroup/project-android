@@ -1,129 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
-	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<LinearLayout
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <LinearLayout 
-	    style="@style/TitleLayout"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="1dp">
-		<com.beardedhen.androidbootstrap.BootstrapButton
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_margin="3dp"
-		    android:text="Who made this application?"
-		    bootstrapbutton:bb_icon_left="fa-info-circle"
-		    bootstrapbutton:bb_roundedCorners="true"
-		    bootstrapbutton:bb_size="small"
-		    bootstrapbutton:bb_type="primary" />
+
+    <LinearLayout
+        style="@style/TitleLayout"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp" >
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Who made this application?"
+            bootstrapbutton:bb_icon_left="fa-info-circle"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="primary" />
     </LinearLayout>
-   	<LinearLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="15dp"
-	    android:background="#dddddd"
-	    android:orientation="horizontal"/>
-		<LinearLayout 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center_horizontal"
-	        android:background="#555555"
-	        android:orientation="horizontal">
-			<LinearLayout 
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:gravity="center"
-		       android:orientation="vertical">
-				<com.beardedhen.androidbootstrap.BootstrapButton
-				    android:layout_width="wrap_content"
-				    android:layout_height="wrap_content"
-				    android:layout_margin="10dp"
-				    android:text="Android App Team"
-				    bootstrapbutton:bb_icon_left="fa-android"
-				    bootstrapbutton:bb_roundedCorners="true"
-				    bootstrapbutton:bb_size="small"
-				    bootstrapbutton:bb_type="warning" />
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-trophy"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="김영광"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-keyboard-o"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="정광조"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-linux"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="이상화"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-smile-o"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="정헌준"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-thumbs-o-up"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="손진호"/>
-			</LinearLayout>	
-			<LinearLayout 
-		       android:layout_width="wrap_content"
-		       android:layout_height="wrap_content"
-		       android:gravity="center"
-		       android:orientation="vertical">
-				<com.beardedhen.androidbootstrap.BootstrapButton
-				    android:layout_width="wrap_content"
-				    android:layout_height="wrap_content"
-				    android:layout_margin="10dp"
-				    android:text="    PC App Team    "
-				    bootstrapbutton:bb_icon_left="fa-android"
-				    bootstrapbutton:bb_roundedCorners="true"
-				    bootstrapbutton:bb_size="small"
-				    bootstrapbutton:bb_type="warning" />
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-trophy"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="이찬솔"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-keyboard-o"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="장세홍"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-linux"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="김선빈"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-smile-o"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="이혁규"/>
-				<com.beardedhen.androidbootstrap.FontAwesomeText
-				    style="@style/f10_team_icon"
-				    fontawesometext:fa_icon="fa-thumbs-o-up"/>
-				<TextView 
-				    style="@style/f10_team_text"
-				    android:text="김태영"/>
-			</LinearLayout>	
-		</LinearLayout>
-		
-	</LinearLayout>
-</ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#dddddd"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#555555"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/f10_btn_android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Android App Team"
+                bootstrapbutton:bb_icon_left="fa-android"
+                bootstrapbutton:bb_roundedCorners="true"
+                bootstrapbutton:bb_size="small"
+                bootstrapbutton:bb_type="warning" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-trophy" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="김영광" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-keyboard-o" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="정광조" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-linux" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="이상화" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-smile-o" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="정헌준" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-thumbs-o-up" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="손진호" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/f10_btn_pc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="    PC  App  Team    "
+                bootstrapbutton:bb_icon_left="fa-keyboard-o"
+                bootstrapbutton:bb_roundedCorners="true"
+                bootstrapbutton:bb_size="small"
+                bootstrapbutton:bb_type="info" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-trophy" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="이찬솔" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-spoon" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="장세홍" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText                
+                android:id="@+id/f10_icon_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-rocket" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="김선빈" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-plane" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="이혁규" />
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/f10_icon_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-lightbulb-o" />
+
+            <TextView
+                style="@style/f10_team_text"
+                android:text="김태영" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

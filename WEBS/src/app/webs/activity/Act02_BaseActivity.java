@@ -23,6 +23,7 @@ import com.webs.app.R;
 public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	public Context mCtx;
 	private boolean m_close_flag = false;
+	private SharedPreferences mPrefs;
 
     public android.support.v4.app.Fragment f01_MyPage = new Frag01_MyPage();
     public android.support.v4.app.Fragment f02_MyTimeTable = new Frag02_MyTimeTable();
@@ -31,7 +32,6 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     public android.support.v4.app.Fragment f05_Gallery = new Frag05_Schedule();
     public android.support.v4.app.Fragment f06_StudyGroup = new Frag06_StudyGroup();
     public android.support.v4.app.Fragment f07_Contacts = new Frag07_Contacts();
-    public android.support.v4.app.Fragment f08_Logout = new Frag08_Logout();
     public android.support.v4.app.Fragment f09_AppSetting = new Frag09_AppSetting();
     public android.support.v4.app.Fragment f10_Credit = new Frag10_Credit();
     
@@ -39,7 +39,8 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		setTheme(R.style.Theme_Sherlock_Light);
 		super.onCreate(savedInstanceState);
 		mCtx = this;
-		//initialize activitydd
+		//initialize activity
+		mPrefs = getSharedPreferences("AutoLogin", android.content.Context.MODE_PRIVATE);
 		
 		setBehindContentView(R.layout.frag00_silidingmenu_dummy);
 
@@ -99,7 +100,15 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f07_Contacts).commit();
 			break;
 		case 8:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f08_Logout).commit();
+			SharedPreferences.Editor editor = mPrefs.edit();
+            editor.remove("ID");
+            editor.commit();
+            
+			Intent it;
+			it = new Intent(mCtx, Act00_Login.class);
+			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(it);
+			finish();
 			break;
 		case 9:
 			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f09_AppSetting).commit();
@@ -126,6 +135,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
             m_close_flag = false;
         }
     };
+    
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { 
 		if(keyCode == KeyEvent.KEYCODE_BACK){
@@ -134,7 +144,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	             m_close_flag = true;
 	             AppCloseHandler.sendEmptyMessageDelayed(0, 2000);
 	         } else { 
-	        	 System.exit(0);
+	        	 finish();
 	         }
 	    	 return true;
 	    }else{

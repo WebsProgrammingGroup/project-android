@@ -1,30 +1,22 @@
 package app.webs.activity;
 
-import java.io.*;
-import java.net.*;
 import java.util.*;
 
 import org.apache.http.*;
 import org.apache.http.message.*;
-import org.json.*;
-
-import com.beardedhen.androidbootstrap.BootstrapEditText;
-import com.beardedhen.androidbootstrap.BootstrapButton;
-import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
-import com.webs.app.*;
 
 import android.content.*;
-import android.graphics.*;
 import android.net.*;
 import android.os.*;
-import android.util.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
-import android.view.inputmethod.*;
 import android.widget.*;
-import android.widget.TextView.OnEditorActionListener;
-import app.webs.imageloader.*;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
+import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
+import com.webs.app.R;
 
 public class Frag07_Contacts extends android.support.v4.app.Fragment implements OnClickListener, OnKeyListener{
 	private Context mCtx;
@@ -150,4 +142,13 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 			return view;
 		}		
 	}
+}
+
+class ContactData{
+	public String Name;
+	public String Phone;
+	public String Photo;
+	public String ID;
+	public String Major;
+	public String Gender;
 }

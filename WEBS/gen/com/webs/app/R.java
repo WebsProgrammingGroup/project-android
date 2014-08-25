@@ -1350,7 +1350,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f090018;
         public static final int abs__title=0x7f090020;
         public static final int abs__up=0x7f09000b;
-        public static final int action_settings=0x7f09008c;
+        public static final int action_settings=0x7f090098;
         public static final int btnadd=0x7f09006e;
         public static final int btncancel=0x7f090071;
         public static final int btndel=0x7f090070;
@@ -1409,18 +1409,30 @@ containing a value of this type.
         public static final int f09_lay_app_pw_change=0x7f090085;
         public static final int f09_lay_auto_login=0x7f09007f;
         public static final int f09_lay_push_alarm=0x7f09007c;
+        public static final int f10_btn_android=0x7f090087;
+        public static final int f10_btn_pc=0x7f09008d;
+        public static final int f10_icon_1=0x7f090088;
+        public static final int f10_icon_10=0x7f090092;
+        public static final int f10_icon_2=0x7f090089;
+        public static final int f10_icon_3=0x7f09008a;
+        public static final int f10_icon_4=0x7f09008b;
+        public static final int f10_icon_5=0x7f09008c;
+        public static final int f10_icon_6=0x7f09008e;
+        public static final int f10_icon_7=0x7f09008f;
+        public static final int f10_icon_8=0x7f090090;
+        public static final int f10_icon_9=0x7f090091;
         public static final int fullscreen=0x7f090013;
         public static final int homeAsUp=0x7f090006;
         public static final int image=0x7f09004f;
         public static final int layout=0x7f090047;
-        public static final int lblColA=0x7f090089;
-        public static final int lblColB=0x7f09008a;
+        public static final int lblColA=0x7f090095;
+        public static final int lblColB=0x7f090096;
         public static final int lblLeft=0x7f090048;
         public static final int lblMiddle=0x7f090049;
         public static final int lblRight=0x7f09004a;
-        public static final int lblSubTitle=0x7f090088;
+        public static final int lblSubTitle=0x7f090094;
         public static final int lblText=0x7f090050;
-        public static final int lblTitle=0x7f090087;
+        public static final int lblTitle=0x7f090093;
         public static final int left=0x7f090010;
         public static final int listMode=0x7f090002;
         public static final int margin=0x7f090012;
@@ -1431,7 +1443,7 @@ containing a value of this type.
         public static final int showCustom=0x7f090008;
         public static final int showHome=0x7f090005;
         public static final int showTitle=0x7f090007;
-        public static final int slidingmenumain=0x7f09008b;
+        public static final int slidingmenumain=0x7f090097;
         public static final int tabMode=0x7f090003;
         public static final int txtText=0x7f09004b;
         public static final int useLogo=0x7f090004;
@@ -1484,15 +1496,14 @@ containing a value of this type.
         public static final int frag06_study_group=0x7f030028;
         public static final int frag07_contacts=0x7f030029;
         public static final int frag07_contacts_list_item=0x7f03002a;
-        public static final int frag08_logout=0x7f03002b;
-        public static final int frag09_app_setting=0x7f03002c;
-        public static final int frag10_credit=0x7f03002d;
-        public static final int row_title=0x7f03002e;
-        public static final int row_title_and_subtitle=0x7f03002f;
-        public static final int row_two_columns=0x7f030030;
-        public static final int sherlock_spinner_dropdown_item=0x7f030031;
-        public static final int sherlock_spinner_item=0x7f030032;
-        public static final int slidingmenumain=0x7f030033;
+        public static final int frag09_app_setting=0x7f03002b;
+        public static final int frag10_credit=0x7f03002c;
+        public static final int row_title=0x7f03002d;
+        public static final int row_title_and_subtitle=0x7f03002e;
+        public static final int row_two_columns=0x7f03002f;
+        public static final int sherlock_spinner_dropdown_item=0x7f030030;
+        public static final int sherlock_spinner_item=0x7f030031;
+        public static final int slidingmenumain=0x7f030032;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1680,7 +1691,6 @@ containing a value of this type.
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f080033;
         public static final int f05_calendar_title=0x7f08005e;
         public static final int f09_AppSettingLayout=0x7f08005c;
-        public static final int f10_team_icon=0x7f080060;
         public static final int f10_team_text=0x7f08005f;
         public static final int textStyle01=0x7f08005b;
     }
