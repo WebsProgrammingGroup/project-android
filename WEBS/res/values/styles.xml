@@ -49,4 +49,16 @@
 	    <item name="android:textColor">#ffffff</item>
 	    <item name="android:paddingRight">2dp</item>
 	</style>
+	<style name="f10_team_text">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">15sp</item>
+	    <item name="android:textColor">#ffffff</item>
+	</style>
+	<style name="f10_team_icon">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">23sp</item>
+	    <item name="android:textColor">#ffffff</item>
+	</style>
 </resources>

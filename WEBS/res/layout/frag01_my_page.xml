@@ -21,11 +21,11 @@
 				android:gravity="center"
 			    android:layout_weight="1">
 	      		<com.beardedhen.androidbootstrap.BootstrapCircleThumbnail
-				    android:id="@+id/thumbnailOneTest"
+				    android:id="@+id/f01_img_my_photo"
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
 				    android:clickable="true"
-				    bootstrap:bct_image="@drawable/ic_app"
+				    bootstrap:bct_image="@drawable/ic_app2"
 				    bootstrap:bct_size="large"/>
 			</LinearLayout>
 			<LinearLayout 
