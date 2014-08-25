@@ -16,6 +16,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:singleLine="true"
             android:hint="ID(Not Student number)" 
             bootstrapbutton:be_roundedCorners="true"
             android:gravity="center"/>
@@ -23,6 +24,7 @@
             android:id="@+id/a00_te_pw"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:layout_marginBottom="10dp"
             android:hint="password" 
             bootstrapbutton:be_roundedCorners="true"
