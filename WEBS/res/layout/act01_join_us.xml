@@ -6,15 +6,26 @@
     android:layout_height="match_parent"
     android:paddingRight="20dp"
     android:paddingLeft="20dp"
+    android:gravity="center"
     android:orientation="vertical" >
 	
     <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_gravity="right"
         android:text="* = Essential elements"/>
-    
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/a01_et_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"   
+        android:layout_marginTop="10dp"
+        android:inputType="number"
+        bootstrapbutton:be_state="warning"
+        android:gravity="center"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/a01_te_pw"
+        android:hint="* ID (Student number)" />
     <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/a01_et_name"
         android:layout_width="match_parent"
@@ -26,19 +37,6 @@
         android:nextFocusDown="@+id/a01_te_id"
         bootstrapbutton:be_state="warning"
         android:hint="* Name" />
-
-    <com.beardedhen.androidbootstrap.BootstrapEditText
-        android:id="@+id/a01_et_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"   
-        android:layout_marginTop="10dp"
-        android:inputType="textPersonName"
-        bootstrapbutton:be_state="warning"
-        android:gravity="center"
-        android:singleLine="true"
-        android:nextFocusDown="@+id/a01_te_pw"
-        android:hint="* ID" />
-
     <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/a01_et_pw"
         android:layout_width="match_parent"
@@ -49,6 +47,28 @@
         android:singleLine="true"
         android:inputType="textPassword"
         bootstrapbutton:be_state="warning" />
+    
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/a01_et_hp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  
+        android:layout_marginTop="10dp"      
+        android:hint="Phone Number"
+        android:gravity="center"
+        android:singleLine="true"
+        android:inputType="number|phone"
+        bootstrapbutton:be_state="warning" />
+    
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/a01_et_major"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  
+        android:layout_marginTop="10dp"      
+        android:hint="Major"
+        android:gravity="center"
+        android:singleLine="true"
+        android:inputType="text"
+        bootstrapbutton:be_state="warning" />
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/a01_et_birthday"
@@ -58,58 +78,82 @@
         android:gravity="center"
         android:singleLine="true"
         android:editable="false"
-        android:hint="* Birth Day"
+        android:hint="Birth Day(Plz Click Here)"
         bootstrapbutton:be_state="warning" />
 	
 	<LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
 	    android:orientation="horizontal">
 	    <RadioGroup
 	        android:id="@+id/a01_ra_gender"
-	        android:layout_width="wrap_content"
+	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal" >
 	        
 	        <TextView
 	            android:layout_width="100dp"
+	            android:layout_weight="2"
 	            android:layout_height="wrap_content"
 	            android:textColor="#222222"
+	            android:gravity="center"
 	            android:text="* Gender"
 	            android:textSize="15sp" />
+	        
 	        <RadioButton
 	            android:id="@+id/a01_ra_gender_male"
+	            android:layout_weight="1"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:checked="true"
 	            android:text="Male" />
-			<com.beardedhen.androidbootstrap.FontAwesomeText
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_marginTop="2dp"
-			    fontawesometext:fa_icon="fa-male"
-			    android:textColor="@color/bbutton_primary"
-			    android:textSize="15sp"/>
 			
 	        <RadioButton
 	            android:id="@+id/a01_ra_gender_female"
+	            android:layout_weight="1"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="Female" />		
-	            
-	        <com.beardedhen.androidbootstrap.FontAwesomeText
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    fontawesometext:fa_icon="fa-female"
-			    android:layout_marginTop="2dp"
-			    android:textColor="@color/bbutton_danger"
-			    android:textSize="15sp"/>
+	            android:text="Female" />	
 	        
 		</RadioGroup>
 	</LinearLayout>
-	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+	    android:orientation="horizontal">
+	    <RadioGroup
+	        android:id="@+id/a01_ra_graduation"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" >
+	        
+	        <TextView
+	            android:layout_width="100dp"
+	            android:layout_weight="2"
+	            android:layout_height="wrap_content"
+	            android:textColor="#222222"
+	            android:gravity="center"
+	            android:text="* Graduation"
+	            android:textSize="15sp" />
+	        <RadioButton
+	            android:id="@+id/a01_ra_grd_yb"
+	            android:layout_weight="1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:checked="true"
+	            android:text="YB" />
+			
+	        <RadioButton
+	            android:id="@+id/a01_ra_grd_ob"
+	            android:layout_weight="1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="OB" />	
+	        
+		</RadioGroup>
+	</LinearLayout>
 	<LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
@@ -124,7 +168,7 @@
 	        android:inputType="number"
         	android:gravity="center"
         	bootstrapbutton:be_state="primary"
-	        android:hint="ClubRoom PW" />
+	        android:hint="* ClubRoom PW" />
 	        
 		<com.beardedhen.androidbootstrap.BootstrapButton
 			android:id="@+id/a01_btn_join"

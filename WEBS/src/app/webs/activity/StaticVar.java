@@ -12,9 +12,10 @@ public class StaticVar {
 	public static LoginData mLoginData= null;
 	
 	public static String ID = null;
+	public static String AppClosingPW = null;
 	
 	public static Boolean isPushAlarm = false;
 	public static Boolean isAutoLogin = false;
-	public static Boolean isPwUsage = false;
+	public static Boolean isAppClose = false;
 
 }

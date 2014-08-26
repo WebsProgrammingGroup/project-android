@@ -40,7 +40,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		super.onCreate(savedInstanceState);
 		mCtx = this;
 		//initialize activity
-		mPrefs = getSharedPreferences("AutoLogin", android.content.Context.MODE_PRIVATE);
+		mPrefs = getSharedPreferences("AppSetting", android.content.Context.MODE_PRIVATE);
 		
 		setBehindContentView(R.layout.frag00_silidingmenu_dummy);
 
@@ -101,7 +101,11 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			break;
 		case 8:
 			SharedPreferences.Editor editor = mPrefs.edit();
-            editor.remove("ID");
+			editor.remove("ID");
+            editor.remove("PushAlarm");
+            editor.remove("AutoLogin");
+            editor.remove("PwUsage");
+            editor.remove("AppClosingPW");
             editor.commit();
             
 			Intent it;

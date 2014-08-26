@@ -35,16 +35,27 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 		setContentView(R.layout.act00_login);
 		mCtx = this;
 		
-		mPrefs = getSharedPreferences("AutoLogin", android.content.Context.MODE_PRIVATE);
+		mPrefs = getSharedPreferences("AppSetting", android.content.Context.MODE_PRIVATE);
     	StaticVar.ID = mPrefs.getString("ID", null);
-    	
+    	StaticVar.isPushAlarm = mPrefs.getBoolean("PushAlarm", true);
+		StaticVar.isAutoLogin = mPrefs.getBoolean("AutoLogin", true);
+		StaticVar.isAppClose = mPrefs.getBoolean("PwUsage", false);
+		StaticVar.AppClosingPW = mPrefs.getString("AppClosingPW", null);
+		
     	Intent it;
-    	if(StaticVar.ID != null){
-    		it = new Intent(mCtx, Act02_BaseActivity.class);
-			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(it);			
-			finish();
-			overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
+    	if(StaticVar.isAutoLogin){
+    		if(StaticVar.isAppClose){
+    			it = new Intent(mCtx, Act00_AppClose.class);
+    			it.putExtra("intent", "release");
+    			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    			startActivity(it);			
+    			finish();
+    		}else if(StaticVar.ID != null){
+        		it = new Intent(mCtx, Act02_BaseActivity.class);
+    			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    			startActivity(it);			
+    			finish();
+        	}
     	}
     	
 		JoinBtn = (BootstrapButton)findViewById(R.id.a00_btn_join);
@@ -73,6 +84,7 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 			break;
 		}
 	}
+	
 	public synchronized void Login(){
 		IdStr = ID_et.getText().toString();
 		PwStr = PW_et.getText().toString();
