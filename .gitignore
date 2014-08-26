@@ -7,3 +7,6 @@ lib-project/AndroidBootstrap/bin/androidbootstrap.jar
 *.jar
 *.jar
 *.jar
+lib-project/actionbarsherlock/bin/actionbarsherlock.jar
+*.jar
+*.jar

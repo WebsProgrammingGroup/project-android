@@ -18,7 +18,6 @@ import android.view.View.OnClickListener;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout.LayoutParams;
-import app.webs.parser.*;
 
 public class Frag05_Schedule extends android.support.v4.app.Fragment 
 	implements OnClickListener, OnItemClickListener{
