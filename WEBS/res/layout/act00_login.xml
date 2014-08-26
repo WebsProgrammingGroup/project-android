@@ -16,15 +16,28 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+<<<<<<< HEAD
             android:hint="ID(Not Student number)" 
+=======
+            android:inputType="number"
+            android:singleLine="true"
+            android:hint="ID(Student number)" 
+>>>>>>> Ver1.0
             bootstrapbutton:be_roundedCorners="true"
             android:gravity="center"/>
 	    <com.beardedhen.androidbootstrap.BootstrapEditText
             android:id="@+id/a00_te_pw"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginBottom="10dp"
             android:hint="password" 
+=======
+            android:singleLine="true"
+            android:layout_marginBottom="10dp"
+            android:hint="password" 
+            android:inputType="textPassword"
+>>>>>>> Ver1.0
             bootstrapbutton:be_roundedCorners="true"
             android:gravity="center"/>
 	    <LinearLayout 

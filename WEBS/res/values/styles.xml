@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <resources>
+=======
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+>>>>>>> Ver1.0
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -16,5 +20,51 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+<<<<<<< HEAD
 
+=======
+	<style name="textStyle01">
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textSize">15sp</item>
+	</style>
+	<style name="f09_AppSettingLayout">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">40dp</item>
+	    <item name="android:paddingRight">7dp</item>
+	    <item name="android:paddingLeft">7dp</item>
+	    <item name="android:paddingTop">5dp</item>
+	    <item name="android:paddingBottom">5dp</item>
+	    <item name="android:background">#ffffff</item>
+	    <item name="android:clickable">true</item>
+	    <item name="android:background">@drawable/sel_layout1</item>
+	</style>
+	<style name="TitleLayout">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:paddingRight">7dp</item>
+	    <item name="android:paddingLeft">7dp</item>
+	    <item name="android:paddingTop">2dp</item>
+	    <item name="android:paddingBottom">2dp</item>
+	    <item name="android:background">#ffffff</item>
+	    <item name="android:clickable">true</item>
+	</style>
+	<style name="f05_calendar_title">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:gravity">right</item>
+	    <item name="android:textSize">15sp</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:paddingRight">2dp</item>
+	</style>
+	<style name="f10_team_text">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">15sp</item>
+	    <item name="android:textColor">#ffffff</item>
+	</style>
+	<style name="a00_pw_number_pad">
+	    <item name="android:clickable">true</item>
+	    <item name="android:padding">15dp</item>
+	</style>
+>>>>>>> Ver1.0
 </resources>

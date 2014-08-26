@@ -87,8 +87,7 @@ public class WEBS_SCHEDULE_TODAY extends Activity implements OnClickListener,
 		t.start();
 	}
 
-	public InputStream requestPost(String requestUrl,
-			ArrayList<NameValuePair> list) {
+	public InputStream requestPost(String requestUrl, ArrayList<NameValuePair> list) {
 
 		try {
 			HttpClient client = new DefaultHttpClient();
@@ -164,6 +163,10 @@ public class WEBS_SCHEDULE_TODAY extends Activity implements OnClickListener,
 		}
 		
 	}
+	
+
+	
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {

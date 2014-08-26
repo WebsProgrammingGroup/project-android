@@ -297,6 +297,8 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int behindScrollScale=0x7f010079;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -325,6 +327,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int bt_image=0x7f01000b;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -334,6 +337,37 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+        public static final int behindWidth=0x7f010078;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bt_height=0x7f01000d;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bt_image=0x7f01000b;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int bt_inside_padding=0x7f01000e;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -963,10 +997,17 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f050037;
         public static final int abs__bright_foreground_holo_dark=0x7f050034;
         public static final int abs__bright_foreground_holo_light=0x7f050035;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int abs__primary_text_disable_only_holo_dark=0x7f050038;
         public static final int abs__primary_text_disable_only_holo_light=0x7f050039;
         public static final int abs__primary_text_holo_dark=0x7f05003a;
         public static final int abs__primary_text_holo_light=0x7f05003b;
+=======
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f05003a;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f05003b;
+        public static final int abs__primary_text_holo_dark=0x7f05003c;
+        public static final int abs__primary_text_holo_light=0x7f05003d;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int bbutton_danger=0x7f05000a;
         public static final int bbutton_danger_disabled=0x7f05000e;
         public static final int bbutton_danger_disabled_edge=0x7f05000f;
@@ -1016,6 +1057,11 @@ containing a value of this type.
         public static final int bthumbnail_border=0x7f050030;
         public static final int bthumbnail_font=0x7f050031;
         public static final int bthumbnail_placeholder=0x7f05002f;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int main_theme_bg=0x7f050038;
+        public static final int main_theme_bg2=0x7f050039;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int white=0x7f050000;
     }
     public static final class dimen {
@@ -1130,10 +1176,20 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f060001;
         public static final int bbuton_rounded_corner_radius=0x7f060002;
         public static final int bthumbnail_rounded_corner_radius=0x7f060003;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int list_padding=0x7f060018;
+        public static final int margin=0x7f06001a;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int padding_large=0x7f060007;
         public static final int padding_medium=0x7f060006;
         public static final int padding_micro=0x7f060004;
         public static final int padding_small=0x7f060005;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int shadow_width=0x7f060019;
+        public static final int slidingmenu_offset=0x7f060017;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
     }
     public static final class drawable {
         public static final int abs__ab_bottom_solid_dark_holo=0x7f020000;
@@ -1262,6 +1318,7 @@ containing a value of this type.
         public static final int bbuton_success_rounded=0x7f02007b;
         public static final int bbuton_warning=0x7f02007c;
         public static final int bbuton_warning_rounded=0x7f02007d;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int bthumbnail_container_rounded=0x7f02007e;
         public static final int bthumbnail_container_square=0x7f02007f;
         public static final int bthumbnail_placeholder_default=0x7f020080;
@@ -1277,10 +1334,52 @@ containing a value of this type.
         public static final int thumbnail_circle=0x7f02008a;
         public static final int thumbnail_circle_container=0x7f02008b;
         public static final int thumbnail_circle_minimal=0x7f02008c;
+=======
+        public static final int bg_striped=0x7f02007e;
+        public static final int bg_striped_img=0x7f02007f;
+        public static final int bthumbnail_container_rounded=0x7f020080;
+        public static final int bthumbnail_container_square=0x7f020081;
+        public static final int bthumbnail_placeholder_default=0x7f020082;
+        public static final int coming_soon=0x7f020083;
+        public static final int dot_blue=0x7f020084;
+        public static final int dot_orange=0x7f020085;
+        public static final int edittext_background=0x7f020086;
+        public static final int edittext_background_danger=0x7f020087;
+        public static final int edittext_background_rounded=0x7f020088;
+        public static final int edittext_background_rounded_danger=0x7f020089;
+        public static final int edittext_background_rounded_success=0x7f02008a;
+        public static final int edittext_background_rounded_warning=0x7f02008b;
+        public static final int edittext_background_success=0x7f02008c;
+        public static final int edittext_background_warning=0x7f02008d;
+        public static final int ic_app=0x7f02008e;
+        public static final int ic_app2=0x7f02008f;
+        public static final int ic_launcher=0x7f020090;
+        public static final int noti=0x7f020091;
+        public static final int noti_birth=0x7f020092;
+        public static final int noti_large=0x7f020093;
+        public static final int numpad0=0x7f020094;
+        public static final int numpad1=0x7f020095;
+        public static final int numpad2=0x7f020096;
+        public static final int numpad3=0x7f020097;
+        public static final int numpad4=0x7f020098;
+        public static final int numpad5=0x7f020099;
+        public static final int numpad6=0x7f02009a;
+        public static final int numpad7=0x7f02009b;
+        public static final int numpad8=0x7f02009c;
+        public static final int numpad9=0x7f02009d;
+        public static final int numpadb=0x7f02009e;
+        public static final int sel_layout1=0x7f02009f;
+        public static final int shadow=0x7f0200a0;
+        public static final int sildingmenu_title_bg=0x7f0200a1;
+        public static final int thumbnail_circle=0x7f0200a2;
+        public static final int thumbnail_circle_container=0x7f0200a3;
+        public static final int thumbnail_circle_minimal=0x7f0200a4;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
     }
     public static final class id {
         public static final int a00_btn_join=0x7f09003a;
         public static final int a00_btn_login=0x7f090039;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int a00_te_id=0x7f090037;
         public static final int a00_te_pw=0x7f090038;
         public static final int a01_btn_join=0x7f090045;
@@ -1294,6 +1393,43 @@ containing a value of this type.
         public static final int a01_ra_gender_male=0x7f090042;
         public static final int a01_te_id=0x7f09003c;
         public static final int a01_te_pw=0x7f09003e;
+=======
+        public static final int a00_btn_numpad0=0x7f090049;
+        public static final int a00_btn_numpad1=0x7f090040;
+        public static final int a00_btn_numpad2=0x7f090041;
+        public static final int a00_btn_numpad3=0x7f090042;
+        public static final int a00_btn_numpad4=0x7f090043;
+        public static final int a00_btn_numpad5=0x7f090044;
+        public static final int a00_btn_numpad6=0x7f090045;
+        public static final int a00_btn_numpad7=0x7f090046;
+        public static final int a00_btn_numpad8=0x7f090047;
+        public static final int a00_btn_numpad9=0x7f090048;
+        public static final int a00_btn_numpad_back=0x7f09004a;
+        public static final int a00_img_pw1=0x7f09003c;
+        public static final int a00_img_pw2=0x7f09003d;
+        public static final int a00_img_pw3=0x7f09003e;
+        public static final int a00_img_pw4=0x7f09003f;
+        public static final int a00_te_id=0x7f090037;
+        public static final int a00_te_pw=0x7f090038;
+        public static final int a00_txt_title=0x7f09003b;
+        public static final int a01_btn_join=0x7f09005a;
+        public static final int a01_et_birthday=0x7f090052;
+        public static final int a01_et_club_pw=0x7f090059;
+        public static final int a01_et_hp=0x7f090050;
+        public static final int a01_et_id=0x7f09004b;
+        public static final int a01_et_major=0x7f090051;
+        public static final int a01_et_name=0x7f09004d;
+        public static final int a01_et_pw=0x7f09004f;
+        public static final int a01_ra_gender=0x7f090053;
+        public static final int a01_ra_gender_female=0x7f090055;
+        public static final int a01_ra_gender_male=0x7f090054;
+        public static final int a01_ra_graduation=0x7f090056;
+        public static final int a01_ra_grd_ob=0x7f090058;
+        public static final int a01_ra_grd_yb=0x7f090057;
+        public static final int a01_te_id=0x7f09004e;
+        public static final int a01_te_pw=0x7f09004c;
+        public static final int a02_frag_frame=0x7f09005b;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int abs__action_bar=0x7f090025;
         public static final int abs__action_bar_container=0x7f090024;
         public static final int abs__action_bar_subtitle=0x7f090016;
@@ -1333,6 +1469,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f090018;
         public static final int abs__title=0x7f090020;
         public static final int abs__up=0x7f09000b;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int action_settings=0x7f090055;
         public static final int container=0x7f09004b;
         public static final int dimensionsLabel=0x7f09004d;
@@ -1350,19 +1487,118 @@ containing a value of this type.
         public static final int lblSubTitle=0x7f090051;
         public static final int lblText=0x7f09004f;
         public static final int lblTitle=0x7f090050;
+=======
+        public static final int action_settings=0x7f0900b1;
+        public static final int btnadd=0x7f090086;
+        public static final int btncancel=0x7f090089;
+        public static final int btndel=0x7f090088;
+        public static final int btnsave=0x7f090087;
+        public static final int container=0x7f090061;
+        public static final int dimensionsLabel=0x7f090063;
+        public static final int disableHome=0x7f090009;
+        public static final int edit_query=0x7f09002b;
+        public static final int editdate=0x7f090083;
+        public static final int editmemo=0x7f090085;
+        public static final int edittime=0x7f090084;
+        public static final int edittitle=0x7f090082;
+        public static final int f00_menu_AnonymityBoard=0x7f090069;
+        public static final int f00_menu_AppSetting=0x7f09006e;
+        public static final int f00_menu_Contacts=0x7f09006c;
+        public static final int f00_menu_Credit=0x7f09006f;
+        public static final int f00_menu_FreeBoard=0x7f090068;
+        public static final int f00_menu_Gallery=0x7f09006a;
+        public static final int f00_menu_Logout=0x7f09006d;
+        public static final int f00_menu_MyPage=0x7f090066;
+        public static final int f00_menu_MyTimetable=0x7f090067;
+        public static final int f00_menu_StudyGroup=0x7f09006b;
+        public static final int f00_silidingmenu_dummy_frame=0x7f090070;
+        public static final int f01_btn_checkin=0x7f090072;
+        public static final int f01_btn_my_info=0x7f090074;
+        public static final int f01_btn_my_study_group=0x7f090073;
+        public static final int f01_img_my_photo=0x7f090071;
+        public static final int f05_btn_add_event=0x7f09007b;
+        public static final int f05_btn_schedule_date=0x7f09007a;
+        public static final int f05_btn_search=0x7f090077;
+        public static final int f05_calendar=0x7f090078;
+        public static final int f05_et_month=0x7f090076;
+        public static final int f05_et_year=0x7f090075;
+        public static final int f05_lay_calendar_item=0x7f09007d;
+        public static final int f05_lay_schedule_date=0x7f090079;
+        public static final int f05_lv_schedule_date=0x7f09007c;
+        public static final int f05_schdule_day_item_contents=0x7f090081;
+        public static final int f05_schdule_day_item_icon=0x7f09007f;
+        public static final int f05_schdule_day_item_title=0x7f090080;
+        public static final int f05_txt_calendar_item=0x7f09007e;
+        public static final int f07_btn_menu_title=0x7f09008a;
+        public static final int f07_btn_name_search=0x7f09008b;
+        public static final int f07_et_name_search=0x7f09008c;
+        public static final int f07_item_gender=0x7f090092;
+        public static final int f07_item_id=0x7f090090;
+        public static final int f07_item_major=0x7f090091;
+        public static final int f07_item_name=0x7f09008f;
+        public static final int f07_item_photo=0x7f09008e;
+        public static final int f07_item_tel=0x7f090093;
+        public static final int f07_lv_contacts=0x7f09008d;
+        public static final int f09_chk_app_pw=0x7f09009c;
+        public static final int f09_chk_auto_login=0x7f090099;
+        public static final int f09_chk_push_alarm=0x7f090096;
+        public static final int f09_icon_app_pw=0x7f09009b;
+        public static final int f09_icon_app_pw_change=0x7f09009e;
+        public static final int f09_icon_auto_login=0x7f090098;
+        public static final int f09_icon_push_alarm=0x7f090095;
+        public static final int f09_lay_app_pw=0x7f09009a;
+        public static final int f09_lay_app_pw_change=0x7f09009d;
+        public static final int f09_lay_auto_login=0x7f090097;
+        public static final int f09_lay_push_alarm=0x7f090094;
+        public static final int f10_btn_android=0x7f09009f;
+        public static final int f10_btn_pc=0x7f0900a5;
+        public static final int f10_icon_1=0x7f0900a0;
+        public static final int f10_icon_10=0x7f0900aa;
+        public static final int f10_icon_2=0x7f0900a1;
+        public static final int f10_icon_3=0x7f0900a2;
+        public static final int f10_icon_4=0x7f0900a3;
+        public static final int f10_icon_5=0x7f0900a4;
+        public static final int f10_icon_6=0x7f0900a6;
+        public static final int f10_icon_7=0x7f0900a7;
+        public static final int f10_icon_8=0x7f0900a8;
+        public static final int f10_icon_9=0x7f0900a9;
+        public static final int f99_icon=0x7f0900ab;
+        public static final int fullscreen=0x7f090013;
+        public static final int homeAsUp=0x7f090006;
+        public static final int image=0x7f090064;
+        public static final int layout=0x7f09005c;
+        public static final int lblColA=0x7f0900ae;
+        public static final int lblColB=0x7f0900af;
+        public static final int lblLeft=0x7f09005d;
+        public static final int lblMiddle=0x7f09005e;
+        public static final int lblRight=0x7f09005f;
+        public static final int lblSubTitle=0x7f0900ad;
+        public static final int lblText=0x7f090065;
+        public static final int lblTitle=0x7f0900ac;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int left=0x7f090010;
         public static final int listMode=0x7f090002;
         public static final int margin=0x7f090012;
         public static final int normal=0x7f090001;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int placeholder=0x7f09004c;
+=======
+        public static final int placeholder=0x7f090062;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int right=0x7f090011;
         public static final int selected_view=0x7f090014;
         public static final int showCustom=0x7f090008;
         public static final int showHome=0x7f090005;
         public static final int showTitle=0x7f090007;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int slidingmenumain=0x7f090054;
         public static final int tabMode=0x7f090003;
         public static final int txtText=0x7f09004a;
+=======
+        public static final int slidingmenumain=0x7f0900b0;
+        public static final int tabMode=0x7f090003;
+        public static final int txtText=0x7f090060;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int useLogo=0x7f090004;
         public static final int wrap_content=0x7f090000;
     }
@@ -1392,6 +1628,7 @@ containing a value of this type.
         public static final int abs__search_view=0x7f030013;
         public static final int abs__simple_dropdown_hint=0x7f030014;
         public static final int act00_login=0x7f030015;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int act01_join_us=0x7f030016;
         public static final int bootstrap_button=0x7f030017;
         public static final int bootstrap_button_fill=0x7f030018;
@@ -1405,6 +1642,39 @@ containing a value of this type.
         public static final int sherlock_spinner_dropdown_item=0x7f030020;
         public static final int sherlock_spinner_item=0x7f030021;
         public static final int slidingmenumain=0x7f030022;
+=======
+        public static final int act00_password=0x7f030016;
+        public static final int act01_join_us=0x7f030017;
+        public static final int act02_base=0x7f030018;
+        public static final int bootstrap_button=0x7f030019;
+        public static final int bootstrap_button_fill=0x7f03001a;
+        public static final int bootstrap_edit_text=0x7f03001b;
+        public static final int bootstrap_thumbnail=0x7f03001c;
+        public static final int bootstrap_thumbnail_circle=0x7f03001d;
+        public static final int font_awesome_text=0x7f03001e;
+        public static final int frag00_silidingmenu=0x7f03001f;
+        public static final int frag00_silidingmenu_dummy=0x7f030020;
+        public static final int frag01_my_page=0x7f030021;
+        public static final int frag02_my_time_table=0x7f030022;
+        public static final int frag03_free_board=0x7f030023;
+        public static final int frag04_anonymity_board=0x7f030024;
+        public static final int frag05_schedule=0x7f030025;
+        public static final int frag05_schedule_calendar_item=0x7f030026;
+        public static final int frag05_schedule_day_item=0x7f030027;
+        public static final int frag05_schedule_detail=0x7f030028;
+        public static final int frag06_study_group=0x7f030029;
+        public static final int frag07_contacts=0x7f03002a;
+        public static final int frag07_contacts_list_item=0x7f03002b;
+        public static final int frag09_app_setting=0x7f03002c;
+        public static final int frag10_credit=0x7f03002d;
+        public static final int frag99_coming_soon=0x7f03002e;
+        public static final int row_title=0x7f03002f;
+        public static final int row_title_and_subtitle=0x7f030030;
+        public static final int row_two_columns=0x7f030031;
+        public static final int sherlock_spinner_dropdown_item=0x7f030032;
+        public static final int sherlock_spinner_item=0x7f030033;
+        public static final int slidingmenumain=0x7f030034;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1542,6 +1812,10 @@ containing a value of this type.
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f080057;
         public static final int Theme_Sherlock_Light_NoActionBar=0x7f080059;
         public static final int Theme_Sherlock_NoActionBar=0x7f080058;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int TitleLayout=0x7f08005d;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
         public static final int Widget=0x7f080001;
         public static final int Widget_Sherlock_ActionBar=0x7f080003;
         public static final int Widget_Sherlock_ActionBar_Solid=0x7f080004;
@@ -1589,6 +1863,14 @@ containing a value of this type.
         public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f080035;
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f080025;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f080033;
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int a00_pw_number_pad=0x7f080060;
+        public static final int f05_calendar_title=0x7f08005e;
+        public static final int f09_AppSettingLayout=0x7f08005c;
+        public static final int f10_team_text=0x7f08005f;
+        public static final int textStyle01=0x7f08005b;
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
     }
     public static final class styleable {
         /** Attributes that can be used with a BootstrapButton.
@@ -2381,10 +2663,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth com.webs.app:android_minWidth}</code></td><td></td></tr>
 =======
            <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth android:minWidth}</code></td><td></td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+           <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth com.webs.app:android_minWidth}</code></td><td></td></tr>
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockActionMenuItemView_android_minWidth
          */
@@ -2393,10 +2679,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         };
         /**
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
           <p>This symbol is the offset where the {@link com.webs.app.R.attr#android_minWidth}
 =======
           <p>This symbol is the offset where the {@link android.R.attr#minWidth}
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+          <p>This symbol is the offset where the {@link com.webs.app.R.attr#android_minWidth}
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           attribute's value can be found in the {@link #SherlockActionMenuItemView} array.
           @attr name android:minWidth
         */
@@ -2500,6 +2790,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockActivityChooserView_android_background com.webs.app:android_background}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.webs.app:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.webs.app:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
@@ -2508,6 +2799,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.example.lastactivity:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.example.lastactivity:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+           <tr><td><code>{@link #SherlockActivityChooserView_android_background com.webs.app:android_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.webs.app:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
+           <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.webs.app:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockActivityChooserView_android_background
            @see #SherlockActivityChooserView_expandActivityOverflowButtonDrawable
@@ -2518,10 +2814,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         };
         /**
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
           <p>This symbol is the offset where the {@link com.webs.app.R.attr#android_background}
 =======
           <p>This symbol is the offset where the {@link android.R.attr#background}
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+          <p>This symbol is the offset where the {@link com.webs.app.R.attr#android_background}
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           attribute's value can be found in the {@link #SherlockActivityChooserView} array.
           @attr name android:background
         */
@@ -2566,12 +2866,16 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior com.webs.app:android_checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_enabled com.webs.app:android_enabled}</code></td><td> Whether the items are enabled.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_id com.webs.app:android_id}</code></td><td> The ID of the group.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory com.webs.app:android_menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory com.webs.app:android_orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_visible com.webs.app:android_visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
 =======
            <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
@@ -2580,6 +2884,8 @@ containing a value of this type.
            <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
            <tr><td><code>{@link #SherlockMenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockMenuGroup_android_checkableBehavior
            @see #SherlockMenuGroup_android_enabled
@@ -2597,6 +2903,9 @@ containing a value of this type.
           @attr description
            Whether the items are capable of displaying a check mark. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_checkableBehavior}.
           @attr name android:android_checkableBehavior
 =======
@@ -2611,6 +2920,9 @@ containing a value of this type.
           @attr description
            Whether the items are enabled. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_enabled}.
           @attr name android:android_enabled
 =======
@@ -2625,6 +2937,9 @@ containing a value of this type.
           @attr description
            The ID of the group. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_id}.
           @attr name android:android_id
 =======
@@ -2640,6 +2955,9 @@ containing a value of this type.
            The category applied to all items within this group.
              (This will be or'ed with the orderInCategory attribute.) 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_menuCategory}.
           @attr name android:android_menuCategory
 =======
@@ -2655,6 +2973,9 @@ containing a value of this type.
            The order within the category applied to all items within this group.
              (This will be or'ed with the category attribute.) 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_orderInCategory}.
           @attr name android:android_orderInCategory
 =======
@@ -2669,6 +2990,9 @@ containing a value of this type.
           @attr description
            Whether the items are shown/visible. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_visible}.
           @attr name android:android_visible
 =======
@@ -2684,6 +3008,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockMenuItem_android_actionLayout com.webs.app:android_actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
            <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass com.webs.app:android_actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
@@ -2727,6 +3052,28 @@ containing a value of this type.
            <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
            <tr><td><code>{@link #SherlockMenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout com.webs.app:android_actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass com.webs.app:android_actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
+             and perform operations such as default action for that menu item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass com.webs.app:android_actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
+             action view.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut com.webs.app:android_alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checkable com.webs.app:android_checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checked com.webs.app:android_checked}</code></td><td> Whether the item is checked.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_enabled com.webs.app:android_enabled}</code></td><td> Whether the item is enabled.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_icon com.webs.app:android_icon}</code></td><td> The icon associated with this item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_id com.webs.app:android_id}</code></td><td> The ID of the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory com.webs.app:android_menuCategory}</code></td><td> The category applied to the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut com.webs.app:android_numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_onClick com.webs.app:android_onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
+             called when the item is clicked.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory com.webs.app:android_orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction com.webs.app:android_showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_title com.webs.app:android_title}</code></td><td> The title associated with the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed com.webs.app:android_titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_visible com.webs.app:android_visible}</code></td><td> Whether the item is shown/visible.</td></tr>
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockMenuItem_android_actionLayout
            @see #SherlockMenuItem_android_actionProviderClass
@@ -2760,6 +3107,9 @@ containing a value of this type.
              See {@link android.view.MenuItem#setActionView(android.view.View)}
              for more info. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_actionLayout}.
           @attr name android:android_actionLayout
 =======
@@ -2777,6 +3127,9 @@ containing a value of this type.
              See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
              for more info. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_actionProviderClass}.
           @attr name android:android_actionProviderClass
 =======
@@ -2793,6 +3146,9 @@ containing a value of this type.
              action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
              for more info. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_actionViewClass}.
           @attr name android:android_actionViewClass
 =======
@@ -2808,6 +3164,9 @@ containing a value of this type.
            The alphabetic shortcut key.  This is the shortcut when using a keyboard
              with alphabetic keys. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_alphabeticShortcut}.
           @attr name android:android_alphabeticShortcut
 =======
@@ -2822,6 +3181,9 @@ containing a value of this type.
           @attr description
            Whether the item is capable of displaying a check mark. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_checkable}.
           @attr name android:android_checkable
 =======
@@ -2837,6 +3199,9 @@ containing a value of this type.
            Whether the item is checked.  Note that you must first have enabled checking with
              the checkable attribute or else the check mark will not appear. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_checked}.
           @attr name android:android_checked
 =======
@@ -2851,6 +3216,9 @@ containing a value of this type.
           @attr description
            Whether the item is enabled. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_enabled}.
           @attr name android:android_enabled
 =======
@@ -2866,6 +3234,9 @@ containing a value of this type.
            The icon associated with this item.  This icon will not always be shown, so
              the title should be sufficient in describing this item. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_icon}.
           @attr name android:android_icon
 =======
@@ -2880,6 +3251,9 @@ containing a value of this type.
           @attr description
            The ID of the item. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_id}.
           @attr name android:android_id
 =======
@@ -2895,6 +3269,9 @@ containing a value of this type.
            The category applied to the item.
              (This will be or'ed with the orderInCategory attribute.) 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_menuCategory}.
           @attr name android:android_menuCategory
 =======
@@ -2910,6 +3287,9 @@ containing a value of this type.
            The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
              keyboard. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_numericShortcut}.
           @attr name android:android_numericShortcut
 =======
@@ -2925,6 +3305,9 @@ containing a value of this type.
            Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_onClick}.
           @attr name android:android_onClick
 =======
@@ -2940,6 +3323,9 @@ containing a value of this type.
            The order within the category applied to the item.
              (This will be or'ed with the category attribute.) 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_orderInCategory}.
           @attr name android:android_orderInCategory
 =======
@@ -2954,6 +3340,9 @@ containing a value of this type.
           @attr description
            How this item should display in the Action Bar, if present. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_showAsAction}.
           @attr name android:android_showAsAction
 =======
@@ -2968,6 +3357,9 @@ containing a value of this type.
           @attr description
            The title associated with the item. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_title}.
           @attr name android:android_title
 =======
@@ -2983,6 +3375,9 @@ containing a value of this type.
            The condensed title associated with the item.  This is used in situations where the
              normal title may be too long to be displayed. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_titleCondensed}.
           @attr name android:android_titleCondensed
 =======
@@ -2997,6 +3392,9 @@ containing a value of this type.
           @attr description
            Whether the item is shown/visible. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_visible}.
           @attr name android:android_visible
 =======
@@ -3149,11 +3547,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockSearchView_android_imeOptions com.webs.app:android_imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_android_inputType com.webs.app:android_inputType}</code></td><td> The input type to set on the query text field.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_android_maxWidth com.webs.app:android_maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_iconifiedByDefault com.webs.app:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_queryHint com.webs.app:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
 =======
            <tr><td><code>{@link #SherlockSearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
@@ -3161,6 +3563,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><td><code>{@link #SherlockSearchView_iconifiedByDefault com.example.lastactivity:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_queryHint com.example.lastactivity:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockSearchView_android_imeOptions
            @see #SherlockSearchView_android_inputType
@@ -3177,6 +3581,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr description
            The IME options to set on the query text field. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_imeOptions}.
           @attr name android:android_imeOptions
 =======
@@ -3191,6 +3598,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr description
            The input type to set on the query text field. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_inputType}.
           @attr name android:android_inputType
 =======
@@ -3205,6 +3615,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr description
            An optional maximum width of the SearchView. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_maxWidth}.
           @attr name android:android_maxWidth
 =======
@@ -3254,6 +3667,7 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset com.webs.app:android_dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown".</td></tr>
            <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector com.webs.app:android_dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
@@ -3278,6 +3692,19 @@ containing a value of this type.
              spinnerMode="dropdown".</td></tr>
            <tr><td><code>{@link #SherlockSpinner_android_prompt android:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset com.webs.app:android_dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
+             in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector com.webs.app:android_dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset com.webs.app:android_dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
+             spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth com.webs.app:android_dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_gravity com.webs.app:android_gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupBackground com.webs.app:android_popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView com.webs.app:android_popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
+             spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_prompt com.webs.app:android_prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockSpinner_android_dropDownHorizontalOffset
            @see #SherlockSpinner_android_dropDownSelector
@@ -3298,6 +3725,9 @@ containing a value of this type.
            Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown". 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_dropDownHorizontalOffset}.
           @attr name android:android_dropDownHorizontalOffset
 =======
@@ -3312,6 +3742,9 @@ containing a value of this type.
           @attr description
            List selector to use for spinnerMode="dropdown" display. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_dropDownSelector}.
           @attr name android:android_dropDownSelector
 =======
@@ -3327,6 +3760,9 @@ containing a value of this type.
            Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown". 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_dropDownVerticalOffset}.
           @attr name android:android_dropDownVerticalOffset
 =======
@@ -3341,6 +3777,9 @@ containing a value of this type.
           @attr description
            Width of the dropdown in spinnerMode="dropdown". 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_dropDownWidth}.
           @attr name android:android_dropDownWidth
 =======
@@ -3355,6 +3794,9 @@ containing a value of this type.
           @attr description
            Gravity setting for positioning the currently selected item. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_gravity}.
           @attr name android:android_gravity
 =======
@@ -3369,6 +3811,9 @@ containing a value of this type.
           @attr description
            Background drawable to use for the dropdown in spinnerMode="dropdown". 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_popupBackground}.
           @attr name android:android_popupBackground
 =======
@@ -3393,6 +3838,9 @@ containing a value of this type.
           @attr description
            The prompt to display when the spinner's dialog is shown. 
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+=======
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           <p>This corresponds to the global attribute          resource symbol {@link com.webs.app.R.attr#android_prompt}.
           @attr name android:android_prompt
 =======
@@ -4433,10 +4881,14 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
            <tr><td><code>{@link #SherlockView_android_focusable com.webs.app:android_focusable}</code></td><td></td></tr>
 =======
            <tr><td><code>{@link #SherlockView_android_focusable android:focusable}</code></td><td></td></tr>
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+           <tr><td><code>{@link #SherlockView_android_focusable com.webs.app:android_focusable}</code></td><td></td></tr>
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
            </table>
            @see #SherlockView_android_focusable
          */
@@ -4445,10 +4897,14 @@ containing a value of this type.
         };
         /**
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
+<<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
           <p>This symbol is the offset where the {@link com.webs.app.R.attr#android_focusable}
 =======
           <p>This symbol is the offset where the {@link android.R.attr#focusable}
 >>>>>>> parent of 9d954f5... 0817_1:WEBS_작업파일/LastActivity/gen/com/example/lastactivity/R.java
+=======
+          <p>This symbol is the offset where the {@link com.webs.app.R.attr#android_focusable}
+>>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
           attribute's value can be found in the {@link #SherlockView} array.
           @attr name android:focusable
         */

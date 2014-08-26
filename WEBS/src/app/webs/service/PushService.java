@@ -26,6 +26,10 @@ public class PushService extends android.app.Service{
 	private NotificationManager NM = null;
 	private Vibrator Vib;
 	private Bitmap LargeIcon;
+<<<<<<< HEAD
+=======
+	private Bitmap LargeIcon_Birth;
+>>>>>>> Ver1.0
 	private Notification Noti;
 	private String UUID;
 	private String PushServerUrl;
@@ -45,7 +49,12 @@ public class PushService extends android.app.Service{
 		UUID = GetDevicesUUID(getApplicationContext());
 		PushServerUrl = "http://wpg.azurewebsites.net/PushPull.jsp?uuid=" + UUID;
 		thread = new PushThread();
+<<<<<<< HEAD
 		LargeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+=======
+		LargeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.noti);
+		LargeIcon_Birth = BitmapFactory.decodeResource(getResources(), R.drawable.noti_birth);
+>>>>>>> Ver1.0
 		unregisterRestartAlarm();
 	}
 	@Override
@@ -75,7 +84,11 @@ public class PushService extends android.app.Service{
 		Noti = new NotificationCompat.Builder(getApplicationContext())
 		.setContentTitle(title)
 		.setContentText(contents)
+<<<<<<< HEAD
 		.setSmallIcon(R.drawable.ic_launcher)
+=======
+		.setSmallIcon(R.drawable.noti_large)
+>>>>>>> Ver1.0
 		.setLargeIcon(LargeIcon)
 		.setTicker(contents)
 		.setAutoCancel(true)
