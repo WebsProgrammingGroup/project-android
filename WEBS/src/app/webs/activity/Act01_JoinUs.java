@@ -121,7 +121,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 				startActivity(it);
 				
 				finish();
-				overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
+				overridePendingTransition(R.anim.viewin4, R.anim.viewout4);
 			}
 		}
 	};

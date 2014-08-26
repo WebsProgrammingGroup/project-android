@@ -78,7 +78,7 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 		case R.id.a00_btn_join:
 			i = new Intent(this, Act01_JoinUs.class);
 			startActivity(i);
-			overridePendingTransition(R.anim.viewin4, R.anim.viewout4);
+			overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
 			break;
 		default:
 			break;
