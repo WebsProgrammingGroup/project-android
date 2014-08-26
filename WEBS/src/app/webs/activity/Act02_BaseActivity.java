@@ -148,14 +148,14 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			break;
 		case 9:
 			ft = getSupportFragmentManager().beginTransaction();
-			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
 			ft.replace(R.id.a02_frag_frame, f09_AppSetting);
 			ft.commit();
 			StaticVar.FragPointer = f09_AppSetting;
 			break;
 		case 10:
 			ft = getSupportFragmentManager().beginTransaction();
-			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
 			ft.replace(R.id.a02_frag_frame, f10_Credit);
 			ft.commit();
 			StaticVar.FragPointer = f10_Credit;
