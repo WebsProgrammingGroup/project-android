@@ -6,6 +6,8 @@ import android.graphics.Shader.*;
 import android.graphics.drawable.*;
 import android.os.*;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
@@ -22,25 +24,27 @@ import com.webs.app.R;
 
 public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	public Context mCtx;
-	private boolean m_close_flag = false;
+	private static boolean mAppCloseFlag = false;
+	
 	private SharedPreferences mPrefs;
 
-    public android.support.v4.app.Fragment f01_MyPage = new Frag01_MyPage();
+    public final Fragment f01_MyPage = new Frag01_MyPage();
     public android.support.v4.app.Fragment f02_MyTimeTable = new Frag02_MyTimeTable();
     public android.support.v4.app.Fragment f03_FreeBoard = new Frag03_FreeBoard();
     public android.support.v4.app.Fragment f04_AnonymityBoard = new Frag04_AnonymityBoard();
-    public android.support.v4.app.Fragment f05_Gallery = new Frag05_Schedule();
+    public android.support.v4.app.Fragment f05_Scedule = new Frag05_Schedule();
     public android.support.v4.app.Fragment f06_StudyGroup = new Frag06_StudyGroup();
     public android.support.v4.app.Fragment f07_Contacts = new Frag07_Contacts();
     public android.support.v4.app.Fragment f09_AppSetting = new Frag09_AppSetting();
     public android.support.v4.app.Fragment f10_Credit = new Frag10_Credit();
+    public android.support.v4.app.Fragment f99_ComingSoon = new Frag99_ComingSoon();
     
 	public void onCreate(Bundle savedInstanceState) {
 		setTheme(R.style.Theme_Sherlock_Light);
 		super.onCreate(savedInstanceState);
 		mCtx = this;
 		//initialize activity
-		mPrefs = getSharedPreferences("AutoLogin", android.content.Context.MODE_PRIVATE);
+		mPrefs = getSharedPreferences("AppSetting", android.content.Context.MODE_PRIVATE);
 		
 		setBehindContentView(R.layout.frag00_silidingmenu_dummy);
 
@@ -72,36 +76,68 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
         
         setContentView(R.layout.act02_base);
         
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.a02_frag_frame, f01_MyPage).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.a02_frag_frame, f01_MyPage).commit();
 
 	}
 	public void SelectMenu(int Frag){
+		FragmentTransaction ft;
 		switch (Frag) {
 		case 1:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f01_MyPage).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f01_MyPage);
+			ft.commit();
+			StaticVar.FragPointer = f01_MyPage;
 			break;
 		case 2:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f02_MyTimeTable).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f99_ComingSoon);
+			ft.commit();
+			StaticVar.FragPointer = f99_ComingSoon;
 			break;
 		case 3:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f03_FreeBoard).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f03_FreeBoard);
+			ft.commit();
+			StaticVar.FragPointer = f03_FreeBoard;
 			break;
 		case 4:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f04_AnonymityBoard).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f04_AnonymityBoard);
+			ft.commit();
+			StaticVar.FragPointer = f04_AnonymityBoard;
 			break;
 		case 5:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f05_Gallery).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f05_Scedule);
+			ft.commit();
+			StaticVar.FragPointer = f05_Scedule;
 			break;
 		case 6:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f06_StudyGroup).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f99_ComingSoon);
+			ft.commit();
+			StaticVar.FragPointer = f99_ComingSoon;
 			break;
-		case 7:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f07_Contacts).commit();
+		case 7:	
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f07_Contacts);
+			ft.commit();
+			StaticVar.FragPointer = f07_Contacts;
 			break;
 		case 8:
 			SharedPreferences.Editor editor = mPrefs.edit();
-            editor.remove("ID");
+			editor.remove("ID");
+            editor.remove("PushAlarm");
+            editor.remove("AutoLogin");
+            editor.remove("PwUsage");
+            editor.remove("AppClosingPW");
             editor.commit();
             
 			Intent it;
@@ -111,10 +147,18 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			finish();
 			break;
 		case 9:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f09_AppSetting).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f09_AppSetting);
+			ft.commit();
+			StaticVar.FragPointer = f09_AppSetting;
 			break;
 		case 10:
-			getSupportFragmentManager().beginTransaction().replace(R.id.a02_frag_frame, f10_Credit).commit();
+			ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f10_Credit);
+			ft.commit();
+			StaticVar.FragPointer = f10_Credit;
 			break;
 		default:
 			break;
@@ -132,25 +176,53 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	/* back key for finish app*/
 	Handler AppCloseHandler = new Handler() {
         public void handleMessage(Message msg) {
-            m_close_flag = false;
+            mAppCloseFlag = false;
         }
     };
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { 
 		if(keyCode == KeyEvent.KEYCODE_BACK){
-	    	 if(m_close_flag == false) {
-	             Toast.makeText(this, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
-	             m_close_flag = true;
-	             AppCloseHandler.sendEmptyMessageDelayed(0, 2000);
-	         } else { 
-	        	 finish();
-	         }
-	    	 return true;
-	    }else{
-	    	 return super.onKeyDown(keyCode, event);
+			if(isBaseFrag()){
+				if(mAppCloseFlag == false) {
+				    Toast.makeText(this, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+				    mAppCloseFlag = true;
+				    AppCloseHandler.sendEmptyMessageDelayed(0, 2000);
+				} else { 
+					 finish();
+				}
+			}
 	    }
+		return true;
+		
 	}
+    private boolean isBaseFrag(){
+    	FragmentTransaction ft ;
+    	if(StaticVar.FragPointer instanceof Frag01_CheckIn){
+    		ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin4, R.anim.viewout4);
+			ft.replace(R.id.a02_frag_frame, f01_MyPage);
+			ft.commit();
+			StaticVar.FragPointer = f01_MyPage;
+    		return false;
+    	}else if(StaticVar.FragPointer instanceof Frag01_MyStudyGroup){
+    		ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin4, R.anim.viewout4);
+			ft.replace(R.id.a02_frag_frame, f01_MyPage);
+			ft.commit();
+			StaticVar.FragPointer = f01_MyPage;
+    		return false;
+    	}else if(StaticVar.FragPointer instanceof Frag01_MyInfo){
+    		ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin4, R.anim.viewout4);
+			ft.replace(R.id.a02_frag_frame, f01_MyPage);
+			ft.commit();
+			StaticVar.FragPointer = f01_MyPage;
+    		return false;
+    	}else{
+    		return true;
+    	}
+    }
     
     /* Push Service Start */
     protected void onStart(){

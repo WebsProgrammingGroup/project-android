@@ -18,11 +18,13 @@ public class Frag09_AppSetting extends android.support.v4.app.Fragment implement
 	private CheckBox AutoLogin_chk;
 	private CheckBox PwUsage_chk;
 	
-	private SharedPreferences mPrefs;
+	private static SharedPreferences mPrefs;
 	private Context mCtx = null;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mCtx = getActivity();
+		mPrefs = mCtx.getSharedPreferences("AppSetting", android.content.Context.MODE_PRIVATE);
 	}
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View ViewLayout = inflater.inflate(R.layout.frag09_app_setting, null, false);
@@ -38,45 +40,75 @@ public class Frag09_AppSetting extends android.support.v4.app.Fragment implement
 		AutoLogin_btn.setOnClickListener(this);
 		PwUsage_btn.setOnClickListener(this);
 		PwChange_btn.setOnClickListener(this);
-		
+
+		LayoutSetting();		
 		return ViewLayout;
 	}
 	@Override
 	public void onClick(View v) {
+		Intent it;
+        
 		switch (v.getId()) {
 		case R.id.f09_lay_push_alarm:
-			if(StaticVar.isPushAlarm){
-				StaticVar.isPushAlarm = false;
-				PushAlarm_chk.setChecked(false);
-			}else{
-				StaticVar.isPushAlarm = true;
-				PushAlarm_chk.setChecked(true);
-			}
+			StaticVar.isPushAlarm = !StaticVar.isPushAlarm;
 			break;
 		case R.id.f09_lay_auto_login:
-			if(StaticVar.isAutoLogin){
-				StaticVar.isAutoLogin = false;
-				AutoLogin_chk.setChecked(false);
-			}else{
-				StaticVar.isAutoLogin = true;
-				AutoLogin_chk.setChecked(true);
-			}
+			StaticVar.isAutoLogin = !StaticVar.isAutoLogin;
 			break;
 		case R.id.f09_lay_app_pw:
-			if(StaticVar.isPwUsage){
-				StaticVar.isPwUsage = false;
-				PwUsage_chk.setChecked(false);
-			}else{
-				StaticVar.isPwUsage = true;
-				PwUsage_chk.setChecked(true);
+			StaticVar.isAppClose = !StaticVar.isAppClose;
+			
+			if(StaticVar.isAppClose == true){
+				it = new Intent(mCtx, Act00_AppClose.class);
+				it.putExtra("intent", "set");
+				startActivity(it);
 			}
 			break;
 		case R.id.f09_lay_app_pw_change:
+
+			it = new Intent(mCtx, Act00_AppClose.class);
+			it.putExtra("intent", "change");
+			startActivity(it);
 			
 			break;
 		default:
 			break;
 		}
+		LayoutSetting();
+	}
+	void LayoutSetting(){
+		SharedPreferences.Editor editor = mPrefs.edit();
+		PushAlarm_chk.setChecked(StaticVar.isPushAlarm);
 		
+		if(StaticVar.isPushAlarm){
+			editor.putBoolean("PushAlarm", true);
+		}else{
+			editor.putBoolean("PushAlarm", false);
+		}
+		
+		if(StaticVar.isAutoLogin){
+			AutoLogin_chk.setChecked(true);
+			PwUsage_btn.setVisibility(View.VISIBLE);
+			PwChange_btn.setVisibility(View.VISIBLE);
+			editor.putBoolean("AutoLogin", true);
+		}else{
+			StaticVar.isAppClose = false;
+			AutoLogin_chk.setChecked(false);
+			PwUsage_btn.setVisibility(View.GONE);
+			PwChange_btn.setVisibility(View.GONE);
+			editor.putBoolean("AutoLogin", false);
+		}
+		
+		if(StaticVar.isAppClose){
+			PwUsage_chk.setChecked(true);
+			PwChange_btn.setVisibility(View.VISIBLE);
+		}else{
+			PwUsage_chk.setChecked(false);
+			editor.remove("PwUsage");
+			editor.remove("AppClosingPW");
+			PwChange_btn.setVisibility(View.GONE);			
+		}
+
+		editor.commit();
 	}
 }

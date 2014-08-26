@@ -18,7 +18,7 @@
             android:layout_marginBottom="5dp"
             android:inputType="number"
             android:singleLine="true"
-            android:hint="ID(Not Student number)" 
+            android:hint="ID(Student number)" 
             bootstrapbutton:be_roundedCorners="true"
             android:gravity="center"/>
 	    <com.beardedhen.androidbootstrap.BootstrapEditText

@@ -101,7 +101,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="25dp"
 	        style="@style/textStyle01"
-	        android:text="비밀번호 사용"/>
+	        android:text="앱 잠금 사용"/>
 	    <CheckBox
 	        android:id="@+id/f09_chk_app_pw"
 	        android:layout_centerVertical="true"
@@ -127,6 +127,6 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="25dp"
 	        style="@style/textStyle01"
-	        android:text="비밀번호 변경"/>                 
+	        android:text="앱 잠금 비밀번호 변경"/>                 
 	</RelativeLayout>
 </LinearLayout>
