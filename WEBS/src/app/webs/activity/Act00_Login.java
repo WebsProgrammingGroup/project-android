@@ -15,6 +15,7 @@ import android.content.*;
 import android.view.*;
 import android.view.View.*;
 import android.widget.*;
+import app.webs.util.*;
 
 public class Act00_Login extends Activity implements OnClickListener, OnKeyListener{
 	private Context mCtx;
@@ -29,6 +30,7 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 	private String PwStr;
 	
 	private Act00_LoginDataParser mDataParser;
+	private LoadingDialog mLoadingDialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,6 +53,22 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
     			startActivity(it);			
     			finish();
     		}else if(StaticVar.ID != null){
+    			//loading private info
+    			LoginData data = new LoginData();
+    			data.Name = mPrefs.getString("Name", null);
+				data.Phone = mPrefs.getString("Phone", null);
+				data.Photo = mPrefs.getString("Photo", null);
+				data.ID = mPrefs.getString("ID", null);
+				data.Level = mPrefs.getString("PW", null);
+				data.Major = mPrefs.getString("Major", null);
+				data.Gender = mPrefs.getString("Gender", null);
+				data.Fees = mPrefs.getString("Fees", null);
+				data.Grd = mPrefs.getString("Grd", null);
+				data.Birth = mPrefs.getString("Birth", null);
+				data.Level = mPrefs.getString("Level", null);
+				StaticVar.mLoginData = data;
+				
+				//move activity
         		it = new Intent(mCtx, Act02_BaseActivity.class);
     			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     			startActivity(it);			
@@ -99,6 +117,9 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 			alert.setPositiveButton("확인", null);
 			alert.show();
 		}else{
+			mLoadingDialog = new LoadingDialog(this);
+			mLoadingDialog.DialogShow();
+			
 			mDataParser = new Act00_LoginDataParser(mCtx,UiHandler);
 			final ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
 			paramList.add(new BasicNameValuePair("ID", IdStr));
@@ -115,6 +136,16 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 			}else{ // Login Success
 				SharedPreferences.Editor editor = mPrefs.edit();
                 editor.putString("ID", IdStr);
+                editor.putString("PW", PwStr);
+                editor.putString("Name", StaticVar.mLoginData.Name);
+                editor.putString("Birth", StaticVar.mLoginData.Birth);
+                editor.putString("Gender", StaticVar.mLoginData.Gender);
+                editor.putString("Grd", StaticVar.mLoginData.Grd);
+                editor.putString("Level", StaticVar.mLoginData.Level);
+                editor.putString("Major", StaticVar.mLoginData.Major);
+                editor.putString("Phone", StaticVar.mLoginData.Phone);
+                editor.putString("Photo", StaticVar.mLoginData.Photo);
+                editor.putString("Fees", StaticVar.mLoginData.Fees);
                 editor.commit();
 				
 				Intent it;
@@ -125,6 +156,7 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 				finish();
 				overridePendingTransition(R.anim.viewin3, R.anim.viewout3);
 			}
+			mLoadingDialog.DialogDismiss();
 		}
 	};
 	

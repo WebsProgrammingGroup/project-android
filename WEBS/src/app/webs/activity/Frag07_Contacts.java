@@ -8,10 +8,12 @@ import org.apache.http.message.*;
 import android.content.*;
 import android.net.*;
 import android.os.*;
+import android.util.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.widget.*;
+import app.webs.util.*;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
@@ -26,8 +28,8 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 	private BootstrapButton Search_btn;
 	private BootstrapEditText Search_et;
 	
-	private ArrayList<ContactData> ArrContactData;
 	private ContactsListAdapter mContactsListAdapter;
+	private ContactsListAdapter mContactsSeachListAdapter;
 	private Frag07_ContactsDataParser mDataParser;
 	
 	@Override
@@ -43,9 +45,12 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 		Title_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f07_btn_menu_title);
 		Search_et = (BootstrapEditText)ViewLayout.findViewById(R.id.f07_et_name_search);
 		
-		ArrContactData = new ArrayList<ContactData>();
-		mContactsListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item, ArrContactData);
-		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter,ArrContactData);
+		if(StaticVar.mContactData == null){
+			StaticVar.mContactData = new ArrayList<ContactData>();
+		}
+		
+		mContactsListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item, StaticVar.mContactData);
+		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 		mDataParser.start();
 		
 		Contacts_lv.setAdapter(mContactsListAdapter);
@@ -71,15 +76,39 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 	}
 	
 	public void SearchContacts(String SearchStr){
-		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter,ArrContactData);
-		final ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
-		paramList.add(new BasicNameValuePair("SearchStr", SearchStr));
-		mDataParser.setParamList(paramList);
-		mDataParser.start();
+//		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter);
+//		final ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
+//		paramList.add(new BasicNameValuePair("SearchStr", SearchStr));
+//		mDataParser.setParamList(paramList);
+//		mDataParser.start();
+		
+		if(StaticVar.mContactData == null){
+			mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
+			mDataParser.start();
+		}else{
+			if(StaticVar.mSearchContactData == null){
+				StaticVar.mSearchContactData = new ArrayList<ContactData>();
+			}else{
+				StaticVar.mSearchContactData.clear();
+			}
+			//Search in mSearchContactData
+			for(int i = 0 ; i < StaticVar.mContactData.size() ; i++){
+				if(StaticVar.mContactData.get(i).Name.matches("(.*)"+SearchStr+"(.*)")){
+					StaticVar.mSearchContactData.add(StaticVar.mContactData.get(i));
+				}
+			}
+			mContactsSeachListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item,
+					StaticVar.mSearchContactData);
+			Contacts_lv.setAdapter(mContactsSeachListAdapter);
+			
+		}
 	}
 	public void SearchContacts(){
-		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter,ArrContactData);
-		mDataParser.start();
+		if(StaticVar.mContactData == null){
+			mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
+			mDataParser.start();
+		}
+		Contacts_lv.setAdapter(mContactsListAdapter);
 	}
 
 	@Override

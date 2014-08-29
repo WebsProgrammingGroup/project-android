@@ -4,6 +4,7 @@ import android.content.*;
 
 public class ServiceRestart extends BroadcastReceiver{
 	public static final String ACTION_RESTART_PERSISTENTSERVICE = "ACTION.Restart.PersistentService";
+	
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		if(intent.getAction().equals(ACTION_RESTART_PERSISTENTSERVICE)) {

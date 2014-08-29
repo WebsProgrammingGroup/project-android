@@ -12,6 +12,8 @@ public class StaticVar {
 	public static PushService mService = null;
 	
 	public static LoginData mLoginData = null;
+	public static ArrayList<ContactData> mContactData = null;
+	public static ArrayList<ContactData> mSearchContactData = null;
 	
 	public static String ID = null;
 	public static String AppClosingPW = null;

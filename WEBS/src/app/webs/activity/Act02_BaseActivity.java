@@ -133,11 +133,25 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			break;
 		case 8:
 			SharedPreferences.Editor editor = mPrefs.edit();
+            //private info remove
 			editor.remove("ID");
+			editor.remove("PW");
+			editor.remove("Name");
+			editor.remove("Birth");
+			editor.remove("Gender");
+			editor.remove("Grd");
+			editor.remove("Level");
+			editor.remove("Major");
+			editor.remove("Phone");
+			editor.remove("Photo");
+			editor.remove("Feess");
+			
+			//app setting remove
             editor.remove("PushAlarm");
             editor.remove("AutoLogin");
             editor.remove("PwUsage");
             editor.remove("AppClosingPW");
+            
             editor.commit();
             
 			Intent it;

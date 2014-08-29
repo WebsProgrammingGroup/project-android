@@ -11,25 +11,28 @@ import org.apache.http.impl.client.*;
 import org.json.*;
 
 
+import android.content.*;
 import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
 import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
+import app.webs.util.*;
 
 public class Frag07_ContactsDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
 	private static String Url = "http://wpg.azurewebsites.net/webs_contacts.jsp";
 	
+	private Context mCtx;
 	private ArrayList<NameValuePair> ParamList;
-	private ArrayList<ContactData> ArrList;
 	private ContactsListAdapter Adapter;
+	private LoadingDialog mLoadingDialog;
 	
 	//Constructors
 	public Frag07_ContactsDataParser() {
 	}
-	public Frag07_ContactsDataParser(ContactsListAdapter adapter, ArrayList<ContactData> arrList) {
-		ArrList = arrList;
+	public Frag07_ContactsDataParser(ContactsListAdapter adapter, Context ctx) {
 		Adapter = adapter;
+		mCtx = ctx;
 	}
 	
 	//Parameter Setting Function
@@ -41,6 +44,9 @@ public class Frag07_ContactsDataParser extends Thread{
 	}
 	
 	public void run() {
+		//Handler for show Dialog
+		DialogHandler.sendEmptyMessage(0);
+		
 		InputStream is;
 		if(ParamList == null){
 			is = RequestPost(Url);
@@ -103,7 +109,8 @@ public class Frag07_ContactsDataParser extends Thread{
 		try {
 			JSONObject json = new JSONObject(targetString);														
 			JSONArray jArr = json.getJSONArray("member");
-			ArrList.clear();
+			
+			StaticVar.mContactData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
 				ContactData data = new ContactData();
@@ -115,7 +122,7 @@ public class Frag07_ContactsDataParser extends Thread{
 					data.ID = jObj.getString("ID");
 					data.Major = jObj.getString("Major");
 					data.Gender = jObj.getString("Gender");
-					ArrList.add(data);
+					StaticVar.mContactData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -125,10 +132,17 @@ public class Frag07_ContactsDataParser extends Thread{
 			e.printStackTrace();
 		}
 	}
+	Handler DialogHandler = new Handler(){
+		public void handleMessage(Message msg) {
+			mLoadingDialog = new LoadingDialog(mCtx);
+			mLoadingDialog.DialogShow();
+		}
+	};
 	
 	Handler UiHandler = new Handler(){
 		public void handleMessage(Message msg) {
-			Adapter.notifyDataSetChanged();			
+			Adapter.notifyDataSetChanged();	
+			mLoadingDialog.DialogDismiss();
 		}
 	};
 }
