@@ -1,14 +1,7 @@
 *.jar
-*.jar
-*.jar
 lib-project/AndroidBootstrap/bin/androidbootstrap.jar
-*.jar
-*.jar
-*.jar
-*.jar
-*.jar
 lib-project/actionbarsherlock/bin/actionbarsherlock.jar
-*.jar
-*.jar
 WEBS/gen/com/webs/app/R.java
 lib-project/AndroidBootstrap/bin/androidbootstrap.jar
+*.class
+*.jar
