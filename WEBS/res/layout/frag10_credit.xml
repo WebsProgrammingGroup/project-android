@@ -15,11 +15,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:text="Who made this application?"
+            android:text="Who made this application? - 만든 이"
             bootstrapbutton:bb_icon_left="fa-info-circle"
             bootstrapbutton:bb_roundedCorners="true"
             bootstrapbutton:bb_size="small"
-            bootstrapbutton:bb_type="primary" />
+            bootstrapbutton:bb_type="info" />
     </LinearLayout>
 
     <LinearLayout

@@ -25,19 +25,19 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 	private BootstrapButton MyInfo_btn;
 	private ListView NoticeBoard;
 	private LayoutInflater inflater;
-	private ArrayList<BoardData> ArrBoardData;
-	private ArrayList<BoardData> ArrBoardWholeData;
 	private NoticeAdapter mNoticeAdapter;
+	private Frag01_NoticeDataParser mDataParser;
 	
 	public Frag01_CheckIn f01_CheckIn = new Frag01_CheckIn();
 	public Frag01_MyStudyGroup f01_MyStudyGroup = new Frag01_MyStudyGroup();
 	public Frag01_MyInfo f01_MyInfo = new Frag01_MyInfo();
-
+	
+	
 	int currentFirstVisibleItem;
 	int currentVisibleItemCount;
 	int currentScrollState;
 	boolean isLoading = false;
-	int BoardDataCount = 0;
+	static int BoardDataCount = 0;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,40 +56,18 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 		MyStudy_btn.setOnClickListener(this);
 		MyInfo_btn.setOnClickListener(this);
 		
-		ArrBoardWholeData = new ArrayList<BoardData>();
-		ArrBoardData = new ArrayList<BoardData>();
-		BoardData mData = new BoardData();
-		mData.Writer = "남건백";
-		mData.Title = "제목제목";
-		mData.Contents = "컨텐츠컨텐츠";
-		mData.UpTime = "1928-32-23 00:00:00";
+		StaticVar.ArrBoardWholeData = new ArrayList<BoardData>();
+		StaticVar.ArrBoardData = new ArrayList<BoardData>();
+	
 		
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
-		ArrBoardWholeData.add(mData);
+		mNoticeAdapter = new NoticeAdapter(StaticVar.ArrBoardWholeData);
+		mDataParser = new Frag01_NoticeDataParser(mNoticeAdapter, mCtx);
+		mDataParser.start();
 		
-		mNoticeAdapter = new NoticeAdapter(ArrBoardData);
 		NoticeBoard.setAdapter(mNoticeAdapter);
 		NoticeBoard.setOnScrollListener(this);
+		
+		BoardDataCount = StaticVar.ArrBoardData.size();
 		LoadMoreBoard();
 		
 		return ViewLayout;
@@ -154,25 +132,33 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			final int pos = position;
-			BoardData data = ArrBoardData.get(pos);
+			BoardData data = arSrc.get(pos);
 			
 			Log.e("view", "d"+pos);
             View view = inflater.inflate(R.layout.frag01_notice_list_item, null);
-            
-            TextView Name = (TextView)view.findViewById(R.id.f01_item_name);
-            Name.setText(data.Writer);
-            TextView Time = (TextView)view.findViewById(R.id.f01_item_time);
-            Time.setText(data.UpTime);
-            TextView Title = (TextView)view.findViewById(R.id.f01_item_txt_title);
-            Title.setText(data.Title);
-            TextView Contents = (TextView)view.findViewById(R.id.f01_item_txt_contents);
-            Contents.setText(data.Contents);
-            
             final LinearLayout ContentsBox_U = (LinearLayout)view.findViewById(R.id.f01_item_lay_box_up);
             final LinearLayout ContentsBox_D = (LinearLayout)view.findViewById(R.id.f01_item_lay_box_down);
             
+            TextView Name = (TextView)view.findViewById(R.id.f01_item_name);
+            Name.setText(data.Writer);
+            
+            TextView Time = (TextView)view.findViewById(R.id.f01_item_date);
+            Time.setText(data.Date);
+            
+            TextView Title = (TextView)view.findViewById(R.id.f01_item_title);
+            Title.setText(data.Title);
+            
+            TextView Title2 = (TextView)view.findViewById(R.id.f01_item_title2);
+            Title2.setText(data.Title);
+            
+            TextView Contents = (TextView)view.findViewById(R.id.f01_item_contents);
+            Contents.setText(data.Contents);
+            
+            TextView BoardNumber = (TextView)view.findViewById(R.id.f01_item_num);
+            BoardNumber.setText(String.valueOf(pos+1));
+            
             LinearLayout Whole = (LinearLayout)view.findViewById(R.id.f01_item_lay_whole);
-            Whole.setOnClickListener(new OnClickListener() {
+            OnClickListener mOnClick = new OnClickListener() {
 				boolean show = false;
 				
 				@Override
@@ -187,7 +173,9 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 						show = true;
 					}
 				}
-			});
+			};
+			
+            Whole.setOnClickListener(mOnClick);
             
             return view;
 		}
@@ -212,19 +200,11 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 	
 	void LoadMoreBoard(){
 		for(int i=0 ; i<5 ; i++){
-			if(ArrBoardWholeData.size() > ArrBoardData.size()){
-				ArrBoardData.add(ArrBoardWholeData.get(BoardDataCount++));
+			if(StaticVar.ArrBoardWholeData.size() > StaticVar.ArrBoardData.size()){
+				StaticVar.ArrBoardData.add(StaticVar.ArrBoardWholeData.get(BoardDataCount++));
 				mNoticeAdapter.notifyDataSetChanged();
 			}
 		}
 	}
 	
-}
-class BoardData{
-	public int BoardIdx;
-	public int WriterIdx;
-	public String Writer;
-	public String Title;
-	public String Contents;
-	public String UpTime;
 }

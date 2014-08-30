@@ -62,12 +62,13 @@
 					    fontawesometext:fa_icon="fa-github-square"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
+                        android:textColor="@color/main_font_color"
 					    android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="My Page"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -97,12 +98,13 @@
 					    fontawesometext:fa_icon="fa-table"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
+                        android:textColor="@color/main_font_color"
 					    android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="My TimeTable"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -148,12 +150,13 @@
 					    fontawesometext:fa_icon="fa-list-alt"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
+                        android:textColor="@color/main_font_color"
 					    android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Free Board"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>                
@@ -182,6 +185,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-list"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -189,7 +193,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Anonymity Board"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -218,6 +222,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-calendar"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -225,7 +230,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Schedule"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -251,6 +256,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-group"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -258,7 +264,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Study Group"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -307,6 +313,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-tags"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -314,7 +321,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Contacts"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -344,6 +351,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-undo"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -351,7 +359,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Log-out"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -409,6 +417,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-cog"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -416,7 +425,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="App Setting"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -446,6 +455,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-info-circle"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -453,7 +463,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Credit"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -471,9 +481,19 @@
                     android:background="#dddddd" />
             </LinearLayout>
         </ScrollView>
-
+        
+		<com.beardedhen.androidbootstrap.BootstrapButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Since_2000_WEBS"
+			bootstrapbutton:bb_size="xsmall"
+			bootstrapbutton:bb_icon_right="fa-user"
+			bootstrapbutton:bb_type="primary" 
+			android:layout_above="@+id/f00_wpg"
+			android:layout_centerHorizontal="true"
+			/>
         <com.beardedhen.androidbootstrap.BootstrapButton
-			android:id="@+id/a01_btn_join"
+            android:id="@+id/f00_wpg"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Since_2014_Webs_Programming_Group"

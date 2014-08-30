@@ -13,6 +13,7 @@ import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.widget.*;
+import app.webs.imageloader.*;
 import app.webs.util.*;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -45,11 +46,11 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 		Title_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f07_btn_menu_title);
 		Search_et = (BootstrapEditText)ViewLayout.findViewById(R.id.f07_et_name_search);
 		
-		if(StaticVar.mContactData == null){
-			StaticVar.mContactData = new ArrayList<ContactData>();
+		if(StaticVar.ContactWholeData == null){
+			StaticVar.ContactWholeData = new ArrayList<ContactData>();
 		}
 		
-		mContactsListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item, StaticVar.mContactData);
+		mContactsListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item, StaticVar.ContactWholeData);
 		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 		mDataParser.start();
 		
@@ -82,29 +83,29 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 //		mDataParser.setParamList(paramList);
 //		mDataParser.start();
 		
-		if(StaticVar.mContactData == null){
+		if(StaticVar.ContactWholeData == null){
 			mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 			mDataParser.start();
 		}else{
-			if(StaticVar.mSearchContactData == null){
-				StaticVar.mSearchContactData = new ArrayList<ContactData>();
+			if(StaticVar.ContactData == null){
+				StaticVar.ContactData = new ArrayList<ContactData>();
 			}else{
-				StaticVar.mSearchContactData.clear();
+				StaticVar.ContactData.clear();
 			}
-			//Search in mSearchContactData
-			for(int i = 0 ; i < StaticVar.mContactData.size() ; i++){
-				if(StaticVar.mContactData.get(i).Name.matches("(.*)"+SearchStr+"(.*)")){
-					StaticVar.mSearchContactData.add(StaticVar.mContactData.get(i));
+			//Search in ContactData
+			for(int i = 0 ; i < StaticVar.ContactWholeData.size() ; i++){
+				if(StaticVar.ContactWholeData.get(i).Name.matches("(.*)"+SearchStr+"(.*)")){
+					StaticVar.ContactData.add(StaticVar.ContactWholeData.get(i));
 				}
 			}
 			mContactsSeachListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item,
-					StaticVar.mSearchContactData);
+					StaticVar.ContactData);
 			Contacts_lv.setAdapter(mContactsSeachListAdapter);
 			
 		}
 	}
 	public void SearchContacts(){
-		if(StaticVar.mContactData == null){
+		if(StaticVar.ContactWholeData == null){
 			mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 			mDataParser.start();
 		}
@@ -136,7 +137,7 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 				view = inflater.inflate(R.layout.frag07_contacts_list_item, parent, false);
 			}
 			
-			BootstrapCircleThumbnail Photo = (BootstrapCircleThumbnail)view.findViewById(R.id.f07_item_photo);
+			ImageView Photo = (ImageView)view.findViewById(R.id.f07_item_photo);
 			
 			TextView Name = (TextView)view.findViewById(R.id.f07_item_name);
 			Name.setText(arSrc.get(pos).Name);
@@ -160,13 +161,14 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 	                startActivity(i);
 				}
 			});
-//			ImageLoader mLoader = new ImageLoader(mCtx);
-//			final String PhotoUrl = arSrc.get(pos).Photo;
-//			if(PhotoUrl.equals("null") ){
-//				Photo.setImage(R.drawable.ic_app);
-//			}else{
-//				mLoader.DisplayImage(PhotoUrl, Photo.image);
-//			}
+			
+			ImageLoader mLoader = new ImageLoader(mCtx);
+			final String PhotoUrl = arSrc.get(pos).Photo;
+			if(PhotoUrl.equals("null") ){
+				Photo.setImageResource(R.drawable.ic_app);
+			}else{
+				mLoader.DisplayImage("http://wpg.azurewebsites.net/upload/test.jpg", Photo);
+			}
 			
 			return view;
 		}		

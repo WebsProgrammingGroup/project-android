@@ -15,22 +15,23 @@ import android.content.*;
 import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
+import app.webs.activity.Frag01_MyPage.NoticeAdapter;
 import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
 import app.webs.util.*;
 
-public class Frag07_ContactsDataParser extends Thread{
+public class Frag01_NoticeDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_contacts.jsp";
+	private static String Url = "http://wpg.azurewebsites.net/webs_notice_list.jsp";
 	
 	private Context mCtx;
 	private ArrayList<NameValuePair> ParamList;
-	private ContactsListAdapter Adapter;
+	private NoticeAdapter Adapter;
 	private LoadingDialog mLoadingDialog;
 	
 	//Constructors
-	public Frag07_ContactsDataParser() {
+	public Frag01_NoticeDataParser() {
 	}
-	public Frag07_ContactsDataParser(ContactsListAdapter adapter, Context ctx) {
+	public Frag01_NoticeDataParser(NoticeAdapter adapter, Context ctx) {
 		Adapter = adapter;
 		mCtx = ctx;
 	}
@@ -108,21 +109,22 @@ public class Frag07_ContactsDataParser extends Thread{
 	{
 		try {
 			JSONObject json = new JSONObject(targetString);														
-			JSONArray jArr = json.getJSONArray("member");
+			JSONArray jArr = json.getJSONArray("noticeList");
 			
-			StaticVar.ContactWholeData.clear();
+			StaticVar.ArrBoardWholeData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
-				ContactData data = new ContactData();
+				BoardData data = new BoardData();
 				try {
 					JSONObject jObj = jArr.getJSONObject(i);
-					data.Name = jObj.getString("Name");
-					data.Phone = jObj.getString("Phone");
-					data.Photo = jObj.getString("Photo");
-					data.ID = jObj.getString("ID");
-					data.Major = jObj.getString("Major");
-					data.Gender = jObj.getString("Gender");
-					StaticVar.ContactWholeData.add(data);
+					data.BoardIdx = jObj.getInt("IDX");
+					data.WriterIdx = jObj.getInt("UserID");
+					data.Writer = jObj.getString("UserName");
+					data.Title = jObj.getString("Title");
+					data.Contents = jObj.getString("Contents");
+					data.Date = jObj.getString("Date");
+					
+					StaticVar.ArrBoardWholeData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -146,3 +148,12 @@ public class Frag07_ContactsDataParser extends Thread{
 		}
 	};
 }
+class BoardData{
+	public int BoardIdx;
+	public int WriterIdx;
+	public String Writer;
+	public String Title;
+	public String Contents;
+	public String Date;
+}
+

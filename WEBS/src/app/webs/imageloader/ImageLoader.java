@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.util.*;
 import android.widget.ImageView;
 
 /**
@@ -47,6 +48,7 @@ public class ImageLoader {
     
     public void DisplayImage(String url, ImageView imageView)
     {
+    	Log.i("ImageLoader", url);
         imageViews.put(imageView, url);
         Bitmap bitmap=memoryCache.get(url);
         if(bitmap!=null)
