@@ -12,3 +12,4 @@ lib-project/actionbarsherlock/bin/actionbarsherlock.jar
 *.jar
 WEBS/gen/com/webs/app/R.java
 lib-project/AndroidBootstrap/bin/androidbootstrap.jar
+*.java
