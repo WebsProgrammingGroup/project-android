@@ -37,7 +37,7 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 	int currentVisibleItemCount;
 	int currentScrollState;
 	boolean isLoading = false;
-	int BoardDataCount = 0;
+	static int BoardDataCount = 0;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -90,6 +90,8 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 		mNoticeAdapter = new NoticeAdapter(ArrBoardData);
 		NoticeBoard.setAdapter(mNoticeAdapter);
 		NoticeBoard.setOnScrollListener(this);
+		
+		BoardDataCount = ArrBoardData.size();
 		LoadMoreBoard();
 		
 		return ViewLayout;
@@ -158,21 +160,23 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 			
 			Log.e("view", "d"+pos);
             View view = inflater.inflate(R.layout.frag01_notice_list_item, null);
+            final LinearLayout ContentsBox_U = (LinearLayout)view.findViewById(R.id.f01_item_lay_box_up);
+            final LinearLayout ContentsBox_D = (LinearLayout)view.findViewById(R.id.f01_item_lay_box_down);
             
+            ImageView Img = (ImageView)view.findViewById(R.id.f01_item_photo);
             TextView Name = (TextView)view.findViewById(R.id.f01_item_name);
             Name.setText(data.Writer);
             TextView Time = (TextView)view.findViewById(R.id.f01_item_time);
-            Time.setText(data.UpTime);
+            Time.setText("Date:" + data.UpTime);
             TextView Title = (TextView)view.findViewById(R.id.f01_item_txt_title);
             Title.setText(data.Title);
             TextView Contents = (TextView)view.findViewById(R.id.f01_item_txt_contents);
             Contents.setText(data.Contents);
             
-            final LinearLayout ContentsBox_U = (LinearLayout)view.findViewById(R.id.f01_item_lay_box_up);
-            final LinearLayout ContentsBox_D = (LinearLayout)view.findViewById(R.id.f01_item_lay_box_down);
+            
             
             LinearLayout Whole = (LinearLayout)view.findViewById(R.id.f01_item_lay_whole);
-            Whole.setOnClickListener(new OnClickListener() {
+            OnClickListener mOnClick = new OnClickListener() {
 				boolean show = false;
 				
 				@Override
@@ -187,7 +191,10 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 						show = true;
 					}
 				}
-			});
+			};
+			
+            Whole.setOnClickListener(mOnClick);
+            Img.setOnClickListener(mOnClick);
             
             return view;
 		}
@@ -219,12 +226,4 @@ public class Frag01_MyPage extends Fragment implements OnClickListener, OnScroll
 		}
 	}
 	
-}
-class BoardData{
-	public int BoardIdx;
-	public int WriterIdx;
-	public String Writer;
-	public String Title;
-	public String Contents;
-	public String UpTime;
 }

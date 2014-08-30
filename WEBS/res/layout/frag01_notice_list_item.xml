@@ -3,11 +3,11 @@
     xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
 	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
 	xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
-	android:id="@+id/f01_item_lay_whole"
 	android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 	<LinearLayout
+		android:id="@+id/f01_item_lay_whole"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal" >
@@ -31,11 +31,7 @@
 			    android:layout_marginTop="1dp"
 			    android:layout_marginBottom="1dp"
 			    android:src="@drawable/ic_app2"
-			    />
-			<ImageView 
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            />
+		    	android:scaleType="centerCrop"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="wrap_content"
@@ -102,8 +98,8 @@
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
-	    android:padding="5dp"
 	    android:visibility="gone"
+	    android:padding="5dp"
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_down">
 	    <TextView 

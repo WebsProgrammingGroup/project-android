@@ -59,17 +59,21 @@ public class PushService extends android.app.Service{
 		Log.d("D", "registerRestartAlarm");
 	    Intent intent = new Intent(this, ServiceRestart.class);
 	    intent.setAction(ServiceRestart. ACTION_RESTART_PERSISTENTSERVICE);
+	    
 	    PendingIntent sender = PendingIntent.getBroadcast(this, 0, intent, 0);
 	    long firstTime = SystemClock.elapsedRealtime();
 	    firstTime += 1000; // 10초 후에 알람이벤트 발생
+	    
 	    AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
 	    am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstTime, 10*1000, sender);
 	}
 	void unregisterRestartAlarm() {
 	    Log.d("D", "unregisterRestartAlarm");
 	    Intent intent = new Intent(this, ServiceRestart.class);
+	    
 	    intent.setAction(ServiceRestart.ACTION_RESTART_PERSISTENTSERVICE);
 	    PendingIntent sender = PendingIntent.getBroadcast(this, 0, intent, 0);
+	    
 	    AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
 	    am.cancel(sender);
 	}

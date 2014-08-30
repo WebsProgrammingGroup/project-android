@@ -13,6 +13,7 @@ import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.widget.*;
+import app.webs.imageloader.*;
 import app.webs.util.*;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -136,7 +137,7 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 				view = inflater.inflate(R.layout.frag07_contacts_list_item, parent, false);
 			}
 			
-			BootstrapCircleThumbnail Photo = (BootstrapCircleThumbnail)view.findViewById(R.id.f07_item_photo);
+			ImageView Photo = (ImageView)view.findViewById(R.id.f07_item_photo);
 			
 			TextView Name = (TextView)view.findViewById(R.id.f07_item_name);
 			Name.setText(arSrc.get(pos).Name);
@@ -160,13 +161,14 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 	                startActivity(i);
 				}
 			});
-//			ImageLoader mLoader = new ImageLoader(mCtx);
-//			final String PhotoUrl = arSrc.get(pos).Photo;
-//			if(PhotoUrl.equals("null") ){
-//				Photo.setImage(R.drawable.ic_app);
-//			}else{
-//				mLoader.DisplayImage(PhotoUrl, Photo.image);
-//			}
+			
+			ImageLoader mLoader = new ImageLoader(mCtx);
+			final String PhotoUrl = arSrc.get(pos).Photo;
+			if(PhotoUrl.equals("null") ){
+				Photo.setImageResource(R.drawable.ic_app);
+			}else{
+				mLoader.DisplayImage("http://wpg.azurewebsites.net/upload/test.jpg", Photo);
+			}
 			
 			return view;
 		}		
