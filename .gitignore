@@ -13,3 +13,10 @@ lib-project/actionbarsherlock/bin/actionbarsherlock.jar
 WEBS/gen/com/webs/app/R.java
 lib-project/AndroidBootstrap/bin/androidbootstrap.jar
 *.java
+*.class
+*.jar
+lib-project/actionbarsherlock/bin/actionbarsherlock.jar
+lib-project/slidingmenu/bin/library.jar
+WEBS/bin/jarlist.cache
+WEBS/bin/resources.ap_
+WEBS/bin/WEBS.apk
