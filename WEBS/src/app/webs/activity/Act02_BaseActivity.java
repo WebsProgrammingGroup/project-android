@@ -66,7 +66,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		ab.setDisplayHomeAsUpEnabled(true);
 		ab.setDisplayShowHomeEnabled(true);
 		ab.setDisplayShowTitleEnabled(true);
-		ab.setTitle("IT Venture in INHA");
+		ab.setTitle("IT Venture in INHA - 웹스");
 		ab.setIcon(R.drawable.ic_app);
 		ab.setHomeButtonEnabled(true);
 		

@@ -15,6 +15,7 @@ import android.content.*;
 import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
+import app.webs.activity.Frag01_MyPage.NoticeAdapter;
 import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
 import app.webs.util.*;
 
@@ -24,13 +25,13 @@ public class Frag01_NoticeDataParser extends Thread{
 	
 	private Context mCtx;
 	private ArrayList<NameValuePair> ParamList;
-	private ContactsListAdapter Adapter;
+	private NoticeAdapter Adapter;
 	private LoadingDialog mLoadingDialog;
 	
 	//Constructors
 	public Frag01_NoticeDataParser() {
 	}
-	public Frag01_NoticeDataParser(ContactsListAdapter adapter, Context ctx) {
+	public Frag01_NoticeDataParser(NoticeAdapter adapter, Context ctx) {
 		Adapter = adapter;
 		mCtx = ctx;
 	}
@@ -108,21 +109,22 @@ public class Frag01_NoticeDataParser extends Thread{
 	{
 		try {
 			JSONObject json = new JSONObject(targetString);														
-			JSONArray jArr = json.getJSONArray("member");
+			JSONArray jArr = json.getJSONArray("noticeList");
 			
-			StaticVar.mContactData.clear();
+			StaticVar.ArrBoardWholeData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
-				ContactData data = new ContactData();
+				BoardData data = new BoardData();
 				try {
 					JSONObject jObj = jArr.getJSONObject(i);
-					data.Name = jObj.getString("Name");
-					data.Phone = jObj.getString("Phone");
-					data.Photo = jObj.getString("Photo");
-					data.ID = jObj.getString("ID");
-					data.Major = jObj.getString("Major");
-					data.Gender = jObj.getString("Gender");
-					StaticVar.mContactData.add(data);
+					data.BoardIdx = jObj.getInt("IDX");
+					data.WriterIdx = jObj.getInt("UserID");
+					data.Writer = jObj.getString("UserName");
+					data.Title = jObj.getString("Title");
+					data.Contents = jObj.getString("Contents");
+					data.Date = jObj.getString("Date");
+					
+					StaticVar.ArrBoardWholeData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -152,6 +154,6 @@ class BoardData{
 	public String Writer;
 	public String Title;
 	public String Contents;
-	public String UpTime;
+	public String Date;
 }
 

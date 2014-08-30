@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 	<LinearLayout
-		android:id="@+id/f04_item_lay_whole"
+		android:id="@+id/f01_item_lay_whole"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal" >
@@ -20,63 +20,71 @@
 	        <ImageView 
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:src="@drawable/line_up"/>
-			<ImageView
-			    android:id="@+id/f04_item_photo"
-			    android:layout_width="50dp"
-			    android:layout_height="50dp"
+	            android:src="@drawable/line_up_warning"/>
+	        <LinearLayout 
+			    android:layout_width="40dp"
+			    android:layout_height="40dp"
 			    android:clickable="true"
 			    android:layout_marginLeft="10dp"
 			    android:layout_marginRight="10dp"
-			    android:layout_marginTop="1dp"
+			    android:layout_marginTop="2dp"
 			    android:layout_marginBottom="1dp"
-			    android:src="@drawable/ic_app2"
-			    />
-			<ImageView 
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            />
+			    android:background="@drawable/ic_app2"
+			    android:gravity="center"
+	            android:orientation="vertical">
+	            <TextView 
+	                android:id="@+id/f01_item_num"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="00"
+	                android:textColor="#ffffff"
+	                android:textSize="17sp"/>
+	        </LinearLayout>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="wrap_content"
 	        android:layout_height="match_parent"
 	        android:gravity="center_vertical"
 	        android:orientation="vertical">
+		    <TextView 
+		        android:id="@+id/f01_item_title"
+		        android:text=""
+		        android:layout_marginTop="7dp"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textSize="15dp"   
+		        android:textStyle="bold"/>
 		    <LinearLayout 
 		        android:orientation="horizontal"
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="7dp">
-				    <TextView 
-				        android:id="@+id/f04_item_name"
-				        android:text="name"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:textSize="15dp"   
-				        android:textStyle="bold"/>
-				    <TextView 
-				        android:id="@+id/f04_item_name_right"
-				        android:text="이 올린 글"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:textSize="15dp"   />
+		        android:layout_height="wrap_content">
+			    <TextView 
+			        android:id="@+id/f01_item_name"
+			        android:text=""  
+		        	android:textStyle="bold"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="13dp"   />
+			    <TextView 
+			        android:id="@+id/f01_item_date"
+			        android:text=""
+			        android:layout_marginLeft="5dp"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textColor="#444444"
+			        android:textSize="13dp"   />
 		    </LinearLayout>
-		    <TextView 
-		        android:id="@+id/f04_item_time"
-		        android:text="5 분전"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:textSize="13dp"   />
+		    
 	    </LinearLayout>
 	</LinearLayout>
 	<LinearLayout 
-	    android:id="@+id/f04_item_lay_box_up"
+	    android:id="@+id/f01_item_lay_box_up"
 	    android:layout_width="match_parent"
 	    android:layout_height="30dp"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
 	    android:gravity="center_vertical"
-	    android:visibility="visible"
+	    android:visibility="gone"
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_up">
 	    <com.beardedhen.androidbootstrap.FontAwesomeText
@@ -87,7 +95,7 @@
 	        android:textSize="15sp"
 	        fontawesometext:fa_icon="fa-check-circle" />
 	    <TextView 
-	        android:id="@+id/f04_item_txt_title"
+	        android:id="@+id/f01_item_title2"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
@@ -96,11 +104,13 @@
 	        android:textStyle="bold"
 	        android:text="title"/>
 	</LinearLayout>
+	
 	<LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
+	    android:visibility="gone"
 	    android:padding="5dp"
 	    android:orientation="horizontal"
 	    android:background="#ebebeb">
@@ -112,24 +122,26 @@
 	        android:textSize="15sp"
 	        android:text="contents"/>
     </LinearLayout>
+    
 	<LinearLayout 
-	    android:id="@+id/f04_item_lay_box_down"
+	    android:id="@+id/f01_item_lay_box_down"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
+	    android:visibility="gone"
 	    android:padding="5dp"
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_down">
-
 	    <TextView
+	        android:id="@+id/f01_item_comment"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="7dp"
+	        android:padding="3dp"
 	        android:text="댓글"
 	        android:textColor="#444444"
 	        android:textSize="13sp"
 	        android:textStyle="bold" />
-
     </LinearLayout>
 </LinearLayout>

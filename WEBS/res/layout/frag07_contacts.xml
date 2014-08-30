@@ -18,7 +18,7 @@
 		    bootstrapbutton:bb_icon_left="fa-tags"
 		    bootstrapbutton:bb_roundedCorners="true"
 		    bootstrapbutton:bb_size="small"
-		    bootstrapbutton:bb_type="primary" />
+		    bootstrapbutton:bb_type="info" />
 		<com.beardedhen.androidbootstrap.BootstrapButton
 		    android:id="@+id/f07_btn_name_search"
 		    android:layout_width="wrap_content"

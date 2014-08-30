@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
-xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
-xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+	xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+	xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    xmlns:bootstrapthumbnail="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
@@ -18,13 +19,14 @@ xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
 		    android:orientation="horizontal"
 			android:gravity="center"
 		    android:layout_weight="1">
-      		<com.beardedhen.androidbootstrap.BootstrapCircleThumbnail
+      		<com.beardedhen.androidbootstrap.BootstrapThumbnail
 			    android:id="@+id/f01_img_my_photo"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:clickable="true"
-			    bootstrap:bct_image="@drawable/ic_app2"
-			    bootstrap:bct_size="large"/>
+			    bootstrapthumbnail:bt_width="110dp"
+				bootstrapthumbnail:bt_height="110dp"
+				bootstrapthumbnail:bt_image="@drawable/ic_app2"/>
 		</LinearLayout>
 		<LinearLayout 
 		    android:layout_width="1dp"
@@ -84,7 +86,7 @@ xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
             bootstrapbutton:bb_icon_left="fa-info-circle"
             bootstrapbutton:bb_roundedCorners="true"
             bootstrapbutton:bb_size="small"
-            bootstrapbutton:bb_type="primary" />
+            bootstrapbutton:bb_type="info" />
     </LinearLayout>
     
 	<ListView

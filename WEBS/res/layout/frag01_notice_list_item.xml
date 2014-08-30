@@ -20,49 +20,61 @@
 	        <ImageView 
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:src="@drawable/line_up"/>
-			<ImageView
-			    android:id="@+id/f01_item_photo"
-			    android:layout_width="50dp"
-			    android:layout_height="50dp"
+	            android:src="@drawable/line_up_info"/>
+	        <LinearLayout 
+			    android:layout_width="40dp"
+			    android:layout_height="40dp"
 			    android:clickable="true"
 			    android:layout_marginLeft="10dp"
 			    android:layout_marginRight="10dp"
-			    android:layout_marginTop="1dp"
+			    android:layout_marginTop="2dp"
 			    android:layout_marginBottom="1dp"
-			    android:src="@drawable/ic_app2"
-		    	android:scaleType="centerCrop"/>
+			    android:background="@drawable/circle_info"
+			    android:gravity="center"
+	            android:orientation="vertical">
+	            <TextView 
+	                android:id="@+id/f01_item_num"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="00"
+	                android:textColor="#ffffff"
+	                android:textSize="17sp"/>
+	        </LinearLayout>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="wrap_content"
 	        android:layout_height="match_parent"
 	        android:gravity="center_vertical"
 	        android:orientation="vertical">
+		    <TextView 
+		        android:id="@+id/f01_item_title"
+		        android:text=""
+		        android:layout_marginTop="7dp"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textSize="15dp"   
+		        android:textStyle="bold"/>
 		    <LinearLayout 
 		        android:orientation="horizontal"
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="7dp">
-				    <TextView 
-				        android:id="@+id/f01_item_name"
-				        android:text="name"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:textSize="15dp"   
-				        android:textStyle="bold"/>
-				    <TextView 
-				        android:id="@+id/f01_item_name_right"
-				        android:text="이 올린 글"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:textSize="15dp"   />
+		        android:layout_height="wrap_content">
+			    <TextView 
+			        android:id="@+id/f01_item_name"
+			        android:text=""  
+		        	android:textStyle="bold"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="13dp"   />
+			    <TextView 
+			        android:id="@+id/f01_item_date"
+			        android:text=""
+			        android:layout_marginLeft="5dp"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textColor="#444444"
+			        android:textSize="13dp"   />
 		    </LinearLayout>
-		    <TextView 
-		        android:id="@+id/f01_item_time"
-		        android:text="5 분전"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:textSize="13dp"   />
+		    
 	    </LinearLayout>
 	</LinearLayout>
 	<LinearLayout 
@@ -83,7 +95,7 @@
 	        android:textSize="15sp"
 	        fontawesometext:fa_icon="fa-check-circle" />
 	    <TextView 
-	        android:id="@+id/f01_item_txt_title"
+	        android:id="@+id/f01_item_title2"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
@@ -103,7 +115,7 @@
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_down">
 	    <TextView 
-	        android:id="@+id/f01_item_txt_contents"
+	        android:id="@+id/f01_item_contents"
 	        android:layout_marginLeft="7dp"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"

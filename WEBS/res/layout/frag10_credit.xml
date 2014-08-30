@@ -19,7 +19,7 @@
             bootstrapbutton:bb_icon_left="fa-info-circle"
             bootstrapbutton:bb_roundedCorners="true"
             bootstrapbutton:bb_size="small"
-            bootstrapbutton:bb_type="primary" />
+            bootstrapbutton:bb_type="info" />
     </LinearLayout>
 
     <LinearLayout

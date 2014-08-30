@@ -2,4 +2,5 @@
 <resources>
 	<color name="main_theme_bg">#ffffffff</color>
 	<color name="main_theme_bg2">#ffeeeeee</color>
+	<color name="main_font_color">#444444</color>
 </resources>

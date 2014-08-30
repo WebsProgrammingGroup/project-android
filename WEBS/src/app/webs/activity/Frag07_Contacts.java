@@ -46,11 +46,11 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 		Title_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f07_btn_menu_title);
 		Search_et = (BootstrapEditText)ViewLayout.findViewById(R.id.f07_et_name_search);
 		
-		if(StaticVar.mContactData == null){
-			StaticVar.mContactData = new ArrayList<ContactData>();
+		if(StaticVar.ContactWholeData == null){
+			StaticVar.ContactWholeData = new ArrayList<ContactData>();
 		}
 		
-		mContactsListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item, StaticVar.mContactData);
+		mContactsListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item, StaticVar.ContactWholeData);
 		mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 		mDataParser.start();
 		
@@ -83,29 +83,29 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 //		mDataParser.setParamList(paramList);
 //		mDataParser.start();
 		
-		if(StaticVar.mContactData == null){
+		if(StaticVar.ContactWholeData == null){
 			mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 			mDataParser.start();
 		}else{
-			if(StaticVar.mSearchContactData == null){
-				StaticVar.mSearchContactData = new ArrayList<ContactData>();
+			if(StaticVar.ContactData == null){
+				StaticVar.ContactData = new ArrayList<ContactData>();
 			}else{
-				StaticVar.mSearchContactData.clear();
+				StaticVar.ContactData.clear();
 			}
-			//Search in mSearchContactData
-			for(int i = 0 ; i < StaticVar.mContactData.size() ; i++){
-				if(StaticVar.mContactData.get(i).Name.matches("(.*)"+SearchStr+"(.*)")){
-					StaticVar.mSearchContactData.add(StaticVar.mContactData.get(i));
+			//Search in ContactData
+			for(int i = 0 ; i < StaticVar.ContactWholeData.size() ; i++){
+				if(StaticVar.ContactWholeData.get(i).Name.matches("(.*)"+SearchStr+"(.*)")){
+					StaticVar.ContactData.add(StaticVar.ContactWholeData.get(i));
 				}
 			}
 			mContactsSeachListAdapter = new ContactsListAdapter(mCtx, R.layout.frag07_contacts_list_item,
-					StaticVar.mSearchContactData);
+					StaticVar.ContactData);
 			Contacts_lv.setAdapter(mContactsSeachListAdapter);
 			
 		}
 	}
 	public void SearchContacts(){
-		if(StaticVar.mContactData == null){
+		if(StaticVar.ContactWholeData == null){
 			mDataParser = new Frag07_ContactsDataParser(mContactsListAdapter, mCtx);
 			mDataParser.start();
 		}

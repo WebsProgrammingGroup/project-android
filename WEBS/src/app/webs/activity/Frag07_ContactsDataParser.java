@@ -110,7 +110,7 @@ public class Frag07_ContactsDataParser extends Thread{
 			JSONObject json = new JSONObject(targetString);														
 			JSONArray jArr = json.getJSONArray("member");
 			
-			StaticVar.mContactData.clear();
+			StaticVar.ContactWholeData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
 				ContactData data = new ContactData();
@@ -122,7 +122,7 @@ public class Frag07_ContactsDataParser extends Thread{
 					data.ID = jObj.getString("ID");
 					data.Major = jObj.getString("Major");
 					data.Gender = jObj.getString("Gender");
-					StaticVar.mContactData.add(data);
+					StaticVar.ContactWholeData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
