@@ -4,6 +4,7 @@ lib-project/actionbarsherlock/bin/actionbarsherlock.jar
 WEBS/gen/com/webs/app/R.java
 lib-project/AndroidBootstrap/bin/androidbootstrap.jar
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.class
 *.jar
 =======
@@ -36,3 +37,13 @@ WEBS/bin/classes/com/webs/app/R$layout.class
 lib-project/AndroidBootstrap/bin/androidbootstrap.jar
 lib-project/AndroidBootstrap/bin/jarlist.cache
 lib-project/slidingmenu/bin/library.jar
+=======
+*.java
+*.class
+*.jar
+lib-project/actionbarsherlock/bin/actionbarsherlock.jar
+lib-project/slidingmenu/bin/library.jar
+WEBS/bin/jarlist.cache
+WEBS/bin/resources.ap_
+WEBS/bin/WEBS.apk
+>>>>>>> origin/gunbaek
