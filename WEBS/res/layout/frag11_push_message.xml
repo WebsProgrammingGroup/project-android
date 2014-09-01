@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<RelativeLayout
+        style="@style/TitleLayout">
+        
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Push Message - 푸쉬 메세지 보내기"
+            bootstrapbutton:bb_icon_left="fa-bolt"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="info" />
+        
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/f11_btn_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_alignParentRight="true"
+            android:text="등록하기"
+            bootstrapbutton:bb_icon_left="fa-pencil-square"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="warning" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#dddddd"
+        android:orientation="horizontal" />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="2dp"
+        android:text="* 푸쉬 알람 시각"
+        android:textColor="@color/main_font_color"/>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal">
+		<com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/f11_et_date"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="YYYY-MM_DD (Double Click)"
+            android:singleLine="true"
+            bootstrapbutton:be_roundedCorners="true"
+            bootstrapbutton:be_state="warning"
+		/>
+		<com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/f11_et_hour"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:hint="HH"
+            android:inputType="number"
+            android:singleLine="true"
+            bootstrapbutton:be_roundedCorners="true"
+            bootstrapbutton:be_state="warning"
+		/>
+    </LinearLayout>
+    
+    <EditText 
+        android:id="@+id/f11_et_title"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:hint="제 목"/>
+    <EditText 
+        android:id="@+id/f11_et_contents"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="top"
+        android:textSize="16sp"
+        android:hint="내 용"/>
+    
+</LinearLayout>

@@ -25,6 +25,9 @@ public class Frag00_SilidingMenu extends android.support.v4.app.Fragment impleme
 	private LinearLayout LogoutBtn;
 	private LinearLayout AppSettingBtn;
 	private LinearLayout CreditBtn;
+	private LinearLayout PushBtn;
+	private LinearLayout PushBtn_UnderLine1;
+	private LinearLayout PushBtn_UnderLine2;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,6 +46,9 @@ public class Frag00_SilidingMenu extends android.support.v4.app.Fragment impleme
 		LogoutBtn = (LinearLayout)ViewLayout.findViewById(R.id.f00_menu_Logout);
 		AppSettingBtn = (LinearLayout)ViewLayout.findViewById(R.id.f00_menu_AppSetting);
 		CreditBtn = (LinearLayout)ViewLayout.findViewById(R.id.f00_menu_Credit);
+		PushBtn = (LinearLayout)ViewLayout.findViewById(R.id.f00_menu_push);
+		PushBtn_UnderLine1 = (LinearLayout)ViewLayout.findViewById(R.id.f00_menu_push_underline1);
+		PushBtn_UnderLine2 = (LinearLayout)ViewLayout.findViewById(R.id.f00_menu_push_underline2);
 		
 		MyPageBtn.setOnClickListener(this);
 		MyTimeTableBtn.setOnClickListener(this);
@@ -54,6 +60,13 @@ public class Frag00_SilidingMenu extends android.support.v4.app.Fragment impleme
 		LogoutBtn.setOnClickListener(this);
 		AppSettingBtn.setOnClickListener(this);
 		CreditBtn.setOnClickListener(this);
+		PushBtn.setOnClickListener(this);
+		
+		if(Integer.valueOf(StaticVar.mLoginData.Level) >= 4){
+			PushBtn.setVisibility(View.VISIBLE);
+			PushBtn_UnderLine1.setVisibility(View.VISIBLE);
+			PushBtn_UnderLine2.setVisibility(View.VISIBLE);
+		}
 		
 		return ViewLayout;
 	}
@@ -111,6 +124,11 @@ public class Frag00_SilidingMenu extends android.support.v4.app.Fragment impleme
 				CallingActivity.SelectMenu(10);
 				CallingActivity.toggle();
 				Log.i(DEBUG_LOG_MENU,"Credit");
+				break;
+			case R.id.f00_menu_push:
+				CallingActivity.SelectMenu(11);
+				CallingActivity.toggle();
+				Log.i(DEBUG_LOG_MENU,"Push Message");
 				break;
 			default:
 				break;

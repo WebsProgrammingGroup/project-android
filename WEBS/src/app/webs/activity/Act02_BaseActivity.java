@@ -24,6 +24,7 @@ import com.webs.app.R;
 
 public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	public Context mCtx;
+	private static final int DATE_DIALOG_ID = 0;
 	private static boolean mAppCloseFlag = false;
 	
 	private SharedPreferences mPrefs;
@@ -31,12 +32,13 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     public final Fragment f01_MyPage = new Frag01_MyPage();
     public android.support.v4.app.Fragment f02_MyTimeTable = new Frag02_MyTimeTable();
     public android.support.v4.app.Fragment f03_FreeBoard = new Frag03_FreeBoard();
-    public android.support.v4.app.Fragment f04_AnonymityBoard = new Frag04_AnonymityBoard();
+    public android.support.v4.app.Fragment f04_AnonymityBoard = new Frag04_AnonyBoard();
     public android.support.v4.app.Fragment f05_Scedule = new Frag05_Schedule();
     public android.support.v4.app.Fragment f06_StudyGroup = new Frag06_StudyGroup();
     public android.support.v4.app.Fragment f07_Contacts = new Frag07_Contacts();
     public android.support.v4.app.Fragment f09_AppSetting = new Frag09_AppSetting();
     public android.support.v4.app.Fragment f10_Credit = new Frag10_Credit();
+    public android.support.v4.app.Fragment f11_Push = new Frag11_PushMessage();
     public android.support.v4.app.Fragment f99_ComingSoon = new Frag99_ComingSoon();
     
 	public void onCreate(Bundle savedInstanceState) {
@@ -174,6 +176,13 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			ft.commit();
 			StaticVar.FragPointer = f10_Credit;
 			break;
+		case 11:
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f11_Push);
+			ft.commit();
+			StaticVar.FragPointer = f11_Push;
+			break;
 		default:
 			break;
 		}
@@ -210,7 +219,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 		return true;
 		
 	}
-    private boolean isBaseFrag(){
+    boolean isBaseFrag(){
     	FragmentTransaction ft ;
     	if(StaticVar.FragPointer instanceof Frag01_CheckIn){
     		ft = getSupportFragmentManager().beginTransaction();
@@ -232,6 +241,20 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			ft.replace(R.id.a02_frag_frame, f01_MyPage);
 			ft.commit();
 			StaticVar.FragPointer = f01_MyPage;
+    		return false;
+    	}else if(StaticVar.FragPointer instanceof Frag03_WritePost){
+    		ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin4, R.anim.viewout4);
+			ft.replace(R.id.a02_frag_frame, f03_FreeBoard);
+			ft.commit();
+			StaticVar.FragPointer = f03_FreeBoard;
+    		return false;
+    	}else if(StaticVar.FragPointer instanceof Frag04_WritePost){
+    		ft = getSupportFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin4, R.anim.viewout4);
+			ft.replace(R.id.a02_frag_frame, f04_AnonymityBoard);
+			ft.commit();
+			StaticVar.FragPointer = f04_AnonymityBoard;
     		return false;
     	}else{
     		return true;
@@ -262,4 +285,21 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     	}
         super.onStart();
     }
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case DATE_DIALOG_ID:
+			return new DatePickerDialog(mCtx, mDateSetListener, Frag11_PushMessage.mYear,
+					Frag11_PushMessage.mMonth, Frag11_PushMessage.mDay);
+		}
+		return null;
+	}
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+			Frag11_PushMessage.mYear = year;
+			Frag11_PushMessage.mMonth = monthOfYear+1;
+			Frag11_PushMessage.mDay = dayOfMonth;
+			Frag11_PushMessage.Date_et.setText(new StringBuilder().append(year).append("-")
+					.append(monthOfYear + 1).append("-").append(dayOfMonth).append(""));
+		}
+	};
 }

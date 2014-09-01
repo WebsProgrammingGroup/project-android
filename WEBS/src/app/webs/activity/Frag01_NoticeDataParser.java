@@ -16,12 +16,10 @@ import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
 import app.webs.activity.Frag01_MyPage.NoticeAdapter;
-import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
 import app.webs.util.*;
 
 public class Frag01_NoticeDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_notice_list.jsp";
 	
 	private Context mCtx;
 	private ArrayList<NameValuePair> ParamList;
@@ -37,9 +35,6 @@ public class Frag01_NoticeDataParser extends Thread{
 	}
 	
 	//Parameter Setting Function
-	public void setDataRequestUrl(String dataRequestUrl){
-		Url = dataRequestUrl;
-	}
 	public void setParamList(ArrayList<NameValuePair> paramList){
 		ParamList = paramList;
 	}
@@ -50,9 +45,9 @@ public class Frag01_NoticeDataParser extends Thread{
 		
 		InputStream is;
 		if(ParamList == null){
-			is = RequestPost(Url);
+			is = RequestPost(StaticVar.NoticeUrl);
 		}else{
-			is = RequestPost(Url, ParamList);
+			is = RequestPost(StaticVar.NoticeUrl, ParamList);
 		}
 		String RecvString = StreamToString(is);
 		JsonParser(RecvString);
@@ -111,7 +106,7 @@ public class Frag01_NoticeDataParser extends Thread{
 			JSONObject json = new JSONObject(targetString);														
 			JSONArray jArr = json.getJSONArray("noticeList");
 			
-			StaticVar.ArrBoardWholeData.clear();
+			StaticVar.NoticeBoardWholeData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
 				BoardData data = new BoardData();
@@ -123,8 +118,9 @@ public class Frag01_NoticeDataParser extends Thread{
 					data.Title = jObj.getString("Title");
 					data.Contents = jObj.getString("Contents");
 					data.Date = jObj.getString("Date");
+					data.Comment = jObj.getInt("Comment");
 					
-					StaticVar.ArrBoardWholeData.add(data);
+					StaticVar.NoticeBoardWholeData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -144,6 +140,12 @@ public class Frag01_NoticeDataParser extends Thread{
 	Handler UiHandler = new Handler(){
 		public void handleMessage(Message msg) {
 			Adapter.notifyDataSetChanged();	
+			for(int i=0 ; i<5 ; i++){
+				if(StaticVar.NoticeBoardWholeData.size() > StaticVar.NoticeBoardData.size()){
+					StaticVar.NoticeBoardData.add(StaticVar.NoticeBoardWholeData.get(Frag01_MyPage.BoardDataCount++));
+					Adapter.notifyDataSetChanged();
+				}
+			}
 			mLoadingDialog.DialogDismiss();
 		}
 	};
@@ -155,5 +157,6 @@ class BoardData{
 	public String Title;
 	public String Contents;
 	public String Date;
+	public int Comment;
 }
 

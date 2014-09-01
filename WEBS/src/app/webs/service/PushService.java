@@ -20,6 +20,7 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.telephony.*;
 import android.util.*;
+import app.webs.activity.*;
 
 public class PushService extends android.app.Service{
 	private final IBinder mBinder = new LocalBinder();
@@ -44,7 +45,7 @@ public class PushService extends android.app.Service{
 		Vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		NM = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 		UUID = GetDevicesUUID(getApplicationContext());
-		PushServerUrl = "http://wpg.azurewebsites.net/PushPull.jsp?uuid=" + UUID;
+		PushServerUrl = StaticVar.PushMessageUrl + "?uuid=" + UUID;
 		thread = new PushThread();
 		LargeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.noti);
 		LargeIcon_Birth = BitmapFactory.decodeResource(getResources(), R.drawable.noti_birth);
@@ -85,6 +86,8 @@ public class PushService extends android.app.Service{
 		.setLargeIcon(LargeIcon)
 		.setTicker(contents)
 		.setAutoCancel(true)
+		.setDefaults(Notification.DEFAULT_ALL)
+		.setStyle(new NotificationCompat.BigTextStyle().bigText(contents))
 		.build();
 	
 	    NM.notify(11234, Noti);
@@ -98,9 +101,10 @@ public class PushService extends android.app.Service{
 	private class PushThread extends Thread implements Runnable {
 		public void run() {
 			isStart = true;
-			DefaultHttpClient client = new DefaultHttpClient();
+			DefaultHttpClient client = null ;
 			try {
 				while(true){
+					client = new DefaultHttpClient();
 					Log.i("url", PushServerUrl);
 					HttpGet HG = new HttpGet();
 					HG.setURI(new URI(PushServerUrl));
@@ -120,37 +124,46 @@ public class PushService extends android.app.Service{
 						result += line; 
 					}
 					Log.i("res",result);
-					
-					JSONObject json = new JSONObject(result);														
-					JSONArray jArr = json.getJSONArray("PushArr");	
-					int compare = 0;
-					
-					for (int i = 0; i < jArr.length(); i++) {
-						json = jArr.getJSONObject(i);
-
-						int pushId = json.getInt("id");
-						String title = json.getString("title");
-						String contents = json.getString("Contents-str");
-						String img = json.getString("Contents-img");
-						String year = json.getString("year");
-						String month = json.getString("month");
-						String day = json.getString("day");
-						String hour = json.getString("hour");
+					if(!result.equals("null") && !result.equals("")){
+						JSONObject json = new JSONObject(result);														
+						JSONArray jArr = json.getJSONArray("PushArr");	
+						int compare = 0;
 						
-						SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd-hh:mm", Locale.KOREA);
-						Date currentTime = new Date ();
-						Date PushDate = Formatter.parse(year + "-" + month + "-" + day + "-" + hour + ":" + 00);
-						compare = currentTime.compareTo(PushDate);
-
-						if(compare > 0){//지정 시각이 지났을 경우
-							Log.i("compare", "현재:"+currentTime.toString()+"/비교:"+PushDate.toString());
-							CreateNotification(title, contents, img);
-							HttpGet HG2 = new HttpGet();
-							HG2.setURI(new URI("http://wpg.azurewebsites.net/PushConfirm.jsp?uuid="+UUID+"&pushid="+pushId));
-							client.execute(HG2);
-							break;
-						}
-					}						
+						for (int i = 0; i < jArr.length(); i++) {
+							json = jArr.getJSONObject(i);
+	
+							int pushId = json.getInt("id");
+							String title = json.getString("title");
+							String contents = json.getString("Contents-str");
+							String img = json.getString("Contents-img");
+							String year = json.getString("year");
+							String month = json.getString("month");
+							String day = json.getString("day");
+							String hour = json.getString("hour");
+							
+							SimpleDateFormat Formatter = new SimpleDateFormat("yyyy-MM-dd-hh", Locale.KOREA);
+							Date currentTime = new Date ();
+							Date PushDate = Formatter.parse(year + "-" + month + "-" + day + "-" + hour);
+							compare = currentTime.compareTo(PushDate);
+							
+							if(compare > 0){//지정 시각이 지났을 경우
+								Log.i("compare", compare+"현재:"+currentTime.toString()+"/비교:"+PushDate.toString());
+								
+								Date yesterday = new Date ( );
+							    yesterday.setTime ( currentTime.getTime() - ((long) 1000 * 60 * 60 * 24 ) );
+							     
+								compare = yesterday.compareTo(PushDate);
+								if(compare < 0){//하루가 안넘었을 경우에만
+									CreateNotification(title, contents, img);
+								}Log.i("compare2", compare+"어제:"+yesterday.toString()+"/비교:"+PushDate.toString());
+								
+								HttpGet HG2 = new HttpGet();
+								HG2.setURI(new URI(StaticVar.PushConfirmUrl+"?uuid="+UUID+"&pushid="+pushId));
+								client.execute(HG2);
+								break;
+							}
+						}	
+					}
 					Thread.sleep(300000);
 				}
 			} catch (Exception e) {

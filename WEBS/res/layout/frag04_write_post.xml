@@ -1,13 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
-	xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
-	xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<RelativeLayout
+        style="@style/TitleLayout">
+        
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="글쓰기 - 익명게시판"
+            bootstrapbutton:bb_icon_left="fa-info-circle"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="info" />
+        
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/f04_btn_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_alignParentRight="true"
+            android:text="글 올리기"
+            bootstrapbutton:bb_icon_left="fa-pencil-square"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="warning" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#dddddd"
+        android:orientation="horizontal" />
+    <EditText 
+        android:id="@+id/f04_writepost_et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:hint="제 목"/>
+    <EditText 
+        android:id="@+id/f04_writepost_et_contents"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top"
+        android:textSize="16sp"
+        android:hint="내 용"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="5dp"
+        android:background="#dddddd"
+        android:orientation="horizontal" />
+    <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+        	android:layout_marginTop="5dp"
+            android:text="미리보기"
+            bootstrapbutton:bb_icon_left="fa-info-circle"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="info" />
+<LinearLayout
 	android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 	<LinearLayout
-		android:id="@+id/f03_item_lay_whole"
+		android:id="@+id/f04_writepost_lay_whole"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal" >
@@ -22,7 +85,7 @@
 	            android:layout_height="wrap_content"
 	            android:src="@drawable/line_up_warning"/>
 	        <ImageView
-	            android:id="@+id/f03_item_photo"
+	            android:id="@+id/f04_writepost_photo"
 			    android:layout_width="40dp"
 			    android:layout_height="40dp"
 			    android:clickable="true"
@@ -30,9 +93,9 @@
 			    android:layout_marginRight="10dp"
 			    android:layout_marginTop="2dp"
 			    android:layout_marginBottom="1dp"
-			    android:background="@drawable/ic_app2"
-			    android:gravity="center"
+			    android:src="@drawable/ic_app"
 			    android:scaleType="centerCrop"
+			    android:gravity="center"
 	            android:orientation="vertical"/>
 	    </LinearLayout>
 	    <LinearLayout 
@@ -48,8 +111,8 @@
 		        android:paddingTop="10dp">
 		        
 		        <TextView 
-			        android:id="@+id/f03_item_num"
-			        android:text="num"
+			        android:id="@+id/f04_writepost_num"
+			        android:text="No.00"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
                 	android:textColor="#aaaaaa"
@@ -65,8 +128,8 @@
 	                fontawesometext:fa_icon="fa-quote-left" />
 		        
 			    <TextView 
-			        android:id="@+id/f03_item_title"
-			        android:text="title"
+			        android:id="@+id/f04_writepost_title"
+			        android:text="제목"
 			        android:layout_marginLeft="2dp"
 			        android:layout_marginRight="2dp"
 			        android:layout_width="wrap_content"
@@ -88,7 +151,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content">
 			    <TextView 
-			        android:id="@+id/f03_item_name"
+			        android:id="@+id/f04_writepost_name"
 			        android:text="name"  
 		        	android:textStyle="bold"
 			        android:layout_width="wrap_content"
@@ -96,8 +159,8 @@
                 	android:textColor="@color/main_font_color"
 			        android:textSize="13dp"   />
 			    <TextView 
-			        android:id="@+id/f03_item_date"
-			        android:text="date"
+			        android:id="@+id/f04_writepost_date"
+			        android:text="업로드 시간"
 			        android:layout_marginLeft="5dp"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
@@ -108,13 +171,13 @@
 	    </LinearLayout>
 	</LinearLayout>
 	<LinearLayout 
-	    android:id="@+id/f03_item_lay_box_up"
+	    android:id="@+id/f04_writepost_lay_box_up"
 	    android:layout_width="match_parent"
 	    android:layout_height="30dp"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
 	    android:gravity="center_vertical"
-	    android:visibility="gone"
+	    android:visibility="visible"
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_up">
 	    <com.beardedhen.androidbootstrap.FontAwesomeText
@@ -125,56 +188,54 @@
 	        android:textSize="15sp"
 	        fontawesometext:fa_icon="fa-check-circle" />
 	    <TextView 
-	        android:id="@+id/f03_item_title2"
+	        android:id="@+id/f04_writepost_title2"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
 	        android:textSize="15sp"
 	        android:textColor="#ffffff"
 	        android:textStyle="bold"
-	        android:text="title"/>
+	        android:text="제목"/>
 	</LinearLayout>
 	
 	<LinearLayout 
-	    android:id="@+id/f03_item_lay_box_mid"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
-	    android:visibility="gone"
+	    android:visibility="visible"
 	    android:padding="5dp"
 	    android:orientation="horizontal"
 	    android:background="#f5f5f5">
 	    <TextView 
-	        android:id="@+id/f03_item_txt_contents"
+	        android:id="@+id/f04_writepost_contents"
 	        android:layout_marginLeft="7dp"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:textSize="15sp"
-	        android:text="contents"/>
+	        android:text="내용"/>
     </LinearLayout>
     
 	<LinearLayout 
-	    android:id="@+id/f03_item_lay_box_down"
+	    android:id="@+id/f04_writepost_lay_box_down"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
-	    android:visibility="gone"
+	    android:visibility="visible"
 	    android:padding="5dp"
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_down">
 	    <TextView
-	        android:id="@+id/f03_item_comment"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="7dp"
 	        android:padding="3dp"
 	        android:text="댓글"
-	        android:background="@drawable/sel_comment"
-	        android:clickable="true"
 	        android:textColor="#666666"
 	        android:textSize="13sp"
 	        android:textStyle="bold" />
     </LinearLayout>
+</LinearLayout>
+    
 </LinearLayout>

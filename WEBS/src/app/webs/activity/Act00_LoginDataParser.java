@@ -17,14 +17,12 @@ import android.content.*;
 import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
-import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
 
 public class Act00_LoginDataParser extends Thread{
 	private Context mCtx;
 	private Handler LoginHandler;
 	
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_login.jsp";
 	private ArrayList<NameValuePair> ParamList;
 	
 	//Constructors
@@ -39,7 +37,7 @@ public class Act00_LoginDataParser extends Thread{
 	}
 	
 	public void run() {
-		InputStream is = RequestPost(Url, ParamList);
+		InputStream is = RequestPost(StaticVar.LoginUrl, ParamList);
 		String RecvString = StreamToString(is);
 		JsonParser(RecvString);
 		Log.e(DATA_PARSER_DEBUG_TAG, RecvString);

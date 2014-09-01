@@ -20,7 +20,6 @@ import app.webs.util.*;
 
 public class Frag07_ContactsDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_contacts.jsp";
 	
 	private Context mCtx;
 	private ArrayList<NameValuePair> ParamList;
@@ -36,9 +35,6 @@ public class Frag07_ContactsDataParser extends Thread{
 	}
 	
 	//Parameter Setting Function
-	public void setDataRequestUrl(String dataRequestUrl){
-		Url = dataRequestUrl;
-	}
 	public void setParamList(ArrayList<NameValuePair> paramList){
 		ParamList = paramList;
 	}
@@ -49,9 +45,9 @@ public class Frag07_ContactsDataParser extends Thread{
 		
 		InputStream is;
 		if(ParamList == null){
-			is = RequestPost(Url);
+			is = RequestPost(StaticVar.ContactsUrl);
 		}else{
-			is = RequestPost(Url, ParamList);
+			is = RequestPost(StaticVar.ContactsUrl, ParamList);
 		}
 		String RecvString = StreamToString(is);
 		JsonParser(RecvString);

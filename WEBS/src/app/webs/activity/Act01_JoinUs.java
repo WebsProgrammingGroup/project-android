@@ -15,6 +15,7 @@ import android.os.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import app.webs.util.*;
 
 public class Act01_JoinUs extends Activity implements OnClickListener{
 	private Context mCtx;
@@ -64,8 +65,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 		JoinBtn.setOnClickListener(this);
 		
 		mDataParser = new Act01_JoinDataParser(mCtx, UiHandler);
-		
-		
+				
 	}
 
 	@Override

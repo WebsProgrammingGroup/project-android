@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	<LinearLayout
-        style="@style/TitleLayout"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp" >
+	<RelativeLayout
+        style="@style/TitleLayout">
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,11 +16,31 @@
             bootstrapbutton:bb_roundedCorners="true"
             bootstrapbutton:bb_size="small"
             bootstrapbutton:bb_type="info" />
-    </LinearLayout>
+		<com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/f04_btn_wirte_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_alignParentRight="true"
+            android:text="글쓰기"
+            bootstrapbutton:bb_icon_left="fa-pencil-square"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="small"
+            bootstrapbutton:bb_type="warning" />
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:background="#dddddd"
         android:orientation="horizontal" />
+    <ListView
+	    android:id="@+id/f04_lv_anony_board"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/sel_board"
+	    android:onClick="@null"
+	    android:listSelector="@drawable/sel_board"
+	    android:divider="@null"
+	    android:paddingBottom="3dp" />
     
 </LinearLayout>

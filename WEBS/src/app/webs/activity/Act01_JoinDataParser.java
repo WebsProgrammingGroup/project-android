@@ -17,14 +17,12 @@ import android.content.*;
 import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
-import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
 
 public class Act01_JoinDataParser extends Thread{
 	private Context mCtx;
 	private Handler JoinHandler;
 	
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_join.jsp";
 	private ArrayList<NameValuePair> ParamList;
 	
 	//Constructors
@@ -39,7 +37,7 @@ public class Act01_JoinDataParser extends Thread{
 	}
 	
 	public void run() {
-		InputStream is = RequestPost(Url, ParamList);
+		InputStream is = RequestPost(StaticVar.JoinUrl, ParamList);
 		String RecvString = StreamToString(is);
 		
 		if(RecvString == "club"){

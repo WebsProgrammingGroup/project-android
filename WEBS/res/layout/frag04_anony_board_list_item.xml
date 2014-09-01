@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 	<LinearLayout
-		android:id="@+id/f01_item_lay_whole"
+		android:id="@+id/f04_item_lay_whole"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal" >
@@ -21,7 +21,8 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:src="@drawable/line_up_info"/>
-	        <LinearLayout 
+	        <ImageView
+	            android:id="@+id/f04_item_photo"
 			    android:layout_width="40dp"
 			    android:layout_height="40dp"
 			    android:clickable="true"
@@ -29,76 +30,85 @@
 			    android:layout_marginRight="10dp"
 			    android:layout_marginTop="2dp"
 			    android:layout_marginBottom="1dp"
-			    android:background="@drawable/circle_info"
+			    android:background="@drawable/ic_app"
 			    android:gravity="center"
-	            android:orientation="vertical">
-	            <TextView 
-	                android:id="@+id/f01_item_num"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:text="00"
-	                android:textColor="#ffffff"
-	                android:textSize="17sp"/>
-	        </LinearLayout>
+			    android:scaleType="centerCrop"
+	            android:orientation="vertical"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="wrap_content"
 	        android:layout_height="match_parent"
 	        android:gravity="center_vertical"
 	        android:orientation="vertical">
-	        <LinearLayout 
+		    <LinearLayout 
 		        android:orientation="horizontal"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:paddingTop="10dp"
-		        android:gravity="center_vertical">
-	            <com.beardedhen.androidbootstrap.FontAwesomeText
+		        android:gravity="center_vertical"
+		        android:paddingTop="10dp">
+		        
+		        <TextView 
+			        android:id="@+id/f04_item_num"
+			        android:text="num"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+                	android:textColor="#aaaaaa"
+			        android:textSize="15dp"   
+			        android:textStyle="bold"/>
+		        
+		        <com.beardedhen.androidbootstrap.FontAwesomeText
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
+			        android:layout_marginLeft="5dp"
 	                android:textColor="@color/main_font_color"
 	                android:textSize="10sp"
 	                fontawesometext:fa_icon="fa-quote-left" />
+		        
 			    <TextView 
-			        android:id="@+id/f01_item_title"
-			        android:text=""
+			        android:id="@+id/f04_item_title"
+			        android:text="title"
+			        android:layout_marginLeft="2dp"
+			        android:layout_marginRight="2dp"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-	                android:textColor="@color/main_font_color"
+                	android:textColor="@color/main_font_color"
 			        android:textSize="15dp"   
 			        android:textStyle="bold"/>
+			    
 			    <com.beardedhen.androidbootstrap.FontAwesomeText
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:textColor="@color/main_font_color"
 	                android:textSize="10sp"
 	                fontawesometext:fa_icon="fa-quote-right" />
+			    
 		    </LinearLayout>
 		    <LinearLayout 
 		        android:orientation="horizontal"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content">
 			    <TextView 
-			        android:id="@+id/f01_item_name"
-			        android:text=""  
+			        android:id="@+id/f04_item_name"
+			        android:text="name"  
 		        	android:textStyle="bold"
-	                android:textColor="@color/main_font_color"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
+                	android:textColor="@color/main_font_color"
 			        android:textSize="13dp"   />
 			    <TextView 
-			        android:id="@+id/f01_item_date"
-			        android:text=""
-			        android:layout_marginLeft="7dp"
+			        android:id="@+id/f04_item_date"
+			        android:text="date"
+			        android:layout_marginLeft="5dp"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-	                android:textColor="@color/main_font_color"
+                	android:textColor="#aaaaaa"
 			        android:textSize="13dp"   />
 		    </LinearLayout>
 		    
 	    </LinearLayout>
 	</LinearLayout>
 	<LinearLayout 
-	    android:id="@+id/f01_item_lay_box_up"
+	    android:id="@+id/f04_item_lay_box_up"
 	    android:layout_width="match_parent"
 	    android:layout_height="30dp"
 	    android:layout_marginLeft="10dp"
@@ -115,7 +125,7 @@
 	        android:textSize="15sp"
 	        fontawesometext:fa_icon="fa-check-circle" />
 	    <TextView 
-	        android:id="@+id/f01_item_title2"
+	        android:id="@+id/f04_item_title2"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
@@ -124,8 +134,28 @@
 	        android:textStyle="bold"
 	        android:text="title"/>
 	</LinearLayout>
+	
 	<LinearLayout 
-	    android:id="@+id/f01_item_lay_box_down"
+	    android:id="@+id/f04_item_lay_box_mid"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:visibility="gone"
+	    android:padding="5dp"
+	    android:orientation="horizontal"
+	    android:background="#f5f5f5">
+	    <TextView 
+	        android:id="@+id/f04_item_txt_contents"
+	        android:layout_marginLeft="7dp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="15sp"
+	        android:text="contents"/>
+    </LinearLayout>
+    
+	<LinearLayout 
+	    android:id="@+id/f04_item_lay_box_down"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
@@ -134,12 +164,17 @@
 	    android:padding="5dp"
 	    android:orientation="horizontal"
 	    android:background="@drawable/box_down">
-	    <TextView 
-	        android:id="@+id/f01_item_contents"
-	        android:layout_marginLeft="7dp"
+	    <TextView
+	        android:id="@+id/f04_item_comment"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:textSize="15sp"
-	        android:text="title"/>
+	        android:layout_marginLeft="7dp"
+	        android:padding="3dp"
+	        android:text="댓글"
+	        android:background="@drawable/sel_comment"
+	        android:clickable="true"
+	        android:textColor="#666666"
+	        android:textSize="13sp"
+	        android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

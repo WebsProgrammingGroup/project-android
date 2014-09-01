@@ -17,13 +17,13 @@ import app.webs.activity.Frag01_MyPage.*;
 import app.webs.imageloader.*;
 import app.webs.util.*;
 
-public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements OnClickListener, OnScrollListener{
+public class Frag04_AnonyBoard extends android.support.v4.app.Fragment implements OnClickListener, OnScrollListener{
 	private Context mCtx;
 	private LayoutInflater inflater;
 	
-	private ListView FreeBoard_lv;
-	private FreeBoardAdapter mFreeBoardAdapter;
-	private Frag03_FreeBoardDataParser mDataParser;
+	private ListView AnonyBoard_lv;
+	private AnomyBoardAdapter mAnomyBoardAdapter;
+	private Frag04_AnomyBoardDataParser mDataParser;
 	private BootstrapButton WritePost_btn;
 	
 	private int currentFirstVisibleItem;
@@ -32,7 +32,7 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 	private boolean isLoading = false;
 	public static int BoardDataCount = 0;
 	
-	public Frag03_WritePost frag03_WritePost = new Frag03_WritePost();
+	public Frag04_WritePost frag04_WritePost = new Frag04_WritePost();
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,23 +41,23 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 	}
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View ViewLayout = inflater.inflate(R.layout.frag03_free_board, null, false);
-		FreeBoard_lv = (ListView)ViewLayout.findViewById(R.id.f03_lv_free_board);
-		WritePost_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f03_btn_wirte_post);
+		View ViewLayout = inflater.inflate(R.layout.frag04_anonymity_board, null, false);
+		AnonyBoard_lv = (ListView)ViewLayout.findViewById(R.id.f04_lv_anony_board);
+		WritePost_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f04_btn_wirte_post);
 		
 		WritePost_btn.setOnClickListener(this);
 		
-		StaticVar.FreeBoardWholeData = new ArrayList<BoardData>();
-		StaticVar.FreeBoardData = new ArrayList<BoardData>();
+		StaticVar.AnonyBoardWholeData = new ArrayList<BoardData>();
+		StaticVar.AnonyBoardData = new ArrayList<BoardData>();
 		
-		mFreeBoardAdapter = new FreeBoardAdapter(StaticVar.FreeBoardData);
-		mDataParser = new Frag03_FreeBoardDataParser(mFreeBoardAdapter, mCtx);
+		mAnomyBoardAdapter = new AnomyBoardAdapter(StaticVar.AnonyBoardData);
+		mDataParser = new Frag04_AnomyBoardDataParser(mAnomyBoardAdapter, mCtx);
 		mDataParser.start();
 		
-		FreeBoard_lv.setAdapter(mFreeBoardAdapter);
-		FreeBoard_lv.setOnScrollListener(this);
+		AnonyBoard_lv.setAdapter(mAnomyBoardAdapter);
+		AnonyBoard_lv.setOnScrollListener(this);
 		
-		BoardDataCount = StaticVar.FreeBoardData.size();
+		BoardDataCount = StaticVar.AnonyBoardData.size();
 		
 		return ViewLayout;
 	}
@@ -66,12 +66,12 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 	public void onClick(View v) {
 		FragmentTransaction ft;
 		switch (v.getId()) {
-		case R.id.f03_btn_wirte_post:
+		case R.id.f04_btn_wirte_post:
 			ft = getFragmentManager().beginTransaction();
 			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
-			ft.replace(R.id.a02_frag_frame, frag03_WritePost);
+			ft.replace(R.id.a02_frag_frame, frag04_WritePost);
 			ft.commit();
-			StaticVar.FragPointer = frag03_WritePost;
+			StaticVar.FragPointer = frag04_WritePost;
 			break;
 		default:
 			break;
@@ -79,10 +79,10 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 		
 	}
 	
-	class FreeBoardAdapter extends BaseAdapter{
+	class AnomyBoardAdapter extends BaseAdapter{
 		private ArrayList<BoardData> arSrc;
 		
-		public FreeBoardAdapter(ArrayList<BoardData> aarSrc) {
+		public AnomyBoardAdapter(ArrayList<BoardData> aarSrc) {
 			arSrc = aarSrc;
 		}
 		
@@ -107,30 +107,30 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 			BoardData data = arSrc.get(pos);
 			
 			Log.e("view", "d"+pos);
-            View view = inflater.inflate(R.layout.frag03_free_board_list_item, null);
-            final LinearLayout ContentsBox_U = (LinearLayout)view.findViewById(R.id.f03_item_lay_box_up);
-            final LinearLayout ContentsBox_M = (LinearLayout)view.findViewById(R.id.f03_item_lay_box_mid);
-            final LinearLayout ContentsBox_D = (LinearLayout)view.findViewById(R.id.f03_item_lay_box_down);
+            View view = inflater.inflate(R.layout.frag04_anony_board_list_item, null);
+            final LinearLayout ContentsBox_U = (LinearLayout)view.findViewById(R.id.f04_item_lay_box_up);
+            final LinearLayout ContentsBox_M = (LinearLayout)view.findViewById(R.id.f04_item_lay_box_mid);
+            final LinearLayout ContentsBox_D = (LinearLayout)view.findViewById(R.id.f04_item_lay_box_down);
             
-            TextView Name = (TextView)view.findViewById(R.id.f03_item_name);
-            Name.setText(data.Writer);
+            TextView Name = (TextView)view.findViewById(R.id.f04_item_name);
+            Name.setText("누군가");
             
-            TextView Time = (TextView)view.findViewById(R.id.f03_item_date);
+            TextView Time = (TextView)view.findViewById(R.id.f04_item_date);
             Time.setText(data.Date.substring(0, 16));
             
-            TextView Title = (TextView)view.findViewById(R.id.f03_item_title);
+            TextView Title = (TextView)view.findViewById(R.id.f04_item_title);
             Title.setText(data.Title);
             
-            TextView Title2 = (TextView)view.findViewById(R.id.f03_item_title2);
+            TextView Title2 = (TextView)view.findViewById(R.id.f04_item_title2);
             Title2.setText(data.Title);
             
-            TextView Contents = (TextView)view.findViewById(R.id.f03_item_txt_contents);
+            TextView Contents = (TextView)view.findViewById(R.id.f04_item_txt_contents);
             Contents.setText(data.Contents);
             
-            TextView BoardNumber = (TextView)view.findViewById(R.id.f03_item_num);
+            TextView BoardNumber = (TextView)view.findViewById(R.id.f04_item_num);
             BoardNumber.setText("No."+data.BoardIdx);
             
-            LinearLayout Whole = (LinearLayout)view.findViewById(R.id.f03_item_lay_whole);
+            LinearLayout Whole = (LinearLayout)view.findViewById(R.id.f04_item_lay_whole);
             OnClickListener mOnClick = new OnClickListener() {
 				boolean show = false;
 				
@@ -150,13 +150,8 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 				}
 			};
 			
-			TextView Comments = (TextView)view.findViewById(R.id.f03_item_comment);
+			TextView Comments = (TextView)view.findViewById(R.id.f04_item_comment);
 			Comments.setText("댓글 "+data.Comment+"개");
-			
-
-			ImageView Photo_iv = (ImageView)view.findViewById(R.id.f03_item_photo);
-			ImageLoader mImageLoader = new ImageLoader(mCtx);
-			mImageLoader.DisplayImage(StaticVar.ImageBaseUrl+data.WriterIdx+".jpg", Photo_iv);
 			
             Whole.setOnClickListener(mOnClick);
             
@@ -183,10 +178,10 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 	
 	private void LoadMoreBoard(){
 		for(int i=0 ; i<10 ; i++){
-			Log.i("LoadMore", "Whole:"+StaticVar.FreeBoardWholeData.size()+"&Data:"+StaticVar.FreeBoardData.size());
-			if(StaticVar.FreeBoardWholeData.size() > StaticVar.FreeBoardData.size()){
-				StaticVar.FreeBoardData.add(StaticVar.FreeBoardWholeData.get(BoardDataCount++));
-				mFreeBoardAdapter.notifyDataSetChanged();
+			Log.i("LoadMore", "Whole:"+StaticVar.AnonyBoardWholeData.size()+"&Data:"+StaticVar.AnonyBoardData.size());
+			if(StaticVar.AnonyBoardWholeData.size() > StaticVar.AnonyBoardData.size()){
+				StaticVar.AnonyBoardData.add(StaticVar.AnonyBoardWholeData.get(BoardDataCount++));
+				mAnomyBoardAdapter.notifyDataSetChanged();
 			}
 		}
 	}

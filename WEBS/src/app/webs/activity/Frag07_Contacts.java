@@ -163,12 +163,8 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 			});
 			
 			ImageLoader mLoader = new ImageLoader(mCtx);
-			final String PhotoUrl = arSrc.get(pos).Photo;
-			if(PhotoUrl.equals("null") ){
-				Photo.setImageResource(R.drawable.ic_app);
-			}else{
-				mLoader.DisplayImage("http://wpg.azurewebsites.net/upload/test.jpg", Photo);
-			}
+			final String PhotoUrl = arSrc.get(pos).ID;
+			mLoader.DisplayImage(StaticVar.ImageBaseUrl+PhotoUrl+".jpg", Photo);
 			
 			return view;
 		}		
