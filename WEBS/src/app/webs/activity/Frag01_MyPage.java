@@ -46,7 +46,7 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 	private URL connectUrl = null;
 	private String lineEnd = "\r\n";
 	private String twoHyphens = "--", boundary = "*****";
-	private String imgurl = "http://wpg.azurewebsites.net/upload/"+StaticVar.ID+".jpg";
+	private String imgurl = "http://wpg.azurewebsites.net/upload/"+StaticVar.mLoginData.ID+".jpg";
 	Bitmap bmImg;
 	back task;
 	
@@ -321,6 +321,7 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 			File filedelete = new File("/sdcard/upload.jpg");
 			filedelete.delete();
 
+			Log.e("Test", "work over");
 		} catch (Exception e) {
 			e.printStackTrace();
 			Log.d("Test", "exception " + e.getMessage());
@@ -381,7 +382,7 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 
 			TextView BoardNumber = (TextView) view
 					.findViewById(R.id.f01_item_num);
-			BoardNumber.setText(String.valueOf(pos + 1));
+			BoardNumber.setText(String.valueOf(data.BoardIdx));
 
 			LinearLayout Whole = (LinearLayout) view
 					.findViewById(R.id.f01_item_lay_whole);

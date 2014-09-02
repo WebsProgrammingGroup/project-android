@@ -23,6 +23,7 @@ import android.util.*;
 import app.webs.activity.*;
 
 public class PushService extends android.app.Service{
+	private static SharedPreferences mPrefs;
 	private final IBinder mBinder = new LocalBinder();
 	private NotificationManager NM = null;
 	private Vibrator Vib;
@@ -40,8 +41,28 @@ public class PushService extends android.app.Service{
 			return PushService.this;
 		}
 	}
+	private void clearApplicationCache(java.io.File dir){
+        if(dir==null)
+            dir = getCacheDir();
+        else;
+        if(dir==null)
+            return;
+        else;
+        java.io.File[] children = dir.listFiles();
+        try{
+            for(int i=0;i<children.length;i++)
+                if(children[i].isDirectory())
+                    clearApplicationCache(children[i]);
+                else children[i].delete();
+        }
+        catch(Exception e){}
+    }
+	
 	public void onCreate(){
 		Log.i("ConnectService", "onCreate");
+		mPrefs = getSharedPreferences("AppSetting", android.content.Context.MODE_PRIVATE);
+    	StaticVar.isPushAlarm = mPrefs.getBoolean("PushAlarm", true);
+    	
 		Vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		NM = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 		UUID = GetDevicesUUID(getApplicationContext());
@@ -79,18 +100,20 @@ public class PushService extends android.app.Service{
 	    am.cancel(sender);
 	}
 	public void CreateNotification(String title, String contents, String img){
-		Noti = new NotificationCompat.Builder(getApplicationContext())
-		.setContentTitle(title)
-		.setContentText(contents)
-		.setSmallIcon(R.drawable.noti_large)
-		.setLargeIcon(LargeIcon)
-		.setTicker(contents)
-		.setAutoCancel(true)
-		.setDefaults(Notification.DEFAULT_ALL)
-		.setStyle(new NotificationCompat.BigTextStyle().bigText(contents))
-		.build();
-	
-	    NM.notify(11234, Noti);
+		if(StaticVar.isPushAlarm){
+			Noti = new NotificationCompat.Builder(getApplicationContext())
+			.setContentTitle(title)
+			.setContentText(contents)
+			.setSmallIcon(R.drawable.noti_large)
+			.setLargeIcon(LargeIcon)
+			.setTicker(contents)
+			.setAutoCancel(true)
+			.setDefaults(Notification.DEFAULT_ALL)
+			.setStyle(new NotificationCompat.BigTextStyle().bigText(contents))
+			.build();
+		
+		    NM.notify(11234, Noti);
+		}
 	}
 	public int onStartCommand(Intent intent, int flags, int startId){
 		if(!isStart){
@@ -104,6 +127,7 @@ public class PushService extends android.app.Service{
 			DefaultHttpClient client = null ;
 			try {
 				while(true){
+					clearApplicationCache(null);
 					client = new DefaultHttpClient();
 					Log.i("url", PushServerUrl);
 					HttpGet HG = new HttpGet();

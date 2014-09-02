@@ -12,6 +12,7 @@ import com.webs.app.*;
 import android.os.*;
 import android.app.*;
 import android.content.*;
+import android.util.*;
 import android.view.*;
 import android.view.View.*;
 import android.widget.*;
@@ -117,6 +118,7 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 			alert.setPositiveButton("확인", null);
 			alert.show();
 		}else{
+			Log.i("dial","show");
 			mLoadingDialog = new LoadingDialog(this);
 			mLoadingDialog.DialogShow();
 			
@@ -162,7 +164,8 @@ public class Act00_Login extends Activity implements OnClickListener, OnKeyListe
 	
 	@Override
 	public boolean onKey(View v, int keyCode, KeyEvent e) {
-		if(v.getId() == R.id.a00_te_pw && keyCode == KeyEvent.KEYCODE_ENTER){
+		Log.i("onKey",e.toString());
+		if(v.getId() == R.id.a00_te_pw && keyCode == KeyEvent.KEYCODE_ENTER && e.getAction() == KeyEvent.ACTION_UP){
 			Login();
 		}
 		return false;

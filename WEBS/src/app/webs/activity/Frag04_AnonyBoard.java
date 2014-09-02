@@ -104,7 +104,7 @@ public class Frag04_AnonyBoard extends android.support.v4.app.Fragment implement
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			final int pos = position;
-			BoardData data = arSrc.get(pos);
+			final BoardData data = arSrc.get(pos);
 			
 			Log.e("view", "d"+pos);
             View view = inflater.inflate(R.layout.frag04_anony_board_list_item, null);
@@ -152,6 +152,16 @@ public class Frag04_AnonyBoard extends android.support.v4.app.Fragment implement
 			
 			TextView Comments = (TextView)view.findViewById(R.id.f04_item_comment);
 			Comments.setText("댓글 "+data.Comment+"개");
+			
+			Comments.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(mCtx, Act03_ShowComment.class);
+					intent.putExtra("PostID", data.BoardIdx);
+					intent.putExtra("Type", 3);
+					startActivity(intent);
+				}
+			});
 			
             Whole.setOnClickListener(mOnClick);
             

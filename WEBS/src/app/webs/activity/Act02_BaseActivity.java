@@ -39,6 +39,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     public android.support.v4.app.Fragment f09_AppSetting = new Frag09_AppSetting();
     public android.support.v4.app.Fragment f10_Credit = new Frag10_Credit();
     public android.support.v4.app.Fragment f11_Push = new Frag11_PushMessage();
+    public android.support.v4.app.Fragment f12_WriteNotice = new Frag12_WriteNotice();
     public android.support.v4.app.Fragment f99_ComingSoon = new Frag99_ComingSoon();
     
 	public void onCreate(Bundle savedInstanceState) {
@@ -182,6 +183,13 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			ft.replace(R.id.a02_frag_frame, f11_Push);
 			ft.commit();
 			StaticVar.FragPointer = f11_Push;
+			break;
+		case 12:
+			ft = getSupportFragmentManager().beginTransaction();
+//			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f12_WriteNotice);
+			ft.commit();
+			StaticVar.FragPointer = f12_WriteNotice;
 			break;
 		default:
 			break;

@@ -2,22 +2,21 @@ package app.webs.activity;
 
 import java.util.*;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
-import com.webs.app.*;
-
 import android.content.*;
 import android.os.*;
 import android.support.v4.app.*;
 import android.util.*;
 import android.view.*;
-import android.view.View.*;
+import android.view.View.OnClickListener;
 import android.widget.*;
-import android.widget.AbsListView.*;
-import app.webs.activity.Frag01_MyPage.*;
+import android.widget.AbsListView.OnScrollListener;
 import app.webs.imageloader.*;
-import app.webs.util.*;
 
-public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements OnClickListener, OnScrollListener{
+import com.beardedhen.androidbootstrap.*;
+import com.webs.app.R;
+
+public class Frag03_FreeBoard extends android.support.v4.app.Fragment
+		implements OnClickListener, OnScrollListener{
 	private Context mCtx;
 	private LayoutInflater inflater;
 	
@@ -104,7 +103,7 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			final int pos = position;
-			BoardData data = arSrc.get(pos);
+			final BoardData data = arSrc.get(pos);
 			
 			Log.e("view", "d"+pos);
             View view = inflater.inflate(R.layout.frag03_free_board_list_item, null);
@@ -153,6 +152,15 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment implements
 			TextView Comments = (TextView)view.findViewById(R.id.f03_item_comment);
 			Comments.setText("댓글 "+data.Comment+"개");
 			
+			Comments.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(mCtx, Act03_ShowComment.class);
+					intent.putExtra("PostID", data.BoardIdx);
+					intent.putExtra("Type", 2);
+					startActivity(intent);
+				}
+			});
 
 			ImageView Photo_iv = (ImageView)view.findViewById(R.id.f03_item_photo);
 			ImageLoader mImageLoader = new ImageLoader(mCtx);

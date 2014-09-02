@@ -56,8 +56,23 @@
         android:hint="Phone Number"
         android:gravity="center"
         android:singleLine="true"
-        android:inputType="number|phone"
+        android:inputType="phone"
         bootstrapbutton:be_state="warning" />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/a01_et_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Birth Day(Double Click Here)"
+        android:singleLine="true"
+        fontawesometext:be_state="warning" >
+
+        <requestFocus />
+    </com.beardedhen.androidbootstrap.BootstrapEditText>
     
     <com.beardedhen.androidbootstrap.BootstrapEditText
         android:id="@+id/a01_et_major"
@@ -68,17 +83,6 @@
         android:gravity="center"
         android:singleLine="true"
         android:inputType="text"
-        bootstrapbutton:be_state="warning" />
-
-    <com.beardedhen.androidbootstrap.BootstrapEditText
-        android:id="@+id/a01_et_birthday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:singleLine="true"
-        android:editable="false"
-        android:hint="Birth Day(Plz Click Here)"
         bootstrapbutton:be_state="warning" />
 	
 	<LinearLayout 
