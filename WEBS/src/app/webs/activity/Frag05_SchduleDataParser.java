@@ -18,7 +18,6 @@ import app.webs.activity.Frag05_Schedule.DayScheduleAdapter;
 
 public class Frag05_SchduleDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_schedule.jsp";
 	private ArrayList<NameValuePair> ParamList;
 	private ArrayList<DaySchedule> ArrList;
 	private DayScheduleAdapter Adapter;
@@ -32,15 +31,12 @@ public class Frag05_SchduleDataParser extends Thread{
 	}
 	
 	//Parameter Setting Function
-	public void setDataRequestUrl(String dataRequestUrl){
-		Url = dataRequestUrl;
-	}
 	public void setParamList(ArrayList<NameValuePair> paramList){
 		ParamList = paramList;
 	}
 	
 	public void run() {
-		InputStream is = RequestPost(Url, ParamList);
+		InputStream is = RequestPost(StaticVar.ScheduleUrl, ParamList);
 		String RecvString = StreamToString(is);
 		JsonParser(RecvString);
 		Log.e(DATA_PARSER_DEBUG_TAG, RecvString);

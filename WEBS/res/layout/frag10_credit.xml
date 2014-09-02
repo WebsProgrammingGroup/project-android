@@ -15,11 +15,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:text="Who made this application?"
+            android:text="Who made this application? - 만든 이"
             bootstrapbutton:bb_icon_left="fa-info-circle"
             bootstrapbutton:bb_roundedCorners="true"
             bootstrapbutton:bb_size="small"
-            bootstrapbutton:bb_type="primary" />
+            bootstrapbutton:bb_type="info" />
     </LinearLayout>
 
     <LinearLayout
@@ -112,8 +112,29 @@
             <TextView
                 style="@style/f10_team_text"
                 android:text="손진호" />
+            
+       
         </LinearLayout>
-
+		<LinearLayout 
+		    android:id="@+id/f10_lay_hidden"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:visibility="gone"
+		    android:orientation="vertical">
+		    <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                fontawesometext:fa_icon="fa-plus-circle" />
+            
+            <TextView
+                style="@style/f10_team_text"
+                android:gravity="center"
+                android:text="남건백\n&amp;\nWPG" />
+		</LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -192,5 +213,6 @@
                 style="@style/f10_team_text"
                 android:text="김태영" />
         </LinearLayout>
+        
     </LinearLayout>
 </LinearLayout>

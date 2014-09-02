@@ -48,26 +48,29 @@
                     android:layout_height="1dp"
                     android:layout_gravity="center"
                     android:background="#dddddd" />
+
 				<LinearLayout
-                    android:id="@+id/f00_menu_MyPage"
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:clickable="true"
-                    android:background="@drawable/sel_layout1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+				    android:id="@+id/f00_menu_my_page"
+				    android:layout_width="match_parent"
+				    android:layout_height="38dp"
+				    android:background="@drawable/sel_layout1"
+				    android:clickable="true"
+				    android:gravity="center_vertical"
+				    android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-github-square"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
+                        android:textColor="@color/main_font_color"
 					    android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="My Page"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -84,25 +87,27 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_MyTimetable"
+                    android:id="@+id/f00_menu_my_timetable"
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"                    
+                    android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-table"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
+                        android:textColor="@color/main_font_color"
 					    android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="My TimeTable"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -132,28 +137,28 @@
                          />
                 </LinearLayout>
 
-
-                
                 <LinearLayout
-                    android:id="@+id/f00_menu_FreeBoard"
+                    android:id="@+id/f00_menu_freeboard"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
-                    android:background="@drawable/sel_layout1"                    
+                    android:background="@drawable/sel_layout1"
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-list-alt"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
+                        android:textColor="@color/main_font_color"
 					    android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Free Board"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>                
@@ -171,17 +176,19 @@
                     android:background="#dddddd" />                
                 
                 <LinearLayout
-                    android:id="@+id/f00_menu_AnonymityBoard"
+                    android:id="@+id/f00_menu_anonyboard"
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"                    
+                    android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-list"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -189,7 +196,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Anonymity Board"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -207,17 +214,19 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_Gallery"
+                    android:id="@+id/f00_menu_gallery"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
-                    android:clickable="true"
                     android:background="@drawable/sel_layout1"
+                    android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-calendar"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -225,7 +234,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Schedule"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -239,18 +248,21 @@
                     android:layout_height="1dp"
                     android:layout_gravity="center"
                     android:background="#dddddd" />
+
                 <LinearLayout
-                    android:id="@+id/f00_menu_StudyGroup"
+                    android:id="@+id/f00_menu_studygroup"
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"                    
+                    android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-group"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -258,7 +270,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Study Group"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -295,18 +307,19 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_Contacts"
+                    android:id="@+id/f00_menu_contacts"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
-                    
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-tags"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -314,7 +327,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Contacts"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -332,18 +345,19 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_Logout"
+                    android:id="@+id/f00_menu_logout"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
-                    
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-undo"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -351,7 +365,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Log-out"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -397,18 +411,19 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_AppSetting"
+                    android:id="@+id/f00_menu_appsetting"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
-                    
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
+
 					<com.beardedhen.androidbootstrap.FontAwesomeText
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-cog"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -416,7 +431,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="App Setting"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
@@ -434,11 +449,10 @@
                     android:background="#dddddd" />
 
                 <LinearLayout
-                    android:id="@+id/f00_menu_Credit"
+                    android:id="@+id/f00_menu_credit"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:background="@drawable/sel_layout1"
-                    
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
@@ -446,6 +460,7 @@
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    fontawesometext:fa_icon="fa-info-circle"
+                        android:textColor="@color/main_font_color"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="3dp"
 					    android:textSize="18sp"/>
@@ -453,11 +468,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Credit"
-                        android:textColor="#222222"
+                        android:textColor="@color/main_font_color"
                         android:textSize="16dp"
                          />
                 </LinearLayout>
-
+			
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -469,11 +484,95 @@
                     android:layout_height="1dp"
                     android:layout_gravity="center"
                     android:background="#dddddd" />
+                
+                <LinearLayout
+                    android:id="@+id/f00_menu_admin"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:clickable="true"
+                    android:visibility="gone"
+                    android:orientation="horizontal" >
+                    <LinearLayout 
+                    	android:id="@+id/f00_menu_push"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                    	android:background="@drawable/sel_layout1"
+                        android:gravity="center_vertical">
+                        
+                        <com.beardedhen.androidbootstrap.FontAwesomeText
+						    android:layout_width="wrap_content"
+						    android:layout_height="wrap_content"
+						    fontawesometext:fa_icon="fa-bolt"
+	                        android:textColor="@color/main_font_color"
+	                        android:layout_marginLeft="15dp"
+	                        android:layout_marginRight="3dp"
+						    android:textSize="18sp"/>
+	                    <TextView
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:text="Push Message"
+	                        android:textColor="@color/main_font_color"
+	                        android:textSize="16dp"
+	                         />
+                    </LinearLayout>
+                   <LinearLayout 
+                    	android:id="@+id/f00_menu_write_notice"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                    	android:background="@drawable/sel_layout1"
+                        android:gravity="center_vertical">
+                        
+                        <com.beardedhen.androidbootstrap.FontAwesomeText
+						    android:layout_width="wrap_content"
+						    android:layout_height="wrap_content"
+						    fontawesometext:fa_icon="fa-bullhorn"
+	                        android:textColor="@color/main_font_color"
+	                        android:layout_marginLeft="15dp"
+	                        android:layout_marginRight="3dp"
+						    android:textSize="18sp"/>
+	                    <TextView
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:text="Write Notice"
+	                        android:textColor="@color/main_font_color"
+	                        android:textSize="16dp"
+	                         />
+                    </LinearLayout>
+                </LinearLayout>
+				<LinearLayout
+				    android:id="@+id/f00_menu_push_underline1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:background="#aaaaaa" />
+
+                <LinearLayout
+				    android:id="@+id/f00_menu_push_underline2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:background="#dddddd" />
             </LinearLayout>
         </ScrollView>
-
+        
+		<com.beardedhen.androidbootstrap.BootstrapButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Since_2000_WEBS"
+			bootstrapbutton:bb_size="xsmall"
+			bootstrapbutton:bb_icon_right="fa-user"
+			bootstrapbutton:bb_type="primary" 
+			android:layout_above="@+id/f00_wpg"
+			android:layout_centerHorizontal="true"
+			/>
         <com.beardedhen.androidbootstrap.BootstrapButton
-			android:id="@+id/a01_btn_join"
+            android:id="@+id/f00_wpg"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Since_2014_Webs_Programming_Group"

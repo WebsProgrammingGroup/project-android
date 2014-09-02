@@ -997,6 +997,7 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f050037;
         public static final int abs__bright_foreground_holo_dark=0x7f050034;
         public static final int abs__bright_foreground_holo_light=0x7f050035;
+<<<<<<< HEAD
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int abs__primary_text_disable_only_holo_dark=0x7f050038;
         public static final int abs__primary_text_disable_only_holo_light=0x7f050039;
@@ -1008,6 +1009,12 @@ containing a value of this type.
         public static final int abs__primary_text_holo_dark=0x7f05003c;
         public static final int abs__primary_text_holo_light=0x7f05003d;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f05003c;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f05003d;
+        public static final int abs__primary_text_holo_dark=0x7f05003e;
+        public static final int abs__primary_text_holo_light=0x7f05003f;
+>>>>>>> origin/gunbaek
         public static final int bbutton_danger=0x7f05000a;
         public static final int bbutton_danger_disabled=0x7f05000e;
         public static final int bbutton_danger_disabled_edge=0x7f05000f;
@@ -1057,8 +1064,13 @@ containing a value of this type.
         public static final int bthumbnail_border=0x7f050030;
         public static final int bthumbnail_font=0x7f050031;
         public static final int bthumbnail_placeholder=0x7f05002f;
+<<<<<<< HEAD
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
 =======
+=======
+        public static final int comment_color=0x7f05003b;
+        public static final int main_font_color=0x7f05003a;
+>>>>>>> origin/gunbaek
         public static final int main_theme_bg=0x7f050038;
         public static final int main_theme_bg2=0x7f050039;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
@@ -1337,6 +1349,7 @@ containing a value of this type.
 =======
         public static final int bg_striped=0x7f02007e;
         public static final int bg_striped_img=0x7f02007f;
+<<<<<<< HEAD
         public static final int bthumbnail_container_rounded=0x7f020080;
         public static final int bthumbnail_container_square=0x7f020081;
         public static final int bthumbnail_placeholder_default=0x7f020082;
@@ -1375,6 +1388,55 @@ containing a value of this type.
         public static final int thumbnail_circle_container=0x7f0200a3;
         public static final int thumbnail_circle_minimal=0x7f0200a4;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int box_down=0x7f020080;
+        public static final int box_up=0x7f020081;
+        public static final int bthumbnail_container_rounded=0x7f020082;
+        public static final int bthumbnail_container_square=0x7f020083;
+        public static final int bthumbnail_placeholder_default=0x7f020084;
+        public static final int circle_info=0x7f020085;
+        public static final int circle_warning=0x7f020086;
+        public static final int coming_soon=0x7f020087;
+        public static final int comment=0x7f020088;
+        public static final int dot_blue=0x7f020089;
+        public static final int dot_orange=0x7f02008a;
+        public static final int edittext_background=0x7f02008b;
+        public static final int edittext_background_danger=0x7f02008c;
+        public static final int edittext_background_rounded=0x7f02008d;
+        public static final int edittext_background_rounded_danger=0x7f02008e;
+        public static final int edittext_background_rounded_success=0x7f02008f;
+        public static final int edittext_background_rounded_warning=0x7f020090;
+        public static final int edittext_background_success=0x7f020091;
+        public static final int edittext_background_warning=0x7f020092;
+        public static final int ic_app=0x7f020093;
+        public static final int ic_app2=0x7f020094;
+        public static final int ic_launcher=0x7f020095;
+        public static final int line_up_info=0x7f020096;
+        public static final int line_up_warning=0x7f020097;
+        public static final int noti=0x7f020098;
+        public static final int noti_birth=0x7f020099;
+        public static final int noti_large=0x7f02009a;
+        public static final int numpad0=0x7f02009b;
+        public static final int numpad1=0x7f02009c;
+        public static final int numpad2=0x7f02009d;
+        public static final int numpad3=0x7f02009e;
+        public static final int numpad4=0x7f02009f;
+        public static final int numpad5=0x7f0200a0;
+        public static final int numpad6=0x7f0200a1;
+        public static final int numpad7=0x7f0200a2;
+        public static final int numpad8=0x7f0200a3;
+        public static final int numpad9=0x7f0200a4;
+        public static final int numpadb=0x7f0200a5;
+        public static final int round_bg=0x7f0200a6;
+        public static final int sel_board=0x7f0200a7;
+        public static final int sel_comment=0x7f0200a8;
+        public static final int sel_layout1=0x7f0200a9;
+        public static final int shadow=0x7f0200aa;
+        public static final int sildingmenu_title_bg=0x7f0200ab;
+        public static final int thumbnail_circle=0x7f0200ac;
+        public static final int thumbnail_circle_container=0x7f0200ad;
+        public static final int thumbnail_circle_minimal=0x7f0200ae;
+>>>>>>> origin/gunbaek
     }
     public static final class id {
         public static final int a00_btn_join=0x7f09003a;
@@ -1413,11 +1475,11 @@ containing a value of this type.
         public static final int a00_te_pw=0x7f090038;
         public static final int a00_txt_title=0x7f09003b;
         public static final int a01_btn_join=0x7f09005a;
-        public static final int a01_et_birthday=0x7f090052;
+        public static final int a01_et_birthday=0x7f090051;
         public static final int a01_et_club_pw=0x7f090059;
         public static final int a01_et_hp=0x7f090050;
         public static final int a01_et_id=0x7f09004b;
-        public static final int a01_et_major=0x7f090051;
+        public static final int a01_et_major=0x7f090052;
         public static final int a01_et_name=0x7f09004d;
         public static final int a01_et_pw=0x7f09004f;
         public static final int a01_ra_gender=0x7f090053;
@@ -1429,7 +1491,17 @@ containing a value of this type.
         public static final int a01_te_id=0x7f09004e;
         public static final int a01_te_pw=0x7f09004c;
         public static final int a02_frag_frame=0x7f09005b;
+<<<<<<< HEAD
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int a03_btn_send=0x7f09005e;
+        public static final int a03_et_comment=0x7f09005d;
+        public static final int a03_item_comment=0x7f090061;
+        public static final int a03_item_date=0x7f090062;
+        public static final int a03_item_name=0x7f090060;
+        public static final int a03_item_photo=0x7f09005f;
+        public static final int a03_lv_comment=0x7f09005c;
+>>>>>>> origin/gunbaek
         public static final int abs__action_bar=0x7f090025;
         public static final int abs__action_bar_container=0x7f090024;
         public static final int abs__action_bar_subtitle=0x7f090016;
@@ -1469,6 +1541,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f090018;
         public static final int abs__title=0x7f090020;
         public static final int abs__up=0x7f09000b;
+<<<<<<< HEAD
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int action_settings=0x7f090055;
         public static final int container=0x7f09004b;
@@ -1495,76 +1568,175 @@ containing a value of this type.
         public static final int btnsave=0x7f090087;
         public static final int container=0x7f090061;
         public static final int dimensionsLabel=0x7f090063;
+=======
+        public static final int action_settings=0x7f090112;
+        public static final int btnadd=0x7f0900d4;
+        public static final int btncancel=0x7f0900d7;
+        public static final int btndel=0x7f0900d6;
+        public static final int btnsave=0x7f0900d5;
+        public static final int container=0x7f090068;
+        public static final int dimensionsLabel=0x7f09006a;
+>>>>>>> origin/gunbaek
         public static final int disableHome=0x7f090009;
         public static final int edit_query=0x7f09002b;
-        public static final int editdate=0x7f090083;
-        public static final int editmemo=0x7f090085;
-        public static final int edittime=0x7f090084;
-        public static final int edittitle=0x7f090082;
-        public static final int f00_menu_AnonymityBoard=0x7f090069;
-        public static final int f00_menu_AppSetting=0x7f09006e;
-        public static final int f00_menu_Contacts=0x7f09006c;
-        public static final int f00_menu_Credit=0x7f09006f;
-        public static final int f00_menu_FreeBoard=0x7f090068;
-        public static final int f00_menu_Gallery=0x7f09006a;
-        public static final int f00_menu_Logout=0x7f09006d;
-        public static final int f00_menu_MyPage=0x7f090066;
-        public static final int f00_menu_MyTimetable=0x7f090067;
-        public static final int f00_menu_StudyGroup=0x7f09006b;
-        public static final int f00_silidingmenu_dummy_frame=0x7f090070;
-        public static final int f01_btn_checkin=0x7f090072;
-        public static final int f01_btn_my_info=0x7f090074;
-        public static final int f01_btn_my_study_group=0x7f090073;
-        public static final int f01_img_my_photo=0x7f090071;
-        public static final int f05_btn_add_event=0x7f09007b;
-        public static final int f05_btn_schedule_date=0x7f09007a;
-        public static final int f05_btn_search=0x7f090077;
-        public static final int f05_calendar=0x7f090078;
-        public static final int f05_et_month=0x7f090076;
-        public static final int f05_et_year=0x7f090075;
-        public static final int f05_lay_calendar_item=0x7f09007d;
-        public static final int f05_lay_schedule_date=0x7f090079;
-        public static final int f05_lv_schedule_date=0x7f09007c;
-        public static final int f05_schdule_day_item_contents=0x7f090081;
-        public static final int f05_schdule_day_item_icon=0x7f09007f;
-        public static final int f05_schdule_day_item_title=0x7f090080;
-        public static final int f05_txt_calendar_item=0x7f09007e;
-        public static final int f07_btn_menu_title=0x7f09008a;
-        public static final int f07_btn_name_search=0x7f09008b;
-        public static final int f07_et_name_search=0x7f09008c;
-        public static final int f07_item_gender=0x7f090092;
-        public static final int f07_item_id=0x7f090090;
-        public static final int f07_item_major=0x7f090091;
-        public static final int f07_item_name=0x7f09008f;
-        public static final int f07_item_photo=0x7f09008e;
-        public static final int f07_item_tel=0x7f090093;
-        public static final int f07_lv_contacts=0x7f09008d;
-        public static final int f09_chk_app_pw=0x7f09009c;
-        public static final int f09_chk_auto_login=0x7f090099;
-        public static final int f09_chk_push_alarm=0x7f090096;
-        public static final int f09_icon_app_pw=0x7f09009b;
-        public static final int f09_icon_app_pw_change=0x7f09009e;
-        public static final int f09_icon_auto_login=0x7f090098;
-        public static final int f09_icon_push_alarm=0x7f090095;
-        public static final int f09_lay_app_pw=0x7f09009a;
-        public static final int f09_lay_app_pw_change=0x7f09009d;
-        public static final int f09_lay_auto_login=0x7f090097;
-        public static final int f09_lay_push_alarm=0x7f090094;
-        public static final int f10_btn_android=0x7f09009f;
-        public static final int f10_btn_pc=0x7f0900a5;
-        public static final int f10_icon_1=0x7f0900a0;
-        public static final int f10_icon_10=0x7f0900aa;
-        public static final int f10_icon_2=0x7f0900a1;
-        public static final int f10_icon_3=0x7f0900a2;
-        public static final int f10_icon_4=0x7f0900a3;
-        public static final int f10_icon_5=0x7f0900a4;
-        public static final int f10_icon_6=0x7f0900a6;
-        public static final int f10_icon_7=0x7f0900a7;
-        public static final int f10_icon_8=0x7f0900a8;
-        public static final int f10_icon_9=0x7f0900a9;
-        public static final int f99_icon=0x7f0900ab;
+        public static final int editdate=0x7f0900d1;
+        public static final int editmemo=0x7f0900d3;
+        public static final int edittime=0x7f0900d2;
+        public static final int edittitle=0x7f0900d0;
+        public static final int f00_menu_admin=0x7f090077;
+        public static final int f00_menu_anonyboard=0x7f090070;
+        public static final int f00_menu_appsetting=0x7f090075;
+        public static final int f00_menu_contacts=0x7f090073;
+        public static final int f00_menu_credit=0x7f090076;
+        public static final int f00_menu_freeboard=0x7f09006f;
+        public static final int f00_menu_gallery=0x7f090071;
+        public static final int f00_menu_logout=0x7f090074;
+        public static final int f00_menu_my_page=0x7f09006d;
+        public static final int f00_menu_my_timetable=0x7f09006e;
+        public static final int f00_menu_push=0x7f090078;
+        public static final int f00_menu_push_underline1=0x7f09007a;
+        public static final int f00_menu_push_underline2=0x7f09007b;
+        public static final int f00_menu_studygroup=0x7f090072;
+        public static final int f00_menu_write_notice=0x7f090079;
+        public static final int f00_silidingmenu_dummy_frame=0x7f09007d;
+        public static final int f00_wpg=0x7f09007c;
+        public static final int f01_btn_checkin=0x7f09007f;
+        public static final int f01_btn_my_info=0x7f090081;
+        public static final int f01_btn_my_study_group=0x7f090080;
+        public static final int f01_img_my_photo=0x7f09007e;
+        public static final int f01_item_contents=0x7f09008b;
+        public static final int f01_item_date=0x7f090087;
+        public static final int f01_item_lay_box_down=0x7f09008a;
+        public static final int f01_item_lay_box_up=0x7f090088;
+        public static final int f01_item_lay_whole=0x7f090083;
+        public static final int f01_item_name=0x7f090086;
+        public static final int f01_item_num=0x7f090084;
+        public static final int f01_item_title=0x7f090085;
+        public static final int f01_item_title2=0x7f090089;
+        public static final int f01_lv_notice=0x7f090082;
+        public static final int f03_btn_upload=0x7f09009a;
+        public static final int f03_btn_wirte_post=0x7f09008c;
+        public static final int f03_item_comment=0x7f090099;
+        public static final int f03_item_date=0x7f090093;
+        public static final int f03_item_lay_box_down=0x7f090098;
+        public static final int f03_item_lay_box_mid=0x7f090096;
+        public static final int f03_item_lay_box_up=0x7f090094;
+        public static final int f03_item_lay_whole=0x7f09008e;
+        public static final int f03_item_name=0x7f090092;
+        public static final int f03_item_num=0x7f090090;
+        public static final int f03_item_photo=0x7f09008f;
+        public static final int f03_item_title=0x7f090091;
+        public static final int f03_item_title2=0x7f090095;
+        public static final int f03_item_txt_contents=0x7f090097;
+        public static final int f03_lv_free_board=0x7f09008d;
+        public static final int f03_writepost_comment=0x7f0900a7;
+        public static final int f03_writepost_contents=0x7f0900a5;
+        public static final int f03_writepost_date=0x7f0900a2;
+        public static final int f03_writepost_et_contents=0x7f09009c;
+        public static final int f03_writepost_et_title=0x7f09009b;
+        public static final int f03_writepost_lay_box_down=0x7f0900a6;
+        public static final int f03_writepost_lay_box_up=0x7f0900a3;
+        public static final int f03_writepost_lay_whole=0x7f09009d;
+        public static final int f03_writepost_name=0x7f0900a1;
+        public static final int f03_writepost_num=0x7f09009f;
+        public static final int f03_writepost_photo=0x7f09009e;
+        public static final int f03_writepost_title=0x7f0900a0;
+        public static final int f03_writepost_title2=0x7f0900a4;
+        public static final int f04_btn_upload=0x7f0900b6;
+        public static final int f04_btn_wirte_post=0x7f0900b4;
+        public static final int f04_item_comment=0x7f0900b3;
+        public static final int f04_item_date=0x7f0900ad;
+        public static final int f04_item_lay_box_down=0x7f0900b2;
+        public static final int f04_item_lay_box_mid=0x7f0900b0;
+        public static final int f04_item_lay_box_up=0x7f0900ae;
+        public static final int f04_item_lay_whole=0x7f0900a8;
+        public static final int f04_item_name=0x7f0900ac;
+        public static final int f04_item_num=0x7f0900aa;
+        public static final int f04_item_photo=0x7f0900a9;
+        public static final int f04_item_title=0x7f0900ab;
+        public static final int f04_item_title2=0x7f0900af;
+        public static final int f04_item_txt_contents=0x7f0900b1;
+        public static final int f04_lv_anony_board=0x7f0900b5;
+        public static final int f04_writepost_contents=0x7f0900c1;
+        public static final int f04_writepost_date=0x7f0900be;
+        public static final int f04_writepost_et_contents=0x7f0900b8;
+        public static final int f04_writepost_et_title=0x7f0900b7;
+        public static final int f04_writepost_lay_box_down=0x7f0900c2;
+        public static final int f04_writepost_lay_box_up=0x7f0900bf;
+        public static final int f04_writepost_lay_whole=0x7f0900b9;
+        public static final int f04_writepost_name=0x7f0900bd;
+        public static final int f04_writepost_num=0x7f0900bb;
+        public static final int f04_writepost_photo=0x7f0900ba;
+        public static final int f04_writepost_title=0x7f0900bc;
+        public static final int f04_writepost_title2=0x7f0900c0;
+        public static final int f05_btn_add_event=0x7f0900c9;
+        public static final int f05_btn_schedule_date=0x7f0900c8;
+        public static final int f05_btn_search=0x7f0900c5;
+        public static final int f05_calendar=0x7f0900c6;
+        public static final int f05_et_month=0x7f0900c4;
+        public static final int f05_et_year=0x7f0900c3;
+        public static final int f05_lay_calendar_item=0x7f0900cb;
+        public static final int f05_lay_schedule_date=0x7f0900c7;
+        public static final int f05_lv_schedule_date=0x7f0900ca;
+        public static final int f05_schdule_day_item_contents=0x7f0900cf;
+        public static final int f05_schdule_day_item_icon=0x7f0900cd;
+        public static final int f05_schdule_day_item_title=0x7f0900ce;
+        public static final int f05_txt_calendar_item=0x7f0900cc;
+        public static final int f07_btn_menu_title=0x7f0900d8;
+        public static final int f07_btn_name_search=0x7f0900d9;
+        public static final int f07_et_name_search=0x7f0900da;
+        public static final int f07_item_gender=0x7f0900e0;
+        public static final int f07_item_id=0x7f0900de;
+        public static final int f07_item_major=0x7f0900df;
+        public static final int f07_item_name=0x7f0900dd;
+        public static final int f07_item_photo=0x7f0900dc;
+        public static final int f07_item_tel=0x7f0900e1;
+        public static final int f07_lv_contacts=0x7f0900db;
+        public static final int f09_chk_app_pw=0x7f0900ea;
+        public static final int f09_chk_auto_login=0x7f0900e7;
+        public static final int f09_chk_push_alarm=0x7f0900e4;
+        public static final int f09_icon_app_pw=0x7f0900e9;
+        public static final int f09_icon_app_pw_change=0x7f0900ec;
+        public static final int f09_icon_auto_login=0x7f0900e6;
+        public static final int f09_icon_push_alarm=0x7f0900e3;
+        public static final int f09_lay_app_pw=0x7f0900e8;
+        public static final int f09_lay_app_pw_change=0x7f0900eb;
+        public static final int f09_lay_auto_login=0x7f0900e5;
+        public static final int f09_lay_push_alarm=0x7f0900e2;
+        public static final int f10_btn_android=0x7f0900ed;
+        public static final int f10_btn_pc=0x7f0900f4;
+        public static final int f10_icon_1=0x7f0900ee;
+        public static final int f10_icon_10=0x7f0900f9;
+        public static final int f10_icon_2=0x7f0900ef;
+        public static final int f10_icon_3=0x7f0900f0;
+        public static final int f10_icon_4=0x7f0900f1;
+        public static final int f10_icon_5=0x7f0900f2;
+        public static final int f10_icon_6=0x7f0900f5;
+        public static final int f10_icon_7=0x7f0900f6;
+        public static final int f10_icon_8=0x7f0900f7;
+        public static final int f10_icon_9=0x7f0900f8;
+        public static final int f10_lay_hidden=0x7f0900f3;
+        public static final int f11_btn_upload=0x7f0900fa;
+        public static final int f11_et_contents=0x7f0900fe;
+        public static final int f11_et_date=0x7f0900fb;
+        public static final int f11_et_hour=0x7f0900fc;
+        public static final int f11_et_title=0x7f0900fd;
+        public static final int f12_btn_upload=0x7f0900ff;
+        public static final int f12_et_contents=0x7f090101;
+        public static final int f12_et_title=0x7f090100;
+        public static final int f12_preview_contents=0x7f09010a;
+        public static final int f12_preview_date=0x7f090106;
+        public static final int f12_preview_lay_box_down=0x7f090109;
+        public static final int f12_preview_lay_box_up=0x7f090107;
+        public static final int f12_preview_lay_whole=0x7f090102;
+        public static final int f12_preview_name=0x7f090105;
+        public static final int f12_preview_num=0x7f090103;
+        public static final int f12_preview_title=0x7f090104;
+        public static final int f12_preview_title2=0x7f090108;
+        public static final int f99_icon=0x7f09010b;
         public static final int fullscreen=0x7f090013;
         public static final int homeAsUp=0x7f090006;
+<<<<<<< HEAD
         public static final int image=0x7f090064;
         public static final int layout=0x7f09005c;
         public static final int lblColA=0x7f0900ae;
@@ -1576,20 +1748,37 @@ containing a value of this type.
         public static final int lblText=0x7f090065;
         public static final int lblTitle=0x7f0900ac;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int image=0x7f09006b;
+        public static final int layout=0x7f090063;
+        public static final int lblColA=0x7f09010e;
+        public static final int lblColB=0x7f09010f;
+        public static final int lblLeft=0x7f090064;
+        public static final int lblMiddle=0x7f090065;
+        public static final int lblRight=0x7f090066;
+        public static final int lblSubTitle=0x7f09010d;
+        public static final int lblText=0x7f09006c;
+        public static final int lblTitle=0x7f09010c;
+>>>>>>> origin/gunbaek
         public static final int left=0x7f090010;
         public static final int listMode=0x7f090002;
         public static final int margin=0x7f090012;
         public static final int normal=0x7f090001;
+<<<<<<< HEAD
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int placeholder=0x7f09004c;
 =======
         public static final int placeholder=0x7f090062;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int placeholder=0x7f090069;
+>>>>>>> origin/gunbaek
         public static final int right=0x7f090011;
         public static final int selected_view=0x7f090014;
         public static final int showCustom=0x7f090008;
         public static final int showHome=0x7f090005;
         public static final int showTitle=0x7f090007;
+<<<<<<< HEAD
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
         public static final int slidingmenumain=0x7f090054;
         public static final int tabMode=0x7f090003;
@@ -1599,7 +1788,13 @@ containing a value of this type.
         public static final int tabMode=0x7f090003;
         public static final int txtText=0x7f090060;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int slidingmenumain=0x7f090110;
+        public static final int tabMode=0x7f090003;
+        public static final int txtText=0x7f090067;
+>>>>>>> origin/gunbaek
         public static final int useLogo=0x7f090004;
+        public static final int util_DialogProgressBar=0x7f090111;
         public static final int wrap_content=0x7f090000;
     }
     public static final class integer {
@@ -1646,6 +1841,7 @@ containing a value of this type.
         public static final int act00_password=0x7f030016;
         public static final int act01_join_us=0x7f030017;
         public static final int act02_base=0x7f030018;
+<<<<<<< HEAD
         public static final int bootstrap_button=0x7f030019;
         public static final int bootstrap_button_fill=0x7f03001a;
         public static final int bootstrap_edit_text=0x7f03001b;
@@ -1675,6 +1871,46 @@ containing a value of this type.
         public static final int sherlock_spinner_item=0x7f030033;
         public static final int slidingmenumain=0x7f030034;
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int act03_show_comment=0x7f030019;
+        public static final int act03_show_comment_item=0x7f03001a;
+        public static final int bootstrap_button=0x7f03001b;
+        public static final int bootstrap_button_fill=0x7f03001c;
+        public static final int bootstrap_edit_text=0x7f03001d;
+        public static final int bootstrap_thumbnail=0x7f03001e;
+        public static final int bootstrap_thumbnail_circle=0x7f03001f;
+        public static final int font_awesome_text=0x7f030020;
+        public static final int frag00_silidingmenu=0x7f030021;
+        public static final int frag00_silidingmenu_dummy=0x7f030022;
+        public static final int frag01_my_page=0x7f030023;
+        public static final int frag01_notice_list_item=0x7f030024;
+        public static final int frag02_my_time_table=0x7f030025;
+        public static final int frag03_free_board=0x7f030026;
+        public static final int frag03_free_board_list_item=0x7f030027;
+        public static final int frag03_write_post=0x7f030028;
+        public static final int frag04_anony_board_list_item=0x7f030029;
+        public static final int frag04_anonymity_board=0x7f03002a;
+        public static final int frag04_write_post=0x7f03002b;
+        public static final int frag05_schedule=0x7f03002c;
+        public static final int frag05_schedule_calendar_item=0x7f03002d;
+        public static final int frag05_schedule_day_item=0x7f03002e;
+        public static final int frag05_schedule_detail=0x7f03002f;
+        public static final int frag06_study_group=0x7f030030;
+        public static final int frag07_contacts=0x7f030031;
+        public static final int frag07_contacts_list_item=0x7f030032;
+        public static final int frag09_app_setting=0x7f030033;
+        public static final int frag10_credit=0x7f030034;
+        public static final int frag11_push_message=0x7f030035;
+        public static final int frag12_write_notice=0x7f030036;
+        public static final int frag99_coming_soon=0x7f030037;
+        public static final int row_title=0x7f030038;
+        public static final int row_title_and_subtitle=0x7f030039;
+        public static final int row_two_columns=0x7f03003a;
+        public static final int sherlock_spinner_dropdown_item=0x7f03003b;
+        public static final int sherlock_spinner_item=0x7f03003c;
+        public static final int slidingmenumain=0x7f03003d;
+        public static final int util_dialog=0x7f03003e;
+>>>>>>> origin/gunbaek
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1815,7 +2051,11 @@ containing a value of this type.
 <<<<<<< HEAD:WEBS/gen/com/webs/app/R.java
 =======
         public static final int TitleLayout=0x7f08005d;
+<<<<<<< HEAD
 >>>>>>> Ver1.0:WEBS/gen/com/webs/app/R.java
+=======
+        public static final int Translucent_Dialog=0x7f080061;
+>>>>>>> origin/gunbaek
         public static final int Widget=0x7f080001;
         public static final int Widget_Sherlock_ActionBar=0x7f080003;
         public static final int Widget_Sherlock_ActionBar_Solid=0x7f080004;

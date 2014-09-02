@@ -23,9 +23,12 @@ public class Frag10_Credit extends android.support.v4.app.Fragment implements On
 	private FontAwesomeText icon8;
 	private FontAwesomeText icon9;
 	private FontAwesomeText icon10;
+	private LinearLayout hidden;
 	
 	private BootstrapButton Android_btn;
 	private BootstrapButton PC_btn;
+	
+	private int ClickCount = 0;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class Frag10_Credit extends android.support.v4.app.Fragment implements On
 		icon8 = (FontAwesomeText)ViewLayout.findViewById(R.id.f10_icon_8);
 		icon9 = (FontAwesomeText)ViewLayout.findViewById(R.id.f10_icon_9);
 		icon10 = (FontAwesomeText)ViewLayout.findViewById(R.id.f10_icon_10);
+		hidden = (LinearLayout)ViewLayout.findViewById(R.id.f10_lay_hidden);
 		Android_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f10_btn_android);
 		PC_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f10_btn_pc);
 		
@@ -65,44 +69,20 @@ public class Frag10_Credit extends android.support.v4.app.Fragment implements On
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.f10_icon_1:
-			RotateFonts(1);
-			break;
-		case R.id.f10_icon_2:
-			RotateFonts(1);
-			break;
-		case R.id.f10_icon_3:
-			RotateFonts(1);
-			break;
-		case R.id.f10_icon_4:
-			RotateFonts(1);
-			break;
-		case R.id.f10_icon_5:
-			RotateFonts(1);
-			break;
-		case R.id.f10_icon_6:
-			RotateFonts(2);
-			break;
-		case R.id.f10_icon_7:
-			RotateFonts(2);
-			break;
-		case R.id.f10_icon_8:
-			RotateFonts(2);
-			break;
-		case R.id.f10_icon_9:
-			RotateFonts(2);
-			break;
-		case R.id.f10_icon_10:
-			RotateFonts(2);
-			break;
 		case R.id.f10_btn_android:
 			RotateFonts(1);
+			ClickCount++;
 			break;
 		case R.id.f10_btn_pc:
 			RotateFonts(2);
+			ClickCount++;
 			break;
 		default:
 			break;
+		}
+		if(ClickCount >= 10){
+			hidden.setVisibility(View.VISIBLE);
+			
 		}
 	}
 	public void RotateFonts(int team){

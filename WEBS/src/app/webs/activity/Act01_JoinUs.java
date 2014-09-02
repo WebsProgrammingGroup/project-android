@@ -18,9 +18,11 @@ import android.app.*;
 import android.content.*;
 >>>>>>> Ver1.0
 import android.os.*;
+import android.telephony.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import app.webs.util.*;
 
 public class Act01_JoinUs extends Activity implements OnClickListener{
 <<<<<<< HEAD
@@ -44,6 +46,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 	private RadioGroup GrdGroup;
 		
 	private Act01_JoinDataParser mDataParser;
+	private LoadingDialog mLoadingDialog;
 	private String IdStr;
 	private String NameStr;
 	private String PwStr;
@@ -83,9 +86,13 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 		JoinBtn.setOnClickListener(this);
 		
 		mDataParser = new Act01_JoinDataParser(mCtx, UiHandler);
+<<<<<<< HEAD
 		
 		
 >>>>>>> Ver1.0
+=======
+		PhoneNumET.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+>>>>>>> origin/gunbaek
 	}
 
 	@Override
@@ -141,7 +148,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 			if(msg.what == 0){ // Login Fail
 				Toast.makeText(mCtx, "동방 비밀번호를 확인해주세요.", 0).show();
 			}else if(msg.what == 1){ 
-				Toast.makeText(mCtx, "회원가입실패 / 이미 가입된 ID일 수 있습니다.", 0).show();
+				Toast.makeText(mCtx, "회원가입실패 /  이미 가입된 ID일 수 있습니다.", 0).show();
 			}else{ // Login Success
 				Toast.makeText(mCtx, "회원가입되었습니다.", 0).show();
 				Intent it;
@@ -152,6 +159,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 				finish();
 				overridePendingTransition(R.anim.viewin4, R.anim.viewout4);
 			}
+			mLoadingDialog.DialogDismiss();
 		}
 	};
 	
@@ -181,7 +189,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 			alert.setMessage("학번을 입력해주세요");
 			alert.setPositiveButton("확인", null);
 			alert.show();
-		}else if(NameStr.length() != 8){
+		}else if(IdStr.length() != 8){
 			alert.setMessage("학번를 확인해주세요");
 			alert.setPositiveButton("확인", null);
 			alert.show();
@@ -194,6 +202,9 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 			alert.setPositiveButton("확인", null);
 			alert.show();
 		}else{
+			mLoadingDialog = new LoadingDialog(this);
+			mLoadingDialog.DialogShow();
+			
 			mDataParser = new Act01_JoinDataParser(mCtx, UiHandler);
 			final ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
 			paramList.add(new BasicNameValuePair("ID", IdStr));

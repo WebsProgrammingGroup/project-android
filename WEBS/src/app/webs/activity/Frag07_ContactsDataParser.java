@@ -11,41 +11,43 @@ import org.apache.http.impl.client.*;
 import org.json.*;
 
 
+import android.content.*;
 import android.os.*;
 import android.util.*;
 import app.webs.activity.*;
 import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
+import app.webs.util.*;
 
 public class Frag07_ContactsDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
-	private static String Url = "http://wpg.azurewebsites.net/webs_contacts.jsp";
 	
+	private Context mCtx;
 	private ArrayList<NameValuePair> ParamList;
-	private ArrayList<ContactData> ArrList;
 	private ContactsListAdapter Adapter;
+	private LoadingDialog mLoadingDialog;
 	
 	//Constructors
 	public Frag07_ContactsDataParser() {
 	}
-	public Frag07_ContactsDataParser(ContactsListAdapter adapter, ArrayList<ContactData> arrList) {
-		ArrList = arrList;
+	public Frag07_ContactsDataParser(ContactsListAdapter adapter, Context ctx) {
 		Adapter = adapter;
+		mCtx = ctx;
 	}
 	
 	//Parameter Setting Function
-	public void setDataRequestUrl(String dataRequestUrl){
-		Url = dataRequestUrl;
-	}
 	public void setParamList(ArrayList<NameValuePair> paramList){
 		ParamList = paramList;
 	}
 	
 	public void run() {
+		//Handler for show Dialog
+		DialogHandler.sendEmptyMessage(0);
+		
 		InputStream is;
 		if(ParamList == null){
-			is = RequestPost(Url);
+			is = RequestPost(StaticVar.ContactsUrl);
 		}else{
-			is = RequestPost(Url, ParamList);
+			is = RequestPost(StaticVar.ContactsUrl, ParamList);
 		}
 		String RecvString = StreamToString(is);
 		JsonParser(RecvString);
@@ -103,7 +105,8 @@ public class Frag07_ContactsDataParser extends Thread{
 		try {
 			JSONObject json = new JSONObject(targetString);														
 			JSONArray jArr = json.getJSONArray("member");
-			ArrList.clear();
+			
+			StaticVar.mContactWholeData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
 				ContactData data = new ContactData();
@@ -115,7 +118,7 @@ public class Frag07_ContactsDataParser extends Thread{
 					data.ID = jObj.getString("ID");
 					data.Major = jObj.getString("Major");
 					data.Gender = jObj.getString("Gender");
-					ArrList.add(data);
+					StaticVar.mContactWholeData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -125,10 +128,17 @@ public class Frag07_ContactsDataParser extends Thread{
 			e.printStackTrace();
 		}
 	}
+	Handler DialogHandler = new Handler(){
+		public void handleMessage(Message msg) {
+			mLoadingDialog = new LoadingDialog(mCtx);
+			mLoadingDialog.DialogShow();
+		}
+	};
 	
 	Handler UiHandler = new Handler(){
 		public void handleMessage(Message msg) {
-			Adapter.notifyDataSetChanged();			
+			Adapter.notifyDataSetChanged();	
+			mLoadingDialog.DialogDismiss();
 		}
 	};
 }

@@ -17,11 +17,11 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_margin="3dp"
-			    android:text="WEBS's Schdules"
+			    android:text="WEBS's Schdules - 스케쥴"
 			    bootstrapbutton:bb_icon_left="fa-tags"
 			    bootstrapbutton:bb_roundedCorners="true"
 			    bootstrapbutton:bb_size="small"
-			    bootstrapbutton:bb_type="primary" />
+			    bootstrapbutton:bb_type="info" />
 		</LinearLayout>
 	   	<LinearLayout 
 		    android:layout_width="match_parent"
