@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import com.webs.app.*;
 

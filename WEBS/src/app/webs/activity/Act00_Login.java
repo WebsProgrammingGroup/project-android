@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.util.*;
 
@@ -16,7 +16,8 @@ import android.util.*;
 import android.view.*;
 import android.view.View.*;
 import android.widget.*;
-import app.webs.util.*;
+import app.webs.DataType.*;
+import app.webs.Util.*;
 
 public class Act00_Login extends Activity implements OnClickListener, OnKeyListener{
 	private Context mCtx;

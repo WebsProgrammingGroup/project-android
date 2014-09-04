@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.util.*;
 
@@ -12,16 +12,20 @@ import com.webs.app.*;
 
 import android.content.*;
 import android.os.*;
+import android.support.v4.app.*;
 import android.util.*;
 import android.view.*;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout.LayoutParams;
-import app.webs.util.*;
+import app.webs.DataType.*;
+import app.webs.Util.*;
 
 public class Frag05_Schedule extends android.support.v4.app.Fragment 
-	implements OnClickListener, OnItemClickListener{
+	implements OnClickListener, OnItemClickListener, OnKeyListener{
+	private static final int DELETE_SCHEDULE_ID = 4;
 	private Context mCtx;
 	private LayoutInflater inflater;
     
@@ -29,16 +33,17 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
 	private EditText Month_et;
 	private BootstrapButton Go_btn;
 	private BootstrapButton AddEvent_btn;
-	private BootstrapButton DayScheduleDate_btn;
-	private LinearLayout DaySchedule_lay;
-	private ListView DaySchedule_lv;
+	private BootstrapButton ScheduleDataDate_btn;
+	private LinearLayout ScheduleData_lay;
+	private ListView ScheduleData_lv;
 	private GridView Calendar;	
-	
+
+	private Frag05_AddScedule f05_AddSchedule = new Frag05_AddScedule();
+	private DeleteDataOnLongClickListener mDeleteDataOnLongClickListener;
 	private ArrayList<String> ArrCalendar;
 	private CalendarAdapter mCalendarAdapter;
 	
-	private ArrayList<DaySchedule> ArrDaySchdule;
-	private DayScheduleAdapter mDayScheduleAdapter;
+	private ScheduleDataAdapter mScheduleDataAdapter;
 	
 	private String YearValue;
 	private String MonthValue;
@@ -57,9 +62,9 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
 		Month_et = (EditText)ViewLayout.findViewById(R.id.f05_et_month);
 		Go_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f05_btn_search);
 		AddEvent_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f05_btn_add_event);
-		DayScheduleDate_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f05_btn_schedule_date);
-		DaySchedule_lv = (ListView)ViewLayout.findViewById(R.id.f05_lv_schedule_date);
-		DaySchedule_lay = (LinearLayout)ViewLayout.findViewById(R.id.f05_lay_schedule_date);
+		ScheduleDataDate_btn = (BootstrapButton)ViewLayout.findViewById(R.id.f05_btn_schedule_date);
+		ScheduleData_lv = (ListView)ViewLayout.findViewById(R.id.f05_lv_schedule_date);
+		ScheduleData_lay = (LinearLayout)ViewLayout.findViewById(R.id.f05_lay_schedule_date);
 		Calendar = (GridView)ViewLayout.findViewById(R.id.f05_calendar);
 		
 		ArrCalendar = new ArrayList<String>();
@@ -67,11 +72,15 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
 		Calendar.setOnItemClickListener(this);
 		Calendar.setAdapter(mCalendarAdapter);
 		
-		ArrDaySchdule = new ArrayList<DaySchedule>();
-		mDayScheduleAdapter = new DayScheduleAdapter(mCtx, R.layout.frag05_schedule_day_item, ArrDaySchdule);
-		DaySchedule_lv.setAdapter(mDayScheduleAdapter);
-		
+		StaticVar.SchduleWholeData = new ArrayList<ScheduleData>();
+		mScheduleDataAdapter = new ScheduleDataAdapter(mCtx, R.layout.frag05_schedule_day_item, StaticVar.SchduleWholeData);
+		ScheduleData_lv.setAdapter(mScheduleDataAdapter);
+		mDeleteDataOnLongClickListener = new DeleteDataOnLongClickListener(mCtx,DELETE_SCHEDULE_ID,UiHandler);
+		ScheduleData_lv.setOnItemLongClickListener(mDeleteDataOnLongClickListener);
+
+		AddEvent_btn.setOnClickListener(this);
 		Go_btn.setOnClickListener(this);
+		Month_et.setOnKeyListener(this);
 		
 		// 오늘 날짜를 세팅 해준다.
 		Date date = new Date();
@@ -81,6 +90,10 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
 		Month_et.setText(MonthValue);
 		FillDate(YearValue,MonthValue);
 		
+		if(Integer.valueOf(StaticVar.mLoginData.Level) >= 4){
+			AddEvent_btn.setVisibility(View.VISIBLE);
+		}
+		
 		return ViewLayout;
 	}
 	
@@ -88,12 +101,18 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.f05_btn_search:
-			String year = Year_et.getText().toString();
-			String mon = Month_et.getText().toString();
-			FillDate(year, mon);
+			YearValue = Year_et.getText().toString();
+			MonthValue = Month_et.getText().toString();
+			FillDate(YearValue, MonthValue);
 			break;
 		case R.id.f05_btn_add_event:
-			
+			FragmentTransaction ft;
+			ft = getFragmentManager().beginTransaction();
+			ft.setCustomAnimations(R.anim.viewin3, R.anim.viewout3);
+			ft.replace(R.id.a02_frag_frame, f05_AddSchedule);
+
+			ft.commit();
+			StaticVar.FragPointer = f05_AddSchedule;
 			break;
 		default: 	
 			break;
@@ -123,10 +142,10 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
         }
 	}
 	
-	class DayScheduleAdapter extends ArrayAdapter<DaySchedule>{
-		private ArrayList<DaySchedule> arSrc;
+	class ScheduleDataAdapter extends ArrayAdapter<ScheduleData>{
+		private ArrayList<ScheduleData> arSrc;
 		
-		public DayScheduleAdapter(Context context, int textViewResourceId, ArrayList<DaySchedule> objects) {
+		public ScheduleDataAdapter(Context context, int textViewResourceId, ArrayList<ScheduleData> objects) {
 			super(context, textViewResourceId, objects);
 			arSrc = objects;
 		}
@@ -180,22 +199,52 @@ public class Frag05_Schedule extends android.support.v4.app.Fragment
 		} else {
 			DayValue = ArrCalendar.get(position);
 			
-			DaySchedule_lay.setVisibility(View.VISIBLE);
-			DayScheduleDate_btn.setText(YearValue + "-" + MonthValue + "-" + DayValue + "  Today's Schedules");
+			ScheduleData_lay.setVisibility(View.VISIBLE);
+			ScheduleDataDate_btn.setText(YearValue + "-" + MonthValue + "-" + DayValue + "  Today's Schedules");
 
 			final ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
 			paramList.add(new BasicNameValuePair("today_Year", YearValue));
 			paramList.add(new BasicNameValuePair("today_Month", MonthValue));
 			paramList.add(new BasicNameValuePair("today_day", DayValue));
 			
-			mDataParser = new Frag05_SchduleDataParser(mDayScheduleAdapter, ArrDaySchdule);
+			mDataParser = new Frag05_SchduleDataParser(mScheduleDataAdapter, mCtx, UiHandler);
 			mDataParser.setParamList(paramList);
 			mDataParser.start();						
 		}
 	}
-}
-class DaySchedule{
-	public String SchduleType;
-	public String Title;
-	public String Contents;
+	
+	Handler UiHandler = new Handler(){
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 0:
+				//load proccess
+				mScheduleDataAdapter.notifyDataSetChanged();
+				break;
+			case 1:		
+				//delete process
+				ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
+				paramList.add(new BasicNameValuePair("today_Year", YearValue));
+				paramList.add(new BasicNameValuePair("today_Month", MonthValue));
+				paramList.add(new BasicNameValuePair("today_day", DayValue));
+				
+				mDataParser = new Frag05_SchduleDataParser(mScheduleDataAdapter, mCtx, UiHandler);
+				mDataParser.setParamList(paramList);
+				mDataParser.start();
+				break;
+
+			default:
+				break;
+			}
+		}
+	};
+	@Override
+	public boolean onKey(View v, int keyCode, KeyEvent e) {
+		Log.i("onKey",e.toString());
+		if(v.getId() == R.id.f05_et_month && keyCode == KeyEvent.KEYCODE_ENTER && e.getAction() == KeyEvent.ACTION_UP){
+			YearValue = Year_et.getText().toString();
+			MonthValue = Month_et.getText().toString();
+			FillDate(YearValue, MonthValue);
+		}
+		return false;
+	}
 }

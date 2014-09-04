@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.util.*;
 
@@ -10,16 +10,20 @@ import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import android.widget.AbsListView.OnScrollListener;
-import app.webs.imageloader.*;
+import app.webs.DataType.*;
+import app.webs.ImageLoader.*;
+import app.webs.Util.*;
 
 import com.beardedhen.androidbootstrap.*;
 import com.webs.app.R;
 
 public class Frag03_FreeBoard extends android.support.v4.app.Fragment
 		implements OnClickListener, OnScrollListener{
+	private static final int DELETE_FREEBOARD_ID = 2;
 	private Context mCtx;
 	private LayoutInflater inflater;
-	
+
+	private DeleteDataOnLongClickListener mDeleteDataOnLongClickListener;
 	private ListView FreeBoard_lv;
 	private FreeBoardAdapter mFreeBoardAdapter;
 	private Frag03_FreeBoardDataParser mDataParser;
@@ -50,12 +54,13 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment
 		StaticVar.FreeBoardData = new ArrayList<BoardData>();
 		
 		mFreeBoardAdapter = new FreeBoardAdapter(StaticVar.FreeBoardData);
-		mDataParser = new Frag03_FreeBoardDataParser(mFreeBoardAdapter, mCtx);
+		mDataParser = new Frag03_FreeBoardDataParser(mFreeBoardAdapter, mCtx, UiHandler);
 		mDataParser.start();
 		
 		FreeBoard_lv.setAdapter(mFreeBoardAdapter);
 		FreeBoard_lv.setOnScrollListener(this);
-		
+		mDeleteDataOnLongClickListener = new DeleteDataOnLongClickListener(mCtx,DELETE_FREEBOARD_ID,UiHandler);
+		FreeBoard_lv.setOnItemLongClickListener(mDeleteDataOnLongClickListener);
 		BoardDataCount = StaticVar.FreeBoardData.size();
 		
 		return ViewLayout;
@@ -193,9 +198,28 @@ public class Frag03_FreeBoard extends android.support.v4.app.Fragment
 		for(int i=0 ; i<10 ; i++){
 			Log.i("LoadMore", "Whole:"+StaticVar.FreeBoardWholeData.size()+"&Data:"+StaticVar.FreeBoardData.size());
 			if(StaticVar.FreeBoardWholeData.size() > StaticVar.FreeBoardData.size()){
-				StaticVar.FreeBoardData.add(StaticVar.FreeBoardWholeData.get(BoardDataCount++));
-				mFreeBoardAdapter.notifyDataSetChanged();
+				StaticVar.FreeBoardData.add(StaticVar.FreeBoardWholeData.get(StaticVar.FreeBoardData.size()));
 			}
 		}
+		mFreeBoardAdapter.notifyDataSetChanged();
 	}
+	
+	Handler UiHandler = new Handler(){
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 0:
+				//load proccess
+				LoadMoreBoard();
+				break;
+			case 1:		
+				//delete process
+				mDataParser = new Frag03_FreeBoardDataParser(mFreeBoardAdapter, mCtx, UiHandler);
+				mDataParser.start();
+				break;
+
+			default:
+				break;
+			}
+		}
+	};
 }

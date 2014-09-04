@@ -1,7 +1,7 @@
-package app.webs.service;
+package app.webs.Service;
 
 import android.content.*;
-import app.webs.activity.*;
+import app.webs.Activity.*;
 
 public class ServiceRestart extends BroadcastReceiver{
 	public static final String ACTION_RESTART_PERSISTENTSERVICE = "ACTION.Restart.PersistentService";

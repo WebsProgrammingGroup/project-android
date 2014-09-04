@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.util.*;
 
@@ -13,8 +13,9 @@ import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.widget.*;
-import app.webs.imageloader.*;
-import app.webs.util.*;
+import app.webs.DataType.*;
+import app.webs.ImageLoader.*;
+import app.webs.Util.*;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
@@ -171,11 +172,3 @@ public class Frag07_Contacts extends android.support.v4.app.Fragment implements 
 	}
 }
 
-class ContactData{
-	public String Name;
-	public String Phone;
-	public String Photo;
-	public String ID;
-	public String Major;
-	public String Gender;
-}

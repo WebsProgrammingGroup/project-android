@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.util.*;
 
@@ -13,14 +13,18 @@ import android.view.*;
 import android.view.View.*;
 import android.widget.*;
 import android.widget.AbsListView.*;
-import app.webs.activity.Frag01_MyPage.*;
-import app.webs.imageloader.*;
-import app.webs.util.*;
+import app.webs.Activity.Frag01_MyPage.*;
+import app.webs.DataType.*;
+import app.webs.ImageLoader.*;
+import app.webs.Util.*;
 
-public class Frag04_AnonyBoard extends android.support.v4.app.Fragment implements OnClickListener, OnScrollListener{
+public class Frag04_AnonyBoard extends android.support.v4.app.Fragment 
+implements OnClickListener, OnScrollListener{
+	private static final int DELETE_ANONYBOARD_ID = 3;
 	private Context mCtx;
 	private LayoutInflater inflater;
-	
+
+	private DeleteDataOnLongClickListener mDeleteDataOnLongClickListener;
 	private ListView AnonyBoard_lv;
 	private AnomyBoardAdapter mAnomyBoardAdapter;
 	private Frag04_AnomyBoardDataParser mDataParser;
@@ -51,11 +55,13 @@ public class Frag04_AnonyBoard extends android.support.v4.app.Fragment implement
 		StaticVar.AnonyBoardData = new ArrayList<BoardData>();
 		
 		mAnomyBoardAdapter = new AnomyBoardAdapter(StaticVar.AnonyBoardData);
-		mDataParser = new Frag04_AnomyBoardDataParser(mAnomyBoardAdapter, mCtx);
+		mDataParser = new Frag04_AnomyBoardDataParser(mAnomyBoardAdapter, mCtx, UiHandler);
 		mDataParser.start();
 		
 		AnonyBoard_lv.setAdapter(mAnomyBoardAdapter);
 		AnonyBoard_lv.setOnScrollListener(this);
+		mDeleteDataOnLongClickListener = new DeleteDataOnLongClickListener(mCtx,DELETE_ANONYBOARD_ID,UiHandler);
+		AnonyBoard_lv.setOnItemLongClickListener(mDeleteDataOnLongClickListener);
 		
 		BoardDataCount = StaticVar.AnonyBoardData.size();
 		
@@ -190,9 +196,27 @@ public class Frag04_AnonyBoard extends android.support.v4.app.Fragment implement
 		for(int i=0 ; i<10 ; i++){
 			Log.i("LoadMore", "Whole:"+StaticVar.AnonyBoardWholeData.size()+"&Data:"+StaticVar.AnonyBoardData.size());
 			if(StaticVar.AnonyBoardWholeData.size() > StaticVar.AnonyBoardData.size()){
-				StaticVar.AnonyBoardData.add(StaticVar.AnonyBoardWholeData.get(BoardDataCount++));
-				mAnomyBoardAdapter.notifyDataSetChanged();
+				StaticVar.AnonyBoardData.add(StaticVar.AnonyBoardWholeData.get(StaticVar.AnonyBoardData.size()));
+			}			
+		}
+		mAnomyBoardAdapter.notifyDataSetChanged();
+	}
+	Handler UiHandler = new Handler(){
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 0:
+				//load proccess
+				LoadMoreBoard();
+				break;
+			case 1:		
+				//delete process
+				mDataParser = new Frag04_AnomyBoardDataParser(mAnomyBoardAdapter, mCtx, UiHandler);
+				mDataParser.start();
+				break;
+
+			default:
+				break;
 			}
 		}
-	}
+	};
 }

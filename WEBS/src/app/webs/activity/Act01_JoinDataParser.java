@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.io.*;
 import java.util.*;
@@ -16,7 +16,7 @@ import com.webs.app.*;
 import android.content.*;
 import android.os.*;
 import android.util.*;
-import app.webs.activity.*;
+import app.webs.Activity.*;
 
 public class Act01_JoinDataParser extends Thread{
 	private Context mCtx;
@@ -40,12 +40,14 @@ public class Act01_JoinDataParser extends Thread{
 		InputStream is = RequestPost(StaticVar.JoinUrl, ParamList);
 		String RecvString = StreamToString(is);
 		
-		if(RecvString == "club"){
-			JoinHandler.sendEmptyMessage(0); // ClubPw 
-		}else if(RecvString == "fail"){
-			JoinHandler.sendEmptyMessage(1); // Fail
-		}else{
-			JoinHandler.sendEmptyMessage(3); // Success
+		if(RecvString.matches("(.*)0(.*)")){				//fail
+			JoinHandler.sendEmptyMessage(0);
+		}else if(RecvString.matches("(.*)1(.*)")){		//succ
+			JoinHandler.sendEmptyMessage(1);
+		}else if(RecvString.matches("(.*)2(.*)")){		//club pw
+			JoinHandler.sendEmptyMessage(2);
+		}else{									//fail
+			JoinHandler.sendEmptyMessage(0);
 		}
 		Log.e(DATA_PARSER_DEBUG_TAG, RecvString);
 	}

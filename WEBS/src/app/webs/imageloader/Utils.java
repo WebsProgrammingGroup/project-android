@@ -1,4 +1,4 @@
-package app.webs.imageloader;
+package app.webs.ImageLoader;
 
 import java.io.InputStream;
 import java.io.OutputStream;

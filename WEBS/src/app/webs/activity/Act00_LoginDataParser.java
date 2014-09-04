@@ -1,4 +1,4 @@
-package app.webs.activity;
+package app.webs.Activity;
 
 import java.io.*;
 import java.util.*;
@@ -16,7 +16,8 @@ import com.webs.app.*;
 import android.content.*;
 import android.os.*;
 import android.util.*;
-import app.webs.activity.*;
+import app.webs.Activity.*;
+import app.webs.DataType.*;
 
 public class Act00_LoginDataParser extends Thread{
 	private Context mCtx;
@@ -98,8 +99,12 @@ public class Act00_LoginDataParser extends Thread{
 					data.Birth = jObj.getString("Birth");
 					data.Level = jObj.getString("Level");
 					
-					StaticVar.mLoginData = data;
-					result = 1;
+					if(data.Level.equals("0")){
+						result = 0;
+					}else{
+						StaticVar.mLoginData = data;
+						result = 1;
+					}
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -112,15 +117,3 @@ public class Act00_LoginDataParser extends Thread{
 	
 }
 
-class LoginData{
-	public String Name;
-	public String Phone;
-	public String Photo;
-	public String ID;
-	public String Major;
-	public String Gender;
-	public String Fees;
-	public String Grd;
-	public String Birth;
-	public String Level;
-}
