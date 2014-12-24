@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import java.io.*;
 import java.util.*;
@@ -14,10 +14,9 @@ import org.json.*;
 import android.content.*;
 import android.os.*;
 import android.util.*;
-import app.webs.Activity.*;
-import app.webs.Activity.Frag07_Contacts.*;
-import app.webs.DataType.*;
-import app.webs.Util.*;
+import app.webs.activity.*;
+import app.webs.activity.Frag07_Contacts.ContactsListAdapter;
+import app.webs.util.*;
 
 public class Frag07_ContactsDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
@@ -119,11 +118,7 @@ public class Frag07_ContactsDataParser extends Thread{
 					data.ID = jObj.getString("ID");
 					data.Major = jObj.getString("Major");
 					data.Gender = jObj.getString("Gender");
-					data.Level = jObj.getInt("Level");
-					
-					if(data.Level != 0){
-						StaticVar.mContactWholeData.add(data);
-					}
+					StaticVar.mContactWholeData.add(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

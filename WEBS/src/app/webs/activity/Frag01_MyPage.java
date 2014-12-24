@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -6,14 +6,16 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import android.app.*;
-import android.app.AlertDialog.*;
-import android.content.*;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
 import android.net.Uri;
-import android.os.*;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
 import android.support.v4.app.Fragment;
@@ -23,11 +25,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import app.webs.DataType.*;
-import app.webs.Util.*;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapThumbnail;
@@ -35,17 +40,15 @@ import com.webs.app.R;
 
 public class Frag01_MyPage extends Fragment implements OnClickListener,
 		OnScrollListener {
-	private static final int DELETE_NOTICE_ID = 1;
 	private Context mCtx;
 
-	private DeleteDataOnLongClickListener mDeleteDataOnLongClickListener;
 	private FileInputStream mFileInputStream = null;
 	private URL connectUrl = null;
 	private String lineEnd = "\r\n";
 	private String twoHyphens = "--", boundary = "*****";
 	private String imgurl = "http://wpg.azurewebsites.net/upload/"+StaticVar.mLoginData.ID+".jpg";
-	private Bitmap bmImg;
-	private PhotoTask mPhotoTask;
+	Bitmap bmImg;
+	back task;
 	
 	private BootstrapButton CheckIn_btn;
 	private BootstrapButton MyStudy_btn;
@@ -78,9 +81,9 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 			Bundle savedInstanceState) {
 		View ViewLayout = inflater
 				.inflate(R.layout.frag01_my_page, null, false);
-		mPhotoTask = new PhotoTask();		
-		mPhotoTask.execute(imgurl);
+		task = new back();
 		
+		task.execute(imgurl);
 		CheckIn_btn = (BootstrapButton) ViewLayout
 				.findViewById(R.id.f01_btn_checkin);
 		MyStudy_btn = (BootstrapButton) ViewLayout
@@ -105,15 +108,13 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 		StaticVar.NoticeBoardWholeData = new ArrayList<BoardData>();
 		StaticVar.NoticeBoardData = new ArrayList<BoardData>();
 
-		mNoticeAdapter = new NoticeAdapter(StaticVar.NoticeBoardData);
-		mDataParser = new Frag01_NoticeDataParser(mNoticeAdapter, mCtx, UiHandler);
+		mNoticeAdapter = new NoticeAdapter(StaticVar.NoticeBoardWholeData);
+		mDataParser = new Frag01_NoticeDataParser(mNoticeAdapter, mCtx);
 		mDataParser.start();
-		
-		mDeleteDataOnLongClickListener = new DeleteDataOnLongClickListener(mCtx,DELETE_NOTICE_ID,UiHandler);
+
 		NoticeBoard.setAdapter(mNoticeAdapter);
 		NoticeBoard.setOnScrollListener(this);
-		NoticeBoard.setOnItemLongClickListener(mDeleteDataOnLongClickListener);
-		
+
 		BoardDataCount = StaticVar.NoticeBoardData.size();
 		LoadMoreBoard();
 
@@ -161,7 +162,7 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 		}
 	}
 
-	private class PhotoTask extends AsyncTask<String, Integer, Bitmap> {
+	private class back extends AsyncTask<String, Integer, Bitmap> {
 
 		@Override
 		protected Bitmap doInBackground(String... urls) {
@@ -403,6 +404,7 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 			};
 
 			Whole.setOnClickListener(mOnClick);
+
 			return view;
 		}
 	}
@@ -431,28 +433,10 @@ public class Frag01_MyPage extends Fragment implements OnClickListener,
 			if (StaticVar.NoticeBoardWholeData.size() > StaticVar.NoticeBoardData
 					.size()) {
 				StaticVar.NoticeBoardData.add(StaticVar.NoticeBoardWholeData
-						.get(StaticVar.NoticeBoardData.size()));
+						.get(BoardDataCount++));
+				mNoticeAdapter.notifyDataSetChanged();
 			}
 		}
-		mNoticeAdapter.notifyDataSetChanged();
 	}
-	
-	Handler UiHandler = new Handler(){
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-			case 0:
-				//load proccess
-				LoadMoreBoard();
-				break;
-			case 1:		
-				//delete process
-				mDataParser = new Frag01_NoticeDataParser(mNoticeAdapter, mCtx, UiHandler);
-				mDataParser.start();
-				break;
 
-			default:
-				break;
-			}
-		}
-	};
 }

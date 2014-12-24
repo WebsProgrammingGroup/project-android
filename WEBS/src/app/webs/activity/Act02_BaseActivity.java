@@ -1,19 +1,7 @@
-package app.webs.Activity;
-
-import java.io.*;
-import java.util.*;
-
-import org.apache.http.*;
-import org.apache.http.client.*;
-import org.apache.http.client.entity.*;
-import org.apache.http.client.methods.*;
-import org.apache.http.impl.client.*;
-import org.apache.http.message.*;
+package app.webs.activity;
 
 import android.app.*;
-import android.app.AlertDialog.Builder;
 import android.content.*;
-import android.content.DialogInterface.OnClickListener;
 import android.graphics.Shader.*;
 import android.graphics.drawable.*;
 import android.os.*;
@@ -23,8 +11,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
-import app.webs.Service.*;
-import app.webs.Service.PushService.*;
+import app.webs.service.*;
+import app.webs.service.PushService.LocalBinder;
 
 import com.actionbarsherlock.app.*;
 import com.actionbarsherlock.app.ActionBar;
@@ -36,16 +24,8 @@ import com.webs.app.R;
 
 public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	public Context mCtx;
-	private static final int PUSH_DATE_DIALOG_ID = 0;
-	private static final int DELETE_NOTICE_ID = 1;
-	private static final int DELETE_FREEBOARD_ID = 2;
-	private static final int DELETE_ANONYBOARD_ID = 3;
-	private static final int DELETE_SCHEDULE_ID = 4;
-	private static final int DELETE_COMMENT_ID = 5;
-	private static final int SCHEDULE_DATE_DIALOG_ID = 6;
-	private static final int MYINFO_DATE_DIALOG_ID = 7;
-	
-	private static boolean mBackKeyFlag = false;
+	private static final int DATE_DIALOG_ID = 0;
+	private static boolean mAppCloseFlag = false;
 	
 	private SharedPreferences mPrefs;
 
@@ -227,7 +207,7 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 	/* back key for finish app*/
 	Handler AppCloseHandler = new Handler() {
         public void handleMessage(Message msg) {
-            mBackKeyFlag = false;
+            mAppCloseFlag = false;
         }
     };
     
@@ -235,9 +215,9 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     public boolean onKeyDown(int keyCode, KeyEvent event) { 
 		if(keyCode == KeyEvent.KEYCODE_BACK){
 			if(isBaseFrag()){
-				if(mBackKeyFlag == false) {
+				if(mAppCloseFlag == false) {
 				    Toast.makeText(this, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
-				    mBackKeyFlag = true;
+				    mAppCloseFlag = true;
 				    AppCloseHandler.sendEmptyMessageDelayed(0, 2000);
 				} else { 
 					 finish();
@@ -284,13 +264,6 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			ft.commit();
 			StaticVar.FragPointer = f04_AnonymityBoard;
     		return false;
-    	}else if(StaticVar.FragPointer instanceof Frag05_AddScedule){
-    		ft = getSupportFragmentManager().beginTransaction();
-			ft.setCustomAnimations(R.anim.viewin4, R.anim.viewout4);
-			ft.replace(R.id.a02_frag_frame, f05_Scedule);
-			ft.commit();
-			StaticVar.FragPointer = f05_Scedule;
-    		return false;
     	}else{
     		return true;
     	}
@@ -322,89 +295,13 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
     }
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
-		case PUSH_DATE_DIALOG_ID:
-			return new DatePickerDialog(mCtx, PushDateSetListener, Frag11_PushMessage.mYear,
-					Frag11_PushMessage.mMonth, Frag11_PushMessage.mDay);  
-		case SCHEDULE_DATE_DIALOG_ID:
-			return new DatePickerDialog(mCtx, ScheduleDateSetListener, Frag05_AddScedule.mYear,
-					Frag05_AddScedule.mMonth, Frag05_AddScedule.mDay);  
-		case MYINFO_DATE_DIALOG_ID:
-			return new DatePickerDialog(mCtx, UpdateInfoDateSetListener, Frag01_MyInfo.mYear,
-					Frag01_MyInfo.mMonth, Frag01_MyInfo.mDay);  
-		default:
-			break;
+		case DATE_DIALOG_ID:
+			return new DatePickerDialog(mCtx, mDateSetListener, Frag11_PushMessage.mYear,
+					Frag11_PushMessage.mMonth, Frag11_PushMessage.mDay);
 		}
 		return null;
 	}
-	private void sendData(final int type, int idx) {
-		final ArrayList<NameValuePair> list = new ArrayList<NameValuePair>();
-		list.add(new BasicNameValuePair("IDX", String.valueOf(idx)));
-		Thread t = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				InputStream is = null;
-				switch (type) {
-				case DELETE_NOTICE_ID:		
-					is = requestPost(StaticVar.DelNoticeUrl, list);
-					break;
-				case DELETE_FREEBOARD_ID:		
-					is = requestPost(StaticVar.DelFreeBoardUrl, list);			
-					break;
-				case DELETE_ANONYBOARD_ID:		
-					is = requestPost(StaticVar.DelAnonyBoardUrl, list);			
-					break;
-				case DELETE_COMMENT_ID:			
-					is = requestPost(StaticVar.DelCommentUrl, list);		
-					break;
-				default:
-					break;
-				}
-				String is2 = StreamToString(is);
-				Log.i("res", is2);
-//				if(is2.equals("1")){
-//				}
-//				mHandler.sendEmptyMessage(0);
-			}
-		});
-		t.start();
-	}
-
-	private InputStream requestPost(String requestUrl,
-			ArrayList<NameValuePair> list) {
-
-		try {
-			HttpClient client = new DefaultHttpClient();
-			HttpPost request = new HttpPost(requestUrl);
-			request.setEntity(new UrlEncodedFormEntity(list, "UTF-8"));
-
-			HttpResponse response = client.execute(request);
-			HttpEntity entity = response.getEntity();
-			InputStream is = entity.getContent();
-
-			return is;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	private String StreamToString(InputStream is) {
-		StringBuffer buffer = new StringBuffer();
-		try {
-			BufferedReader reader = new BufferedReader(
-					new InputStreamReader(is));
-			String str = reader.readLine();
-			while (str != null) {
-				buffer.append(str);
-				str = reader.readLine();
-			}
-			reader.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return buffer.toString();
-	}
-	
-	private DatePickerDialog.OnDateSetListener PushDateSetListener = new DatePickerDialog.OnDateSetListener() {
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 			Frag11_PushMessage.mYear = year;
 			Frag11_PushMessage.mMonth = monthOfYear+1;
@@ -412,44 +309,5 @@ public class Act02_BaseActivity extends SlidingFragmentActivity  {
 			Frag11_PushMessage.Date_et.setText(new StringBuilder().append(year).append("-")
 					.append(monthOfYear + 1).append("-").append(dayOfMonth).append(""));
 		}
-	};
-	private DatePickerDialog.OnDateSetListener ScheduleDateSetListener = new DatePickerDialog.OnDateSetListener() {
-		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			Frag05_AddScedule.mYear = year;
-			Frag05_AddScedule.mMonth = monthOfYear+1;
-			Frag05_AddScedule.mDay = dayOfMonth;
-			Frag05_AddScedule.Date_et.setText(new StringBuilder().append(year).append("-")
-					.append(monthOfYear + 1).append("-").append(dayOfMonth).append(""));
-		}
-	};
-	private DatePickerDialog.OnDateSetListener UpdateInfoDateSetListener = new DatePickerDialog.OnDateSetListener() {
-		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			Frag01_MyInfo.mYear = year;
-			Frag01_MyInfo.mMonth = monthOfYear+1;
-			Frag01_MyInfo.mDay = dayOfMonth;
-			Frag01_MyInfo.BirthdayET.setText(new StringBuilder().append(year).append("-")
-					.append(monthOfYear + 1).append("-").append(dayOfMonth).append(""));
-		}
-	};
-	
-	protected void onPause() {
-		if(StaticVar.mAppCloseFlag == false){
-			StaticVar.mAppCloseFlag = true;
-		}
-		super.onPause();
-	};
-	
-	
-	protected void onResume() {
-		if(StaticVar.isAutoLogin && StaticVar.isAppClose && StaticVar.mAppCloseFlag){
-    			Intent it;
-    			it = new Intent(mCtx, Act00_AppClose.class);
-    			it.putExtra("intent", "release");
-    			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    			startActivity(it);			
-    			finish();
-    			
-		}
-		super.onResume();
 	};
 }

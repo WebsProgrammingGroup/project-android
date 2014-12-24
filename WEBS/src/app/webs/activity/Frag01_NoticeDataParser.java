@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import java.io.*;
 import java.util.*;
@@ -14,10 +14,9 @@ import org.json.*;
 import android.content.*;
 import android.os.*;
 import android.util.*;
-import app.webs.Activity.*;
-import app.webs.Activity.Frag01_MyPage.*;
-import app.webs.DataType.*;
-import app.webs.Util.*;
+import app.webs.activity.*;
+import app.webs.activity.Frag01_MyPage.NoticeAdapter;
+import app.webs.util.*;
 
 public class Frag01_NoticeDataParser extends Thread{
 	private static String DATA_PARSER_DEBUG_TAG = "DATA_PARSER";
@@ -26,15 +25,13 @@ public class Frag01_NoticeDataParser extends Thread{
 	private ArrayList<NameValuePair> ParamList;
 	private NoticeAdapter Adapter;
 	private LoadingDialog mLoadingDialog;
-	private Handler mHandler;
 	
 	//Constructors
 	public Frag01_NoticeDataParser() {
 	}
-	public Frag01_NoticeDataParser(NoticeAdapter adapter, Context ctx, Handler handler) {
+	public Frag01_NoticeDataParser(NoticeAdapter adapter, Context ctx) {
 		Adapter = adapter;
 		mCtx = ctx;
-		mHandler = handler;
 	}
 	
 	//Parameter Setting Function
@@ -55,7 +52,6 @@ public class Frag01_NoticeDataParser extends Thread{
 		String RecvString = StreamToString(is);
 		JsonParser(RecvString);
 		Log.e(DATA_PARSER_DEBUG_TAG, RecvString);
-		mLoadingDialog.DialogDismiss();
 	}
 	
 	public InputStream RequestPost(String requestUrl, ArrayList<NameValuePair> paramList) {
@@ -109,8 +105,7 @@ public class Frag01_NoticeDataParser extends Thread{
 		try {
 			JSONObject json = new JSONObject(targetString);														
 			JSONArray jArr = json.getJSONArray("noticeList");
-
-			StaticVar.NoticeBoardData.clear();
+			
 			StaticVar.NoticeBoardWholeData.clear();
 			
 			for(int i=0 ; i<jArr.length() ; i++){
@@ -130,7 +125,7 @@ public class Frag01_NoticeDataParser extends Thread{
 					e.printStackTrace();
 				}
 			}
-			mHandler.sendEmptyMessage(0);
+			UiHandler.sendEmptyMessage(0);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -142,7 +137,26 @@ public class Frag01_NoticeDataParser extends Thread{
 		}
 	};
 	
-
+	Handler UiHandler = new Handler(){
+		public void handleMessage(Message msg) {
+			Adapter.notifyDataSetChanged();	
+			for(int i=0 ; i<5 ; i++){
+				if(StaticVar.NoticeBoardWholeData.size() > StaticVar.NoticeBoardData.size()){
+					StaticVar.NoticeBoardData.add(StaticVar.NoticeBoardWholeData.get(Frag01_MyPage.BoardDataCount++));
+					Adapter.notifyDataSetChanged();
+				}
+			}
+			mLoadingDialog.DialogDismiss();
+		}
+	};
 }
-
+class BoardData{
+	public int BoardIdx;
+	public int WriterIdx;
+	public String Writer;
+	public String Title;
+	public String Contents;
+	public String Date;
+	public int Comment;
+}
 

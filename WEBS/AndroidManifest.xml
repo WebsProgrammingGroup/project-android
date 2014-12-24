@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.webs.app"
-    android:versionCode="5"
-    android:versionName="1.4" >
+    android:versionCode="3"
+    android:versionName="1.2" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -24,18 +24,18 @@
         android:screenOrientation="portrait" 
         android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         <activity
-            android:name="app.webs.Activity.Act00_Login">
+            android:name="app.webs.activity.Act00_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity android:name="app.webs.Activity.Act01_JoinUs" />
-		<activity android:name="app.webs.Activity.Act02_BaseActivity" />
-		<activity android:name="app.webs.Activity.Act00_AppClose" />
-		<activity android:name="app.webs.Activity.Act03_ShowComment" 
+		<activity android:name="app.webs.activity.Act01_JoinUs" />
+		<activity android:name="app.webs.activity.Act02_BaseActivity" />
+		<activity android:name="app.webs.activity.Act00_AppClose" />
+		<activity android:name="app.webs.activity.Act03_ShowComment" 
 		    android:theme="@style/Translucent_Dialog"/>
-		<service android:name="app.webs.Service.PushService" android:enabled="true" />
+		<service android:name="app.webs.service.PushService" android:enabled="true" />
     </application>
 
 </manifest>

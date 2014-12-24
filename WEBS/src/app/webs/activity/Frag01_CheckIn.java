@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import com.beardedhen.androidbootstrap.*;
 import com.webs.app.*;

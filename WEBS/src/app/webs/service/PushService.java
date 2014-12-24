@@ -1,4 +1,4 @@
-package app.webs.Service;
+package app.webs.service;
 
 import java.io.*;
 import java.net.*;
@@ -20,7 +20,7 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.telephony.*;
 import android.util.*;
-import app.webs.Activity.*;
+import app.webs.activity.*;
 
 public class PushService extends android.app.Service{
 	private static SharedPreferences mPrefs;

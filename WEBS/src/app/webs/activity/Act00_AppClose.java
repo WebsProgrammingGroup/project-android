@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import android.content.*;
 import android.graphics.Shader.TileMode;
@@ -7,7 +7,6 @@ import android.os.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
-import app.webs.DataType.*;
 
 import com.actionbarsherlock.app.*;
 import com.webs.app.*;
@@ -208,7 +207,6 @@ public class Act00_AppClose extends SherlockActivity{
 							editor.commit();
 							StaticVar.AppClosingPW = pwStr1;
 							Toast.makeText(mCtx, "비밀번호 설정 성공", 0).show();	
-			    			StaticVar.mAppCloseFlag = false;
 							finish();
 						}else{
 							//두 번의 입력이 다를 때
@@ -236,7 +234,6 @@ public class Act00_AppClose extends SherlockActivity{
 							StaticVar.AppClosingPW = pwStr1;
 							
 							Toast.makeText(mCtx, "비밀번호 설정 성공", 0).show();		
-			    			StaticVar.mAppCloseFlag = false;
 							finish();
 						}else{
 							//두 번의 입력이 다를 때
@@ -248,21 +245,6 @@ public class Act00_AppClose extends SherlockActivity{
 					}
 				}else { // 잠금 해제
 					if(pwStr1.equals(StaticVar.AppClosingPW)){
-						LoginData data = new LoginData();
-		    			data.Name = mPrefs.getString("Name", null);
-						data.Phone = mPrefs.getString("Phone", null);
-						data.Photo = mPrefs.getString("Photo", null);
-						data.ID = mPrefs.getString("ID", null);
-						data.Level = mPrefs.getString("PW", null);
-						data.Major = mPrefs.getString("Major", null);
-						data.Gender = mPrefs.getString("Gender", null);
-						data.Fees = mPrefs.getString("Fees", null);
-						data.Grd = mPrefs.getString("Grd", null);
-						data.Birth = mPrefs.getString("Birth", null);
-						data.Level = mPrefs.getString("Level", null);
-						StaticVar.mLoginData = data;					
-
-		    			StaticVar.mAppCloseFlag = false;
 						Intent i =  new Intent(mCtx, Act02_BaseActivity.class);
 						startActivity(i);
 						finish();
@@ -277,18 +259,5 @@ public class Act00_AppClose extends SherlockActivity{
 				break;
 			}//end of switch
 		}
-	}
-	
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) { 
-		if(keyCode == KeyEvent.KEYCODE_BACK){
-			if(intent.equals("set") || intent.equals("change")){
-				finish();
-			}else{
-				
-			}
-	    }
-		return true;
-		
 	}
 }

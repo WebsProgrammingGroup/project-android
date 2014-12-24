@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import com.webs.app.*;
 
@@ -40,10 +40,7 @@ public class Frag09_AppSetting extends android.support.v4.app.Fragment implement
 		AutoLogin_btn.setOnClickListener(this);
 		PwUsage_btn.setOnClickListener(this);
 		PwChange_btn.setOnClickListener(this);
-		PushAlarm_chk.setOnClickListener(this);
-		AutoLogin_chk.setOnClickListener(this);
-		PwUsage_chk.setOnClickListener(this);
-		
+
 		LayoutSetting();		
 		return ViewLayout;
 	}
@@ -74,15 +71,6 @@ public class Frag09_AppSetting extends android.support.v4.app.Fragment implement
 			startActivity(it);
 			
 			break;
-		case R.id.f09_chk_push_alarm:
-			StaticVar.isPushAlarm = !StaticVar.isPushAlarm;
-			break;
-		case R.id.f09_chk_auto_login:
-			StaticVar.isAutoLogin = !StaticVar.isAutoLogin;
-			break;
-		case R.id.f09_chk_app_pw:
-			StaticVar.isAppClose = !StaticVar.isAppClose;
-			break;
 		default:
 			break;
 		}
@@ -94,11 +82,8 @@ public class Frag09_AppSetting extends android.support.v4.app.Fragment implement
 		
 		if(StaticVar.isPushAlarm){
 			editor.putBoolean("PushAlarm", true);
-			PushAlarm_chk.setChecked(true);
-			
 		}else{
 			editor.putBoolean("PushAlarm", false);
-			PushAlarm_chk.setChecked(false);
 		}
 		
 		if(StaticVar.isAutoLogin){

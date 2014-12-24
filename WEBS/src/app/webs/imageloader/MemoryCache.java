@@ -1,4 +1,4 @@
-package app.webs.ImageLoader;
+package app.webs.imageloader;
 
 import java.util.Collections;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import java.util.*;
 
@@ -16,7 +16,7 @@ import android.telephony.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
-import app.webs.Util.*;
+import app.webs.util.*;
 
 public class Act01_JoinUs extends Activity implements OnClickListener{
 	private Context mCtx;
@@ -111,9 +111,11 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 	/* Join Parser */
 	Handler UiHandler = new Handler(){
 		public void handleMessage(Message msg) {
-			if(msg.what == 0){
-				Toast.makeText(mCtx, "회원가입실패 /  이미 가입된 ID일 수 있습니다.", 0).show();
+			if(msg.what == 0){ // Login Fail
+				Toast.makeText(mCtx, "동방 비밀번호를 확인해주세요.", 0).show();
 			}else if(msg.what == 1){ 
+				Toast.makeText(mCtx, "회원가입실패 /  이미 가입된 ID일 수 있습니다.", 0).show();
+			}else{ // Login Success
 				Toast.makeText(mCtx, "회원가입되었습니다.", 0).show();
 				Intent it;
 				it = new Intent(mCtx, Act00_Login.class);
@@ -122,8 +124,6 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 				
 				finish();
 				overridePendingTransition(R.anim.viewin4, R.anim.viewout4);
-			}else{ 
-				Toast.makeText(mCtx, "동방 비밀번호를 확인해주세요.", 0).show();
 			}
 			mLoadingDialog.DialogDismiss();
 		}
@@ -167,10 +167,6 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 			alert.setMessage("비밀번호를 입력해주세요");
 			alert.setPositiveButton("확인", null);
 			alert.show();
-		}else if(ClubPwStr.equals("")){
-			alert.setMessage("동방비번을 입력해주세요");
-			alert.setPositiveButton("확인", null);
-			alert.show();
 		}else{
 			mLoadingDialog = new LoadingDialog(this);
 			mLoadingDialog.DialogShow();
@@ -179,7 +175,7 @@ public class Act01_JoinUs extends Activity implements OnClickListener{
 			final ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
 			paramList.add(new BasicNameValuePair("ID", IdStr));
 			paramList.add(new BasicNameValuePair("PW", PwStr));
-			paramList.add(new BasicNameValuePair("Name", NameStr));
+			paramList.add(new BasicNameValuePair("Name", PwStr));
 			paramList.add(new BasicNameValuePair("Phone",PhoneStr));
 			paramList.add(new BasicNameValuePair("Gender", GenderStr));
 			paramList.add(new BasicNameValuePair("Major", MajorStr));

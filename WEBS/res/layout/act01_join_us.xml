@@ -172,7 +172,7 @@
 	        android:inputType="number"
         	android:gravity="center"
         	bootstrapbutton:be_state="primary"
-	        android:hint="* 동방 비번" />
+	        android:hint="* ClubRoom PW" />
 	        
 		<com.beardedhen.androidbootstrap.BootstrapButton
 			android:id="@+id/a01_btn_join"

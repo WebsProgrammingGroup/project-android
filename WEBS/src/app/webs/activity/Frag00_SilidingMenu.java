@@ -1,4 +1,4 @@
-package app.webs.Activity;
+package app.webs.activity;
 
 import android.*;
 import android.content.*;

@@ -1,4 +1,4 @@
-package app.webs.Util;
+package app.webs.util;
 import com.webs.app.*;
 
 import android.app.*;
